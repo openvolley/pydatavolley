@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\TylerWiddison\Documents\pydatavolley\venv"
+VIRTUAL_ENV="C:\Users\TylerWiddison\Documents\New folder\pydatavolley\venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

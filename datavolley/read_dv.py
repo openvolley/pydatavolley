@@ -1,3 +1,5 @@
+import os
+import requests
 import pandas as pd
 import numpy as np
 from .get_players_from_md import read_players
@@ -22,8 +24,29 @@ class DataVolley:
         Parameters:
         - file_path (str): The path to the DataVolley file to be processed.
         """
+        if file_path is None:
+            file_path = self._download_example_data()
         self.file_path = file_path
         self._read_data()
+
+    def _download_example_data(self):
+        """
+        Download example DataVolley data from a URL and save it locally.
+
+        Returns:
+        - str: The path to the downloaded example data file.
+        """
+        example_data_url = "https://raw.githubusercontent.com/bzx24/markov-volleyball/9f1dd80ea3628af9d2e46f24a4afdd74668dfe07/dvw_files/_2019-09-01%20106859%20UL-UD(VM).dvw"
+        response = requests.get(example_data_url)
+        response.raise_for_status()  # Raise an error for unsuccessful HTTP responses
+        
+        example_data_path = os.path.join(os.path.dirname(__file__), "example_data.dvw")
+
+        with open(example_data_path, 'w') as file:
+            file.write(response.text)
+
+        return example_data_path
+        
 
     def _read_data(self):
         """
@@ -152,6 +175,10 @@ class DataVolley:
         plays['visiting_team_score'] = plays[plays['code'].str[1:2] == 'p']['code'].str[5:7]
         plays['visiting_team_score'] = plays.groupby(['set', 'rally_number'])['visiting_team_score'].bfill()
 
+        # Create attack_phase
+        plays['attack_phase'] = np.where((plays['skill'] == 'Attack') & (plays['skill'].shift(2) == 'Reception') & (plays['skill'].shift(1) == 'Set') & (plays['team'].shift(2) == plays['team']),'Reception',np.nan)
+        plays['attack_phase'] = np.where((plays['skill'] == 'Attack') & (plays['skill'].shift(2) != 'Reception') & (plays['skill'].shift(1) == 'Set') & (plays['team'].shift(2) == plays['team']),'Transition',plays['attack_phase'])
+
         # Create coordinates
 
         # Create winning_attack
@@ -192,4 +219,10 @@ class DataVolley:
         # Create file line number
 
     def get_plays(self):
+        """
+        Get the processed plays data.
+    
+        Returns:
+        - pd.DataFrame: Processed data stored in a DataFrame.
+        """
         return self.plays

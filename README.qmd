@@ -4,3 +4,22 @@ format: gfm
 df-print: kable
 ---
 
+A python package for reading volleyball scouting files in DataVolley format (\*.dvw).
+
+### Installation
+
+```         
+pip install pydatavolley
+```
+
+### Example
+
+Example file (using read_dv.DataVolley(None) will use example file) will read if no path is provided:
+
+```{python}
+from datavolley import read_dv
+
+dv_instance = read_dv.DataVolley(None)
+df = dv_instance.get_plays()
+df.head(40)
+```
