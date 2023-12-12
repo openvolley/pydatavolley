@@ -4,10 +4,11 @@ format: gfm
 ---
 
 A python package for reading volleyball scouting files in DataVolley format (\*.dvw).
+Work in progress.
 
 ### Installation
 
-```         
+```
 pip install pydatavolley
 ```
 
@@ -16,9 +17,14 @@ pip install pydatavolley
 Example file (using read_dv.DataVolley(None) will use example file) will read if no path is provided:
 
 ```{python}
+import pandas as pd
 from datavolley import read_dv
-
+pd.set_option('display.max_rows', 50)
+pd.set_option('display.max_columns', 500)
+pd.set_option('display.width', 280)
 dv_instance = read_dv.DataVolley(None)
 df = dv_instance.get_plays()
-print(df.head(40))
+print('All skills\n' + df[df['skill'].notna()].head(40).to_string())
+
+print('Attacks filtered\n' + df[df['skill'] == 'Attack'].head(20).to_string())
 ```
