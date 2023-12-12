@@ -6,7 +6,7 @@ setup(
     url='https://github.com/openvolley/pydatavolley',
     author='Tyler Widdison',
     license='MIT',
-    version='2.0.5',
+    version='2.1.0',
     packages=find_packages(),
     install_requires=[
         'numpy>=1.23.3',

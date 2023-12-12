@@ -18,7 +18,7 @@ class DataVolley:
     - plays (pd.DataFrame): Processed data stored in a DataFrame.
     """
 
-    def __init__(self, file_path):
+    def __init__(self, file_path = None):
         """
         Initialize the DataVolley object.
 
@@ -57,7 +57,7 @@ class DataVolley:
         containing relevant information about plays.
         """
         rows = [] # Initialize lists to store data
-        with open('datavolley\\example_data.dvw', 'r') as file: # Read the file and extract data
+        with open(self.file_path, 'r') as file: # Read the file and extract data
             for line in file:
                 rows.append(line)
 

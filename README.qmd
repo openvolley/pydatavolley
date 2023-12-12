@@ -4,12 +4,14 @@ format: gfm
 ---
 
 A python package for reading volleyball scouting files in DataVolley format (\*.dvw).
+
 Work in progress.
 
 ### Installation
 
-```
+```         
 pip install pydatavolley
+pip install --upgrade pydatavolley
 ```
 
 ### Example
