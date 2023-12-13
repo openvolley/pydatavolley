@@ -231,7 +231,7 @@ class DataVolley:
         plays = plays[existing_columns]
 
         # Replace all '' with np.nan
-        self.plays = plays.replace('', np.nan)
+        self.plays.applymap(lambda x: np.nan if x == '' else x)
 
     def get_plays(self):
         """
