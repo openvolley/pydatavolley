@@ -229,6 +229,7 @@ class DataVolley:
         # Reorder columns
         existing_columns = [col for col in desired_order if col in plays.columns]
         plays = plays[existing_columns]
+        self.plays = plays
         return plays
 
     def get_plays(self):
