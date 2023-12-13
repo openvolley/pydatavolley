@@ -4,7 +4,7 @@ import requests
 import pandas as pd
 import numpy as np
 from .get_players_from_md import read_players
-from .helpers import get_teams, calculate_skill, skill_map, eval_codes, desired_order
+from .helpers import get_teams, calculate_skill, skill_map, eval_codes, desired_order, add_xy
 
 class DataVolley:
     """
@@ -180,21 +180,7 @@ class DataVolley:
         plays['visiting_team_score'] = plays.groupby(['set_number', 'rally_number'])['visiting_team_score'].bfill()
 
         # Create coordinates
-        #plays['start_coordinate_x']
-        #plays['start_coordinate_y']
-        #def dv_index2xy(index=None):
-        #    binx = 0.5 + (np.arange(1, 101) - 11) / 80 * 3.0
-        #    biny = 0.5 + (np.arange(1, 102) - 11) / 81 * 6.0
-        #    binx = binx + (np.diff(binx[:2]) / 2)
-        #    biny = biny + (np.diff(biny[:2]) / 2)
-        #    cxy = pd.DataFrame(np.array(np.meshgrid(binx, biny)).T.reshape(-1, 2), columns = ['x', 'y'])
-        #    if index is None:
-        #        return cxy
-        #    else:
-        #        assert np.issubdtype(index.dtype, np.number)
-        #        index = pd.to_numeric(index, errors = 'coerce').astype(float)
-        #        index[index < 0] = np.nan
-        #        return cxy.iloc[index - 1]
+        plays = add_xy(plays)
 
         # Create serving_team
         plays['serving_team'] = np.where((plays['skill'] == 'Serve') & (plays['code'].str[0:1] == '*'), home_team, None)
@@ -208,18 +194,10 @@ class DataVolley:
         # Create point_phase
         plays['point_phase'] = np.where((plays['serving_team'] == plays['team']), 'Serve', 'Reception')
 
-        # Create home_score_start_of_point
-        #plays['rally_number'] = plays.groupby('set', group_keys=False)['skill'].apply(lambda x: (x == 'Serve').cumsum())
-        #plays['home_team_score'] = plays.groupby(['set', 'rally_number'])['home_team_score'].bfill()
-
         # Create attack_phase
         plays['attack_phase'] = np.where((plays['skill'] == 'Attack') & (plays['skill'].shift(2) == 'Reception') & (plays['skill'].shift(1) == 'Set') & (plays['team'].shift(2) == plays['team']),'Reception',np.nan)
         plays['attack_phase'] = np.where((plays['skill'] == 'Attack') & (plays['skill'].shift(2) != 'Reception') & (plays['skill'].shift(1) == 'Set') & (plays['serving_team'] != plays['team']) & (plays['team'].shift(2) == plays['team']),'SO-Transition',plays['attack_phase'])
         plays['attack_phase'] = np.where((plays['skill'] == 'Attack') & (plays['skill'].shift(2) != 'Reception') & (plays['skill'].shift(1) == 'Set') & (plays['serving_team'] == plays['team']) & (plays['team'].shift(2) == plays['team']),'BP-Transition',plays['attack_phase'])
-
-        # Create visiting_score_start_of_point
-
-        # Create team_touch_id
 
         # Create possesion_number
         plays['possesion_number'] = plays.groupby(['set_number', 'rally_number'], group_keys=False)['skill'].apply(lambda x: (x == 'Attack').shift(1).cumsum() + 1).fillna(0).astype(int)
@@ -228,16 +206,31 @@ class DataVolley:
 
         # Create end_of_set
 
+        # Create home_score_start_of_point
+        #plays['rally_number'] = plays.groupby('set', group_keys=False)['skill'].apply(lambda x: (x == 'Serve').cumsum())
+        #plays['home_team_score'] = plays.groupby(['set', 'rally_number'])['home_team_score'].bfill()
+
+        # Create visiting_score_start_of_point
+
         # Create substitution
+        
+        # Create home_team
+        plays['home_team'] = home_team
+
+        # Create visiting_team
+        plays['visiting_team'] = visiting_team
+
+        # Create setter_position
+        plays['setter_position'] = np.where(plays['home_team'] == plays['team'], plays['home_setter_position'], plays['visiting_setter_position'])
 
         # Create custom code
         plays['custom_code'] = plays['code'].str.split("~", expand=True).iloc[:, 5:8].apply(lambda x: "~".join(filter(None, x)), axis=1)
 
-        # Create file line number
-
-        #self.plays = plays.replace('', np.nan)
+        # Reorder columns
         existing_columns = [col for col in desired_order if col in plays.columns]
         plays = plays[existing_columns]
+
+        # Replace all '' with np.nan
         self.plays = plays.replace('', np.nan)
 
     def get_plays(self):
