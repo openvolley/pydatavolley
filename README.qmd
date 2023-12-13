@@ -14,9 +14,11 @@ pip install pydatavolley
 pip install --upgrade pydatavolley
 ```
 
-### Example
+## [Examples]{.underline}
 
-Example file (using read_dv.DataVolley(None) will use example file) will read if no path is provided:
+Example file (using read_dv.DataVolley(None) will use example file) will read if no path is provided OR reading one file:
+
+#### Reading one file:
 
 ```{python}
 import pandas as pd
@@ -26,7 +28,47 @@ pd.set_option('display.max_columns', 500)
 pd.set_option('display.width', 280)
 dv_instance = read_dv.DataVolley(None)
 df = dv_instance.get_plays()
-print('All skills\n' + df[df['skill'].notna()].head(40).to_string())
+print('Attacks filtered\n' + df.head(20).to_string())
+```
 
-print('Attacks filtered\n' + df[df['skill'] == 'Attack'].head(20).to_string())
+------------------------------------------------------------------------
+
+#### Reading multiple files - grouping for attacks and kills:
+
+```{python}
+import pandas as pd
+from datavolley import read_dv
+import glob
+
+directory_path = "C:\\Users\\TylerWiddison\\Downloads\\"
+file_extension = "*.dvw"
+pattern = f"{directory_path}{file_extension}"
+
+# Get a list of all files with the specified extension in the directory
+file_list = glob.glob(pattern)
+
+# Initialize an empty DataFrame to store combined data
+combined_df = pd.DataFrame()
+
+# Loop through each file path
+for path in file_list:
+    dv_instance = read_dv.DataVolley(path)
+    df = dv_instance.get_plays()
+
+    # Concatenate the current DataFrame with the combined DataFrame
+    combined_df = pd.concat([combined_df, df], ignore_index=True)
+
+
+filtered_df = combined_df[combined_df['skill'] == 'Attack']
+print(
+    'Attacks filtered\n' + '\n' + filtered_df.groupby(['player_name', 'team'])
+    .agg(at=('skill', 'count'),
+         k=('evaluation_code', lambda x: x.eq('#').sum(skipna=True)),
+         k_pct=('evaluation_code', lambda x: round((x.eq('#').sum(skipna=True) / x.count()), 3)))
+    .reset_index()
+    .sort_values(by='at', ascending=False)
+    .head(20)
+    .reset_index(drop=True)
+    .to_string()
+)
 ```
