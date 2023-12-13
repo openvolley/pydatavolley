@@ -229,9 +229,7 @@ class DataVolley:
         # Reorder columns
         existing_columns = [col for col in desired_order if col in plays.columns]
         plays = plays[existing_columns]
-
-        # Replace all '' with np.nan
-        self.plays = self.plays.applymap(lambda x: np.nan if x == '' else x)
+        return plays
 
     def get_plays(self):
         """
