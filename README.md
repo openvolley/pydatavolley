@@ -5,7 +5,7 @@ format (\*.dvw).
 
 <https://pypi.org/project/pydatavolley/>
 
-### Installation
+### Installation[^1]
 
     pip install pydatavolley
     pip install --upgrade pydatavolley
@@ -19,6 +19,7 @@ format (\*.dvw).
 import pandas as pd
 from datavolley import read_dv
 pd.set_option('display.max_columns', 60)
+pd.set_option('display.max_rows', 60)
 pd.set_option('display.width', 280)
 dv_instance = read_dv.DataVolley(None)
 df = dv_instance.get_plays()
@@ -26,36 +27,36 @@ print(df[588:618])
 ```
 
                                      match_id video_file_number video_time                code                      team player_number      player_name player_id      skill evaluation_code setter_position attack_code set_code set_type start_zone end_zone end_subzone  \
-    588  3afd582b-7b2e-4970-9374-26f2d525a5c8                 1       2231   a10SM-~~~17A~~~+2      University of Dayton            10   Jamie Peterson    -11802      Serve               -               3         NaN      NaN      NaN          1        7           A   
-    589  3afd582b-7b2e-4970-9374-26f2d525a5c8                 1       2232  *10RM#~~~17AW~~-2F  University of Louisville            10      Mel McHenry    -75967  Reception               #               5         NaN      NaN      NaN          1        7           A   
-    590  3afd582b-7b2e-4970-9374-26f2d525a5c8                 1       2233   *19EQ#K1C~3B~~~-2  University of Louisville            19  Shannon Shields   -296094        Set               #               5         NaN       K1        C        NaN        3           B   
-    591  3afd582b-7b2e-4970-9374-26f2d525a5c8                 1       2234  *07AQ-X1~37AT2~-2F  University of Louisville             7      Emily Scott   -224837     Attack               -               5          X1      NaN      NaN          3        7           A   
-    592  3afd582b-7b2e-4970-9374-26f2d525a5c8                 1       2234  a02DQ+~~~37AS~~+2B      University of Dayton             2    Maura Collins   -230138        Dig               +               3         NaN      NaN      NaN          3        7           A   
-    593  3afd582b-7b2e-4970-9374-26f2d525a5c8                 1       2236   a08ET#K1F~8A~~~+2      University of Dayton             8  Brooke Westbeld   -232525        Set               #               3         NaN       K1        F        NaN        8           A   
-    594  3afd582b-7b2e-4970-9374-26f2d525a5c8                 1       2237  a05AT+X5~46CH2~+2F      University of Dayton             5      Alli Papesh   -230141     Attack               +               3          X5      NaN      NaN          4        6           C   
-    595  3afd582b-7b2e-4970-9374-26f2d525a5c8                 1       2238  *09DT-~~~46CS~~-2B  University of Louisville             9  Claire Chaussee   -225496        Dig               -               5         NaN      NaN      NaN          4        6           C   
-    596  3afd582b-7b2e-4970-9374-26f2d525a5c8                 1       2240  a15AO+~~~34BT1~+2F      University of Dayton            15     Rachael Fara   -273640     Attack               +               3         NaN      NaN      NaN          3        4           B   
-    597  3afd582b-7b2e-4970-9374-26f2d525a5c8                 1       2240  *10DO-~~~34BS~~-2F  University of Louisville            10      Mel McHenry    -75967        Dig               -               5         NaN      NaN      NaN          3        4           B   
-    598  3afd582b-7b2e-4970-9374-26f2d525a5c8                 1       2241  a03FH+~~~49C~~~+2B      University of Dayton             3  Elizabeth House   -230142   Freeball               +               3         NaN      NaN      NaN          4        9           C   
-    599  3afd582b-7b2e-4970-9374-26f2d525a5c8                 1       2243   a08EN#KBC~3D~~~+2      University of Dayton             8  Brooke Westbeld   -232525        Set               #               3         NaN       KB        C        NaN        3           D   
-    600  3afd582b-7b2e-4970-9374-26f2d525a5c8                 1       2244  a15AN-CF~28AP2~+2F      University of Dayton            15     Rachael Fara   -273640     Attack               -               3          CF      NaN      NaN          2        8           A   
-    601  3afd582b-7b2e-4970-9374-26f2d525a5c8                 1       2245  *19DN+~~~28AS~~-2B  University of Louisville            19  Shannon Shields   -296094        Dig               +               5         NaN      NaN      NaN          2        8           A   
-    602  3afd582b-7b2e-4970-9374-26f2d525a5c8                 1       2247   *08EH#~~~~7B~~~-2  University of Louisville             8    Lexi Hamilton    -75970        Set               #               5         NaN      NaN        ~        NaN        7           B   
-    603  3afd582b-7b2e-4970-9374-26f2d525a5c8                 1       2248  *10AH+V5~41CP2~-2F  University of Louisville            10      Mel McHenry    -75967     Attack               +               5          V5      NaN      NaN          4        1           C   
-    604  3afd582b-7b2e-4970-9374-26f2d525a5c8                 1       2249  a10DH-~~~41CS~~+2B      University of Dayton            10   Jamie Peterson    -11802        Dig               -               3         NaN      NaN      NaN          4        1           C   
-    605  3afd582b-7b2e-4970-9374-26f2d525a5c8                 1       2252  *09FH+~~~68B~~~-2B  University of Louisville             9  Claire Chaussee   -225496   Freeball               +               5         NaN      NaN      NaN          6        8           B   
-    606  3afd582b-7b2e-4970-9374-26f2d525a5c8                 1       2253   *19ET#K1B~2C~~~-2  University of Louisville            19  Shannon Shields   -296094        Set               #               5         NaN       K1        B        NaN        2           C   
-    607  3afd582b-7b2e-4970-9374-26f2d525a5c8                 1       2254  *15AT#X6~25CH4~-2F  University of Louisville            15       Aiko Jones   -224838     Attack               #               5          X6      NaN      NaN          2        5           C   
-    608  3afd582b-7b2e-4970-9374-26f2d525a5c8                 1       2254   a15BT=~~~~4C~~~+2      University of Dayton            15     Rachael Fara   -273640      Block               =               3         NaN      NaN      NaN        NaN        4           C   
-    609  3afd582b-7b2e-4970-9374-26f2d525a5c8                 1       2255             *p05:06  University of Louisville           NaN              NaN       NaN      Point             NaN               5         NaN      NaN      NaN        NaN      NaN         NaN   
-    610  3afd582b-7b2e-4970-9374-26f2d525a5c8                 1       2281             *c15:12  University of Louisville           NaN              NaN       NaN        NaN             NaN               0         NaN      NaN      NaN        NaN      NaN         NaN   
-    611  3afd582b-7b2e-4970-9374-26f2d525a5c8                 1       2281             *c19:25  University of Louisville           NaN              NaN       NaN        NaN             NaN               0         NaN      NaN      NaN        NaN      NaN         NaN   
-    612  3afd582b-7b2e-4970-9374-26f2d525a5c8                 1       2281                *P25  University of Louisville           NaN              NaN       NaN        NaN             NaN               4         NaN      NaN      NaN        NaN      NaN         NaN   
-    613  3afd582b-7b2e-4970-9374-26f2d525a5c8                 1       2281                 *z4  University of Louisville           NaN              NaN       NaN        NaN             NaN               4         NaN      NaN      NaN        NaN      NaN         NaN   
-    614  3afd582b-7b2e-4970-9374-26f2d525a5c8                 1       2281                aP08      University of Dayton           NaN              NaN       NaN        NaN             NaN               3         NaN      NaN      NaN        NaN      NaN         NaN   
-    615  3afd582b-7b2e-4970-9374-26f2d525a5c8                 1       2281                 az3      University of Dayton           NaN              NaN       NaN        NaN             NaN               3         NaN      NaN      NaN        NaN      NaN         NaN   
-    616  3afd582b-7b2e-4970-9374-26f2d525a5c8                 1       2281   *12SM+~~~56C~~~-1  University of Louisville            12      Tori Dilfer   -263069      Serve               +               4         NaN      NaN      NaN          5        6           C   
-    617  3afd582b-7b2e-4970-9374-26f2d525a5c8                 1       2282  a03RM-~~~56CW~~+1B      University of Dayton             3  Elizabeth House   -230142  Reception               -               3         NaN      NaN      NaN          5        6           C   
+    588  773ce34e-1472-4a71-a691-7f7493b19f11                 1       2231   a10SM-~~~17A~~~+2      University of Dayton            10   Jamie Peterson    -11802      Serve               -               3         NaN      NaN      NaN          1        7           A   
+    589  773ce34e-1472-4a71-a691-7f7493b19f11                 1       2232  *10RM#~~~17AW~~-2F  University of Louisville            10      Mel McHenry    -75967  Reception               #               5         NaN      NaN      NaN          1        7           A   
+    590  773ce34e-1472-4a71-a691-7f7493b19f11                 1       2233   *19EQ#K1C~3B~~~-2  University of Louisville            19  Shannon Shields   -296094        Set               #               5         NaN       K1        C        NaN        3           B   
+    591  773ce34e-1472-4a71-a691-7f7493b19f11                 1       2234  *07AQ-X1~37AT2~-2F  University of Louisville             7      Emily Scott   -224837     Attack               -               5          X1      NaN      NaN          3        7           A   
+    592  773ce34e-1472-4a71-a691-7f7493b19f11                 1       2234  a02DQ+~~~37AS~~+2B      University of Dayton             2    Maura Collins   -230138        Dig               +               3         NaN      NaN      NaN          3        7           A   
+    593  773ce34e-1472-4a71-a691-7f7493b19f11                 1       2236   a08ET#K1F~8A~~~+2      University of Dayton             8  Brooke Westbeld   -232525        Set               #               3         NaN       K1        F        NaN        8           A   
+    594  773ce34e-1472-4a71-a691-7f7493b19f11                 1       2237  a05AT+X5~46CH2~+2F      University of Dayton             5      Alli Papesh   -230141     Attack               +               3          X5      NaN      NaN          4        6           C   
+    595  773ce34e-1472-4a71-a691-7f7493b19f11                 1       2238  *09DT-~~~46CS~~-2B  University of Louisville             9  Claire Chaussee   -225496        Dig               -               5         NaN      NaN      NaN          4        6           C   
+    596  773ce34e-1472-4a71-a691-7f7493b19f11                 1       2240  a15AO+~~~34BT1~+2F      University of Dayton            15     Rachael Fara   -273640     Attack               +               3         NaN      NaN      NaN          3        4           B   
+    597  773ce34e-1472-4a71-a691-7f7493b19f11                 1       2240  *10DO-~~~34BS~~-2F  University of Louisville            10      Mel McHenry    -75967        Dig               -               5         NaN      NaN      NaN          3        4           B   
+    598  773ce34e-1472-4a71-a691-7f7493b19f11                 1       2241  a03FH+~~~49C~~~+2B      University of Dayton             3  Elizabeth House   -230142   Freeball               +               3         NaN      NaN      NaN          4        9           C   
+    599  773ce34e-1472-4a71-a691-7f7493b19f11                 1       2243   a08EN#KBC~3D~~~+2      University of Dayton             8  Brooke Westbeld   -232525        Set               #               3         NaN       KB        C        NaN        3           D   
+    600  773ce34e-1472-4a71-a691-7f7493b19f11                 1       2244  a15AN-CF~28AP2~+2F      University of Dayton            15     Rachael Fara   -273640     Attack               -               3          CF      NaN      NaN          2        8           A   
+    601  773ce34e-1472-4a71-a691-7f7493b19f11                 1       2245  *19DN+~~~28AS~~-2B  University of Louisville            19  Shannon Shields   -296094        Dig               +               5         NaN      NaN      NaN          2        8           A   
+    602  773ce34e-1472-4a71-a691-7f7493b19f11                 1       2247   *08EH#~~~~7B~~~-2  University of Louisville             8    Lexi Hamilton    -75970        Set               #               5         NaN      NaN        ~        NaN        7           B   
+    603  773ce34e-1472-4a71-a691-7f7493b19f11                 1       2248  *10AH+V5~41CP2~-2F  University of Louisville            10      Mel McHenry    -75967     Attack               +               5          V5      NaN      NaN          4        1           C   
+    604  773ce34e-1472-4a71-a691-7f7493b19f11                 1       2249  a10DH-~~~41CS~~+2B      University of Dayton            10   Jamie Peterson    -11802        Dig               -               3         NaN      NaN      NaN          4        1           C   
+    605  773ce34e-1472-4a71-a691-7f7493b19f11                 1       2252  *09FH+~~~68B~~~-2B  University of Louisville             9  Claire Chaussee   -225496   Freeball               +               5         NaN      NaN      NaN          6        8           B   
+    606  773ce34e-1472-4a71-a691-7f7493b19f11                 1       2253   *19ET#K1B~2C~~~-2  University of Louisville            19  Shannon Shields   -296094        Set               #               5         NaN       K1        B        NaN        2           C   
+    607  773ce34e-1472-4a71-a691-7f7493b19f11                 1       2254  *15AT#X6~25CH4~-2F  University of Louisville            15       Aiko Jones   -224838     Attack               #               5          X6      NaN      NaN          2        5           C   
+    608  773ce34e-1472-4a71-a691-7f7493b19f11                 1       2254   a15BT=~~~~4C~~~+2      University of Dayton            15     Rachael Fara   -273640      Block               =               3         NaN      NaN      NaN        NaN        4           C   
+    609  773ce34e-1472-4a71-a691-7f7493b19f11                 1       2255             *p05:06  University of Louisville           NaN              NaN       NaN      Point             NaN               5         NaN      NaN      NaN        NaN      NaN         NaN   
+    610  773ce34e-1472-4a71-a691-7f7493b19f11                 1       2281             *c15:12  University of Louisville           NaN              NaN       NaN        NaN             NaN               0         NaN      NaN      NaN        NaN      NaN         NaN   
+    611  773ce34e-1472-4a71-a691-7f7493b19f11                 1       2281             *c19:25  University of Louisville           NaN              NaN       NaN        NaN             NaN               0         NaN      NaN      NaN        NaN      NaN         NaN   
+    612  773ce34e-1472-4a71-a691-7f7493b19f11                 1       2281                *P25  University of Louisville           NaN              NaN       NaN        NaN             NaN               4         NaN      NaN      NaN        NaN      NaN         NaN   
+    613  773ce34e-1472-4a71-a691-7f7493b19f11                 1       2281                 *z4  University of Louisville           NaN              NaN       NaN        NaN             NaN               4         NaN      NaN      NaN        NaN      NaN         NaN   
+    614  773ce34e-1472-4a71-a691-7f7493b19f11                 1       2281                aP08      University of Dayton           NaN              NaN       NaN        NaN             NaN               3         NaN      NaN      NaN        NaN      NaN         NaN   
+    615  773ce34e-1472-4a71-a691-7f7493b19f11                 1       2281                 az3      University of Dayton           NaN              NaN       NaN        NaN             NaN               3         NaN      NaN      NaN        NaN      NaN         NaN   
+    616  773ce34e-1472-4a71-a691-7f7493b19f11                 1       2281   *12SM+~~~56C~~~-1  University of Louisville            12      Tori Dilfer   -263069      Serve               +               4         NaN      NaN      NaN          5        6           C   
+    617  773ce34e-1472-4a71-a691-7f7493b19f11                 1       2282  a03RM-~~~56CW~~+1B      University of Dayton             3  Elizabeth House   -230142  Reception               -               3         NaN      NaN      NaN          5        6           C   
 
         num_players_numeric  home_team_score  visiting_team_score home_setter_position visiting_setter_position custom_code home_p1 home_p2 home_p3 home_p4 home_p5 home_p6 visiting_p1 visiting_p2 visiting_p3 visiting_p4 visiting_p5 visiting_p6  start_coordinate  mid_coordinate  \
     588                 NaN                5                    6                    5                        3          +2      11      15      10       7      19       9          10          15           8           5          16           3               577            <NA>   
@@ -216,3 +217,6 @@ print(
     17         Elena Radeff       Santa Clara University   600  203  0.338
     18      Amethyst Harper  Loyola Marymount University   599  240  0.401
     19        Autumn Larson           Gonzaga University   598  146  0.244
+
+[^1]: If updating fails, you may need to `pip uninstall pydatavolley` -
+    then reinstall `pip install pydatavolley`
