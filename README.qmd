@@ -5,7 +5,7 @@ format: gfm
 
 A python package for reading volleyball scouting files in DataVolley format (\*.dvw).
 
-Work in progress.
+<https://pypi.org/project/pydatavolley/>
 
 ### Installation
 
@@ -16,19 +16,17 @@ pip install --upgrade pydatavolley
 
 ## [Examples]{.underline}
 
-Example file (using read_dv.DataVolley(None) will use example file) will read if no path is provided OR reading one file:
-
 #### Reading one file:
 
 ```{python}
+# Using read_dv.DataVolley(None) will use example file
 import pandas as pd
 from datavolley import read_dv
-pd.set_option('display.max_rows', 50)
-pd.set_option('display.max_columns', 500)
+pd.set_option('display.max_columns', 60)
 pd.set_option('display.width', 280)
 dv_instance = read_dv.DataVolley(None)
 df = dv_instance.get_plays()
-print('Attacks filtered\n' + df.head(20).to_string())
+print(df[588:618])
 ```
 
 ------------------------------------------------------------------------
@@ -58,15 +56,15 @@ for path in file_list:
     # Concatenate the current DataFrame with the combined DataFrame
     combined_df = pd.concat([combined_df, df], ignore_index=True)
 
-
-filtered_df = combined_df[combined_df['skill'] == 'Attack']
+# Filter for attacks and print attacks 
 print(
-    'Attacks filtered\n' + '\n' + filtered_df.groupby(['player_name', 'team'])
-    .agg(at=('skill', 'count'),
-         k=('evaluation_code', lambda x: x.eq('#').sum(skipna=True)),
-         k_pct=('evaluation_code', lambda x: round((x.eq('#').sum(skipna=True) / x.count()), 3)))
+    combined_df[combined_df['skill'] == 'Attack']
+    .groupby(['player_name', 'team'])
+    .agg(Att=('skill', 'count'),
+         K=('evaluation_code', lambda x: x.eq('#').sum(skipna=True)),
+         K_pct=('evaluation_code', lambda x: round((x.eq('#').sum(skipna=True) / x.count()), 3)))
     .reset_index()
-    .sort_values(by='at', ascending=False)
+    .sort_values(by='Att', ascending=False)
     .head(20)
     .reset_index(drop=True)
     .to_string()

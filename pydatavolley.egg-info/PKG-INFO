@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: pydatavolley
-Version: 2.2.4
+Version: 2.2.5
 Summary: A python set of code for reading volleyball scouting files in DataVolley format (*.dvw)
 Home-page: https://github.com/openvolley/pydatavolley
 Author: Tyler Widdison

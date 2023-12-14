@@ -42,7 +42,7 @@ desired_order = [
     'home_player_id5', 'home_player_id6', 'visiting_player_id1', 'visiting_player_id2', 'visiting_player_id3',
     'visiting_player_id4', 'visiting_player_id5', 'visiting_player_id6', 'set_number', 'home_team','visiting_team', 
     'home_team_id', 'visiting_team_id', 'team_id', 'point_won_by', 'winning_attack', 'serving_team', 'receiving_team', 
-    'phase', 'home_score_start_of_point', 'visiting_score_start_of_point', 'rally_number', "custom_code", "possesion_number"
+    'phase', 'home_score_start_of_point', 'visiting_score_start_of_point', 'rally_number', "possesion_number"
     ]
 
 def dv_index2xy(i):

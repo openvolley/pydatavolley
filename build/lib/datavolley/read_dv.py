@@ -90,9 +90,14 @@ class DataVolley:
         plays['match_id'] = str(uuid.uuid4())
 
         # Change coordiantes -1-1
-        plays['start_coordinate'] = np.where(plays['start_coordinate'] == '-1-1', np.nan, plays['start_coordinate'])
-        plays['mid_coordinate'] = np.where(plays['mid_coordinate'] == '-1-1', np.nan, plays['mid_coordinate'])
-        plays['end_coordinate'] = np.where(plays['end_coordinate'] == '-1-1', np.nan, plays['end_coordinate'])
+        def replace_coordinates(coord):
+            coordinates_to_replace = {'-1-1': np.nan}
+            return coordinates_to_replace.get(coord, coord)
+
+        plays['start_coordinate'] = plays['start_coordinate'].map(replace_coordinates)
+        plays['mid_coordinate'] = plays['mid_coordinate'].map(replace_coordinates)
+        plays['end_coordinate'] = plays['end_coordinate'].map(replace_coordinates)
+
 
         # Create team
         plays['team'] = np.where(plays['code'].str[0:1] == '*', home_team, visiting_team)
@@ -174,10 +179,14 @@ class DataVolley:
         # Create home_team_score
         plays['home_team_score'] = plays[plays['code'].str[1:2] == 'p']['code'].str[2:4]
         plays['home_team_score'] = plays.groupby(['set_number', 'rally_number'])['home_team_score'].bfill()
+        plays['home_team_score'] = pd.to_numeric(plays['home_team_score'], errors='coerce')
+        plays['home_team_score'] = plays['home_team_score'].astype('Int64')
 
         # Create visiting_team_score
         plays['visiting_team_score'] = plays[plays['code'].str[1:2] == 'p']['code'].str[5:7]
         plays['visiting_team_score'] = plays.groupby(['set_number', 'rally_number'])['visiting_team_score'].bfill()
+        plays['visiting_team_score'] = pd.to_numeric(plays['visiting_team_score'], errors='coerce')
+        plays['visiting_team_score'] = plays['visiting_team_score'].astype('Int64')
 
         # Create coordinates
         plays = add_xy(plays)
@@ -207,13 +216,11 @@ class DataVolley:
         # Create end_of_set
 
         # Create home_score_start_of_point
-        #plays['rally_number'] = plays.groupby('set', group_keys=False)['skill'].apply(lambda x: (x == 'Serve').cumsum())
-        #plays['home_team_score'] = plays.groupby(['set', 'rally_number'])['home_team_score'].bfill()
 
         # Create visiting_score_start_of_point
 
         # Create substitution
-        
+
         # Create home_team
         plays['home_team'] = home_team
 
@@ -224,7 +231,7 @@ class DataVolley:
         plays['setter_position'] = np.where(plays['home_team'] == plays['team'], plays['home_setter_position'], plays['visiting_setter_position'])
 
         # Create custom code
-        plays['custom_code'] = plays['code'].str.split("~", expand=True).iloc[:, 5:8].apply(lambda x: "~".join(filter(None, x)), axis=1)
+        plays['custom_code'] = plays['code'].str.rsplit('~', n=1, expand=True)[1]
 
         # Reorder columns
         existing_columns = [col for col in desired_order if col in plays.columns]
@@ -235,7 +242,7 @@ class DataVolley:
     def get_plays(self):
         """
         Get the processed plays data.
-    
+
         Returns:
         - pd.DataFrame: Processed data stored in a DataFrame.
         """
