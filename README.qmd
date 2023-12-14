@@ -7,7 +7,9 @@ A python package for reading volleyball scouting files in DataVolley format (\*.
 
 <https://pypi.org/project/pydatavolley/>
 
-### Installation
+### Installation[^1]
+
+[^1]: If updating fails, you may need to `pip uninstall pydatavolley`  - then reinstall `pip install pydatavolley`
 
 ```         
 pip install pydatavolley
