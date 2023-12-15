@@ -24,9 +24,9 @@ pip install --upgrade pydatavolley
 # Using read_dv.DataVolley(None) will use example file
 import pandas as pd
 from datavolley import read_dv
-pd.set_option('display.max_columns', 60)
-pd.set_option('display.max_rows', 60)
-pd.set_option('display.width', 280)
+pd.set_option('display.max_rows', 50)
+pd.set_option('display.max_columns', 500)
+pd.set_option('display.width', 400)
 dv_instance = read_dv.DataVolley(None)
 df = dv_instance.get_plays()
 print(df[588:618])
@@ -40,7 +40,9 @@ print(df[588:618])
 import pandas as pd
 from datavolley import read_dv
 import glob
+import time
 
+# Assign path
 directory_path = "C:\\Users\\TylerWiddison\\Downloads\\"
 file_extension = "*.dvw"
 pattern = f"{directory_path}{file_extension}"
@@ -51,6 +53,7 @@ file_list = glob.glob(pattern)
 # Initialize an empty DataFrame to store combined data
 combined_df = pd.DataFrame()
 
+start_time = time.time()  # Record start time
 # Loop through each file path
 for path in file_list:
     dv_instance = read_dv.DataVolley(path)
@@ -59,6 +62,9 @@ for path in file_list:
     # Concatenate the current DataFrame with the combined DataFrame
     combined_df = pd.concat([combined_df, df], ignore_index=True)
 
+end_time = time.time()  # Record end time
+processing_time = end_time - start_time
+print(f"{len(file_list)} DVWs processed in {processing_time / 60:.2f} minutes")
 # Filter for attacks and print attacks 
 print(
     combined_df[combined_df['skill'] == 'Attack']
@@ -72,4 +78,44 @@ print(
     .reset_index(drop=True)
     .to_string()
 )
+```
+
+------------------------------------------------------------------------
+
+#### Reading multiple files parallel using threads:
+
+```{python}
+import pandas as pd
+from datavolley import read_dv
+import glob
+import time
+import concurrent.futures
+
+# Assign path
+directory_path = "C:\\Users\\TylerWiddison\\Downloads\\"
+file_extension = "*.dvw"
+pattern = f"{directory_path}{file_extension}"
+
+# Get a list of all files with the specified extension in the directory
+file_list = glob.glob(pattern)
+
+def read_file(file_path):
+    dv_instance = read_dv.DataVolley(file_path)
+    return dv_instance.get_plays()
+
+def read_files_parallel(file_paths):
+    with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
+        # Use executor.map to parallelize file reading
+        dfs = list(executor.map(read_file, file_paths))
+    return pd.concat(dfs, ignore_index=True)
+
+start_time = time.time()  # Record start time
+if __name__ == "__main__":
+    # Call the function to read files in parallel
+    df = read_files_parallel(file_list)
+    end_time = time.time()  # Record end time
+    processing_time = end_time - start_time
+    print(f"{len(file_list)} DVWs processed in {processing_time / 60:.2f} minutes")
+    # Now 'df' contains the concatenated DataFrame from all files
+    print(df.head())
 ```
