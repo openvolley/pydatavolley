@@ -41,11 +41,12 @@ import pandas as pd
 from datavolley import read_dv
 import glob
 import time
+import os
 
 # Assign path
-directory_path = "C:\\Users\\TylerWiddison\\Downloads\\"
+downloads_folder = os.path.expanduser("~\\Downloads")
 file_extension = "*.dvw"
-pattern = f"{directory_path}{file_extension}"
+pattern = os.path.join(downloads_folder, file_extension)
 
 # Get a list of all files with the specified extension in the directory
 file_list = glob.glob(pattern)
@@ -90,11 +91,12 @@ from datavolley import read_dv
 import glob
 import time
 import concurrent.futures
+import os
 
 # Assign path
-directory_path = "C:\\Users\\TylerWiddison\\Downloads\\"
+downloads_folder = os.path.expanduser("~\\Downloads")
 file_extension = "*.dvw"
-pattern = f"{directory_path}{file_extension}"
+pattern = os.path.join(downloads_folder, file_extension)
 
 # Get a list of all files with the specified extension in the directory
 file_list = glob.glob(pattern)
@@ -118,4 +120,42 @@ if __name__ == "__main__":
     print(f"{len(file_list)} DVWs processed in {processing_time / 60:.2f} minutes")
     # Now 'df' contains the concatenated DataFrame from all files
     print(df.head())
+```
+
+------------------------------------------------------------------------
+
+#### Plotting attacks -
+
+```{python}
+# Using read_dv.DataVolley(None) will use example file
+import datavolley.pycourt as pycourt
+from datavolley import read_dv
+import glob
+import matplotlib.pyplot as plt
+import pandas as pd
+dv_instance = read_dv.DataVolley(None)
+df = dv_instance.get_plays()
+atk_data = df[(df['skill'] == 'Attack') & (df['attack_code'] == 'X5')]
+coordainte_df = atk_data[['start_coordinate_x',
+                          'start_coordinate_y',
+                          'end_coordinate_x',
+                          'end_coordinate_y']]
+
+def plot_coordinates(coordinates):
+    pycourt.pycourt()
+
+    # Plot the coordinates
+    plt.scatter(coordinates['start_coordinate_x'], coordinates['start_coordinate_y'], color='red')
+    plt.scatter(coordinates['end_coordinate_x'], coordinates['end_coordinate_y'], color='blue')
+
+    # Connect the coordinates with lines
+    for i in range(len(coordinates)):
+        start_point = (coordinates['start_coordinate_x'].iloc[i], coordinates['start_coordinate_y'].iloc[i])
+        end_point = (coordinates['end_coordinate_x'].iloc[i], coordinates['end_coordinate_y'].iloc[i])
+        plt.plot([start_point[0], end_point[0]], [start_point[1], end_point[1]], color='gray', linestyle='--', linewidth=1)
+
+    plt.show(block=True)
+
+plot_coordinates(coordainte_df)
+
 ```
