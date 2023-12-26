@@ -94,7 +94,7 @@ import concurrent.futures
 import os
 
 # Assign path
-downloads_folder = os.path.expanduser("~\\Downloads")
+downloads_folder = os.path.expanduser("C:\\Users\\TylerWiddison\\Documents\\Python\\DVWGet2\\dvws\\WCC")
 file_extension = "*.dvw"
 pattern = os.path.join(downloads_folder, file_extension)
 

@@ -231,7 +231,7 @@ class DataVolley:
         plays['setter_position'] = np.where(plays['home_team'] == plays['team'], plays['home_setter_position'], plays['visiting_setter_position'])
 
         # Create custom code
-        plays['custom_code'] = plays['code'].str.rsplit('~', n=1, expand=True)[1]
+        plays['custom_code'] = plays['code'].apply(lambda x: x.rsplit('~', 1)[1] if '~' in x else None)
 
         # Reorder columns
         existing_columns = [col for col in desired_order if col in plays.columns]
