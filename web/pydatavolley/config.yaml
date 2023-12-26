@@ -1,7 +1,7 @@
 ---
 project:
   type: website
-  output-dir: pydatavolley
+  output-dir: docs
   production_url: "https://github.com/openvolley/pydatavolley"
   github_repo_url: openvolley/pydatavolley
 navbar:
