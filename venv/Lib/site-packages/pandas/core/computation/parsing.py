@@ -7,13 +7,10 @@ from io import StringIO
 from keyword import iskeyword
 import token
 import tokenize
-from typing import TYPE_CHECKING
-
-if TYPE_CHECKING:
-    from collections.abc import (
-        Hashable,
-        Iterator,
-    )
+from typing import (
+    Hashable,
+    Iterator,
+)
 
 # A token value Python's tokenizer probably will never use.
 BACKTICK_QUOTED_STRING = 100

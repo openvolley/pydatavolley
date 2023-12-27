@@ -4,7 +4,6 @@ from pandas.api import (
     indexers,
     interchange,
     types,
-    typing,
 )
 
 __all__ = [
@@ -12,5 +11,4 @@ __all__ = [
     "extensions",
     "indexers",
     "types",
-    "typing",
 ]

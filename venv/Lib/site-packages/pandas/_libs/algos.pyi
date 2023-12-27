@@ -5,6 +5,10 @@ import numpy as np
 from pandas._typing import npt
 
 class Infinity:
+    """
+    Provide a positive Infinity comparison method for ranking.
+    """
+
     def __eq__(self, other) -> bool: ...
     def __ne__(self, other) -> bool: ...
     def __lt__(self, other) -> bool: ...
@@ -13,6 +17,10 @@ class Infinity:
     def __ge__(self, other) -> bool: ...
 
 class NegInfinity:
+    """
+    Provide a negative Infinity comparison method for ranking.
+    """
+
     def __eq__(self, other) -> bool: ...
     def __ne__(self, other) -> bool: ...
     def __lt__(self, other) -> bool: ...
@@ -52,10 +60,6 @@ def nancorr_spearman(
 # ----------------------------------------------------------------------
 
 def validate_limit(nobs: int | None, limit=...) -> int: ...
-def get_fill_indexer(
-    mask: npt.NDArray[np.bool_],
-    limit: int | None = None,
-) -> npt.NDArray[np.intp]: ...
 def pad(
     old: np.ndarray,  # ndarray[numeric_object_t]
     new: np.ndarray,  # ndarray[numeric_object_t]

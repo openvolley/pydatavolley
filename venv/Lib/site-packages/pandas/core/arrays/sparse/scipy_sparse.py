@@ -5,9 +5,18 @@ Currently only includes to_coo helpers.
 """
 from __future__ import annotations
 
-from typing import TYPE_CHECKING
+from typing import (
+    TYPE_CHECKING,
+    Iterable,
+)
+
+import numpy as np
 
 from pandas._libs import lib
+from pandas._typing import (
+    IndexLabel,
+    npt,
+)
 
 from pandas.core.dtypes.missing import notna
 
@@ -16,15 +25,7 @@ from pandas.core.indexes.api import MultiIndex
 from pandas.core.series import Series
 
 if TYPE_CHECKING:
-    from collections.abc import Iterable
-
-    import numpy as np
     import scipy.sparse
-
-    from pandas._typing import (
-        IndexLabel,
-        npt,
-    )
 
 
 def _check_is_partition(parts: Iterable, whole: Iterable):

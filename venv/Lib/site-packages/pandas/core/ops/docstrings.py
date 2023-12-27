@@ -49,20 +49,13 @@ def make_flex_doc(op_name: str, typ: str) -> str:
         else:
             doc = doc_no_examples
     elif typ == "dataframe":
-        if op_name in ["eq", "ne", "le", "lt", "ge", "gt"]:
-            base_doc = _flex_comp_doc_FRAME
-            doc = _flex_comp_doc_FRAME.format(
-                op_name=op_name,
-                desc=op_desc["desc"],
-            )
-        else:
-            base_doc = _flex_doc_FRAME
-            doc = base_doc.format(
-                desc=op_desc["desc"],
-                op_name=op_name,
-                equiv=equiv,
-                reverse=op_desc["reverse"],
-            )
+        base_doc = _flex_doc_FRAME
+        doc = base_doc.format(
+            desc=op_desc["desc"],
+            op_name=op_name,
+            equiv=equiv,
+            reverse=op_desc["reverse"],
+        )
     else:
         raise AssertionError("Invalid typ argument.")
     return doc
@@ -176,8 +169,8 @@ _divmod_example_SERIES = (
     + """
 >>> a.divmod(b, fill_value=0)
 (a    1.0
- b    inf
- c    inf
+ b    NaN
+ c    NaN
  d    0.0
  e    NaN
  dtype: float64,
@@ -463,7 +456,7 @@ Get {desc} of dataframe and other, element-wise (binary operator `{op_name}`).
 Equivalent to ``{equiv}``, but with support to substitute a fill_value
 for missing data in one of the inputs. With reverse version, `{reverse}`.
 
-Among flexible wrappers (`add`, `sub`, `mul`, `div`, `floordiv`, `mod`, `pow`) to
+Among flexible wrappers (`add`, `sub`, `mul`, `div`, `mod`, `pow`) to
 arithmetic operators: `+`, `-`, `*`, `/`, `//`, `%`, `**`.
 
 Parameters

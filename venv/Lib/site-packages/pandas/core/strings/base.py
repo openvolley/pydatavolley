@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import abc
+import re
 from typing import (
     TYPE_CHECKING,
     Callable,
@@ -9,12 +10,9 @@ from typing import (
 
 import numpy as np
 
+from pandas._typing import Scalar
+
 if TYPE_CHECKING:
-    from collections.abc import Sequence
-    import re
-
-    from pandas._typing import Scalar
-
     from pandas import Series
 
 
@@ -47,7 +45,7 @@ class BaseStringArrayMethods(abc.ABC):
     @abc.abstractmethod
     def _str_pad(
         self,
-        width: int,
+        width,
         side: Literal["left", "right", "both"] = "left",
         fillchar: str = " ",
     ):
@@ -80,7 +78,7 @@ class BaseStringArrayMethods(abc.ABC):
         pass
 
     @abc.abstractmethod
-    def _str_repeat(self, repeats: int | Sequence[int]):
+    def _str_repeat(self, repeats):
         pass
 
     @abc.abstractmethod
@@ -128,15 +126,15 @@ class BaseStringArrayMethods(abc.ABC):
         pass
 
     @abc.abstractmethod
-    def _str_join(self, sep: str):
+    def _str_join(self, sep):
         pass
 
     @abc.abstractmethod
-    def _str_partition(self, sep: str, expand):
+    def _str_partition(self, sep, expand):
         pass
 
     @abc.abstractmethod
-    def _str_rpartition(self, sep: str, expand):
+    def _str_rpartition(self, sep, expand):
         pass
 
     @abc.abstractmethod
@@ -156,7 +154,7 @@ class BaseStringArrayMethods(abc.ABC):
         pass
 
     @abc.abstractmethod
-    def _str_wrap(self, width: int, **kwargs):
+    def _str_wrap(self, width, **kwargs):
         pass
 
     @abc.abstractmethod

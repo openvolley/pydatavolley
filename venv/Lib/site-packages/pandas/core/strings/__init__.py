@@ -23,6 +23,6 @@ to other string extension arrays.
 # BaseStringArrayMethods
 #  - ObjectStringArrayMixin
 #     - StringArray
-#     - NumpyExtensionArray
+#     - PandasArray
 #     - Categorical
 #     - ArrowStringArray

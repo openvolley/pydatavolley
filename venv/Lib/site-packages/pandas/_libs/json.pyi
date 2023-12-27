@@ -3,7 +3,7 @@ from typing import (
     Callable,
 )
 
-def ujson_dumps(
+def dumps(
     obj: Any,
     ensure_ascii: bool = ...,
     double_precision: int = ...,
@@ -14,7 +14,7 @@ def ujson_dumps(
     default_handler: None
     | Callable[[Any], str | float | bool | list | dict | None] = ...,
 ) -> str: ...
-def ujson_loads(
+def loads(
     s: str,
     precise_float: bool = ...,
     numpy: bool = ...,

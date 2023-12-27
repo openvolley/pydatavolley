@@ -4,15 +4,11 @@ Templates for invalid operations.
 from __future__ import annotations
 
 import operator
-from typing import TYPE_CHECKING
 
 import numpy as np
 
-if TYPE_CHECKING:
-    from pandas._typing import npt
 
-
-def invalid_comparison(left, right, op) -> npt.NDArray[np.bool_]:
+def invalid_comparison(left, right, op) -> np.ndarray:
     """
     If a comparison has mismatched types and is not necessarily meaningful,
     follow python3 conventions by:

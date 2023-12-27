@@ -50,7 +50,7 @@ def _cum_func(
     result = func(y)
     result[mask] = iNaT
 
-    if values.dtype.kind in "mM":
+    if values.dtype.kind in ["m", "M"]:
         return result.view(values.dtype.base)
     return result
 

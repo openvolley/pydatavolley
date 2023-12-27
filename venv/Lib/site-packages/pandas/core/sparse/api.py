@@ -1,5 +1,6 @@
-from pandas.core.dtypes.dtypes import SparseDtype
-
-from pandas.core.arrays.sparse import SparseArray
+from pandas.core.arrays.sparse import (
+    SparseArray,
+    SparseDtype,
+)
 
 __all__ = ["SparseArray", "SparseDtype"]

@@ -1,7 +1,6 @@
 import pytest
 
 import pandas as pd
-import pandas._testing as tm
 from pandas.tests.arrays.masked_shared import (
     ComparisonOps,
     NumericOps,
@@ -26,7 +25,7 @@ class TestComparisonOps(NumericOps, ComparisonOps):
         expected = method(2).astype("boolean")
         expected[s2.isna()] = pd.NA
 
-        tm.assert_series_equal(result, expected)
+        self.assert_series_equal(result, expected)
 
 
 def test_equals():

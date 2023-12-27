@@ -9,7 +9,6 @@ from pandas.compat import PYPY
 from pandas import (
     Categorical,
     CategoricalDtype,
-    DataFrame,
     Index,
     NaT,
     Series,
@@ -57,24 +56,11 @@ class TestCategoricalAnalytics:
         assert np.minimum.reduce(obj) == "d"
         assert np.maximum.reduce(obj) == "a"
 
-    def test_min_max_reduce(self):
-        # GH52788
-        cat = Categorical(["a", "b", "c", "d"], ordered=True)
-        df = DataFrame(cat)
-
-        result_max = df.agg("max")
-        expected_max = Series(Categorical(["d"], dtype=cat.dtype))
-        tm.assert_series_equal(result_max, expected_max)
-
-        result_min = df.agg("min")
-        expected_min = Series(Categorical(["a"], dtype=cat.dtype))
-        tm.assert_series_equal(result_min, expected_min)
-
     @pytest.mark.parametrize(
         "categories,expected",
         [
-            (list("ABC"), np.nan),
-            ([1, 2, 3], np.nan),
+            (list("ABC"), np.NaN),
+            ([1, 2, 3], np.NaN),
             pytest.param(
                 Series(date_range("2020-01-01", periods=3), dtype="category"),
                 NaT,
@@ -314,16 +300,16 @@ class TestCategoricalAnalytics:
 
     def test_map(self):
         c = Categorical(list("ABABC"), categories=list("CBA"), ordered=True)
-        result = c.map(lambda x: x.lower(), na_action=None)
+        result = c.map(lambda x: x.lower())
         exp = Categorical(list("ababc"), categories=list("cba"), ordered=True)
         tm.assert_categorical_equal(result, exp)
 
         c = Categorical(list("ABABC"), categories=list("ABC"), ordered=False)
-        result = c.map(lambda x: x.lower(), na_action=None)
+        result = c.map(lambda x: x.lower())
         exp = Categorical(list("ababc"), categories=list("abc"), ordered=False)
         tm.assert_categorical_equal(result, exp)
 
-        result = c.map(lambda x: 1, na_action=None)
+        result = c.map(lambda x: 1)
         # GH 12766: Return an index not an array
         tm.assert_index_equal(result, Index(np.array([1] * 5, dtype=np.int64)))
 

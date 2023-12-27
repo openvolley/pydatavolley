@@ -1,0 +1,5 @@
+---
+title: "IDE"
+---
+
+IDE or Integrated development environment. This book will be focused on use with [Visual Studio Code](https://code.visualstudio.com/). However you can use R and will have a video at some point reviewing how to use python in R.

@@ -51,31 +51,19 @@ def test_37477():
     expected = DataFrame({"A": [1, 2, 3], "B": [3, 1.2, 5]})
 
     df = orig.copy()
-    with tm.assert_produces_warning(
-        FutureWarning, match="Setting an item of incompatible dtype"
-    ):
-        df.at[1, "B"] = 1.2
+    df.at[1, "B"] = 1.2
     tm.assert_frame_equal(df, expected)
 
     df = orig.copy()
-    with tm.assert_produces_warning(
-        FutureWarning, match="Setting an item of incompatible dtype"
-    ):
-        df.loc[1, "B"] = 1.2
+    df.loc[1, "B"] = 1.2
     tm.assert_frame_equal(df, expected)
 
     df = orig.copy()
-    with tm.assert_produces_warning(
-        FutureWarning, match="Setting an item of incompatible dtype"
-    ):
-        df.iat[1, 1] = 1.2
+    df.iat[1, 1] = 1.2
     tm.assert_frame_equal(df, expected)
 
     df = orig.copy()
-    with tm.assert_produces_warning(
-        FutureWarning, match="Setting an item of incompatible dtype"
-    ):
-        df.iloc[1, 1] = 1.2
+    df.iloc[1, 1] = 1.2
     tm.assert_frame_equal(df, expected)
 
 
@@ -106,17 +94,11 @@ def test_26395(indexer_al):
     expected = DataFrame({"D": [0, 0, 2]}, index=["A", "B", "C"], dtype=np.int64)
     tm.assert_frame_equal(df, expected)
 
-    with tm.assert_produces_warning(
-        FutureWarning, match="Setting an item of incompatible dtype"
-    ):
-        indexer_al(df)["C", "D"] = 44.5
+    indexer_al(df)["C", "D"] = 44.5
     expected = DataFrame({"D": [0, 0, 44.5]}, index=["A", "B", "C"], dtype=np.float64)
     tm.assert_frame_equal(df, expected)
 
-    with tm.assert_produces_warning(
-        FutureWarning, match="Setting an item of incompatible dtype"
-    ):
-        indexer_al(df)["C", "D"] = "hello"
+    indexer_al(df)["C", "D"] = "hello"
     expected = DataFrame({"D": [0, 0, "hello"]}, index=["A", "B", "C"], dtype=object)
     tm.assert_frame_equal(df, expected)
 

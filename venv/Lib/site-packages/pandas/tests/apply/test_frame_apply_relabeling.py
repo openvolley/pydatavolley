@@ -49,24 +49,20 @@ def test_agg_relabel_multi_columns_multi_methods():
 def test_agg_relabel_partial_functions():
     # GH 26513, test on partial, functools or more complex cases
     df = pd.DataFrame({"A": [1, 2, 1, 2], "B": [1, 2, 3, 4], "C": [3, 4, 5, 6]})
-    msg = "using Series.[mean|min]"
-    with tm.assert_produces_warning(FutureWarning, match=msg):
-        result = df.agg(foo=("A", np.mean), bar=("A", "mean"), cat=("A", min))
+    result = df.agg(foo=("A", np.mean), bar=("A", "mean"), cat=("A", min))
     expected = pd.DataFrame(
         {"A": [1.5, 1.5, 1.0]}, index=pd.Index(["foo", "bar", "cat"])
     )
     tm.assert_frame_equal(result, expected)
 
-    msg = "using Series.[mean|min|max|sum]"
-    with tm.assert_produces_warning(FutureWarning, match=msg):
-        result = df.agg(
-            foo=("A", min),
-            bar=("A", np.min),
-            cat=("B", max),
-            dat=("C", "min"),
-            f=("B", np.sum),
-            kk=("B", lambda x: min(x)),
-        )
+    result = df.agg(
+        foo=("A", min),
+        bar=("A", np.min),
+        cat=("B", max),
+        dat=("C", "min"),
+        f=("B", np.sum),
+        kk=("B", lambda x: min(x)),
+    )
     expected = pd.DataFrame(
         {
             "A": [1.0, 1.0, np.nan, np.nan, np.nan, np.nan],
@@ -83,7 +79,7 @@ def test_agg_namedtuple():
     df = pd.DataFrame({"A": [0, 1], "B": [1, 2]})
     result = df.agg(
         foo=pd.NamedAgg("B", "sum"),
-        bar=pd.NamedAgg("B", "min"),
+        bar=pd.NamedAgg("B", min),
         cat=pd.NamedAgg(column="B", aggfunc="count"),
         fft=pd.NamedAgg("B", aggfunc="max"),
     )
@@ -103,11 +99,3 @@ def test_agg_namedtuple():
         index=pd.Index(["foo", "bar", "cat"]),
     )
     tm.assert_frame_equal(result, expected)
-
-
-def test_reconstruct_func():
-    # GH 28472, test to ensure reconstruct_func isn't moved;
-    # This method is used by other libraries (e.g. dask)
-    result = pd.core.apply.reconstruct_func("min")
-    expected = (False, "min", None, None)
-    tm.assert_equal(result, expected)

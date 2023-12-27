@@ -2,20 +2,17 @@ import pytest
 
 from pandas.util._validators import validate_args
 
-
-@pytest.fixture
-def _fname():
-    return "func"
+_fname = "func"
 
 
-def test_bad_min_fname_arg_count(_fname):
+def test_bad_min_fname_arg_count():
     msg = "'max_fname_arg_count' must be non-negative"
 
     with pytest.raises(ValueError, match=msg):
         validate_args(_fname, (None,), -1, "foo")
 
 
-def test_bad_arg_length_max_value_single(_fname):
+def test_bad_arg_length_max_value_single():
     args = (None, None)
     compat_args = ("foo",)
 
@@ -31,7 +28,7 @@ def test_bad_arg_length_max_value_single(_fname):
         validate_args(_fname, args, min_fname_arg_count, compat_args)
 
 
-def test_bad_arg_length_max_value_multiple(_fname):
+def test_bad_arg_length_max_value_multiple():
     args = (None, None)
     compat_args = {"foo": None}
 
@@ -48,7 +45,7 @@ def test_bad_arg_length_max_value_multiple(_fname):
 
 
 @pytest.mark.parametrize("i", range(1, 3))
-def test_not_all_defaults(i, _fname):
+def test_not_all_defaults(i):
     bad_arg = "foo"
     msg = (
         f"the '{bad_arg}' parameter is not supported "
@@ -62,7 +59,7 @@ def test_not_all_defaults(i, _fname):
         validate_args(_fname, arg_vals[:i], 2, compat_args)
 
 
-def test_validation(_fname):
+def test_validation():
     # No exceptions should be raised.
     validate_args(_fname, (None,), 2, {"out": None})
 

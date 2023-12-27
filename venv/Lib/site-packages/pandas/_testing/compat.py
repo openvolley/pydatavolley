@@ -1,14 +1,9 @@
 """
 Helpers for sharing tests between DataFrame/Series
 """
-from __future__ import annotations
-
-from typing import TYPE_CHECKING
+from pandas._typing import DtypeObj
 
 from pandas import DataFrame
-
-if TYPE_CHECKING:
-    from pandas._typing import DtypeObj
 
 
 def get_dtype(obj) -> DtypeObj:

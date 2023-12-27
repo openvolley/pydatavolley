@@ -1,0 +1,63 @@
+---
+title: "Reading files"
+---
+
+## DVW files
+
+There are a few different locations you can find dvw files to use as you use this package. Your own dvw files or you can find files [here](https://mevza.volleynet.at/Download/59).
+
+## Reading from a URL
+
+If you have URLs you are downloading from and reading, you can download a dvw file and read:
+
+```{python}
+import pandas as pd # Pandas so we can see more columns in the data print
+from datavolley import read_dv # pydatavolley package
+import requests # To download dvw file
+
+# Set the max rows and columns so we can see more data
+pd.set_option('display.max_rows', 50)
+pd.set_option('display.max_columns', 500)
+pd.set_option('display.width', 400)
+# Provided URL 
+url = "https://mevza.volleynet.at/dl/L2RhdGF2b2xsZXkvMjAyMS9NRUxfbWVuLyZNSUwtMS5kdnc="
+
+# Download the file
+res = requests.get(url)
+# Load the downloaded file
+with open("example1.dvw", 'wb') as file:
+    file.write(res.content)
+dv_instance = read_dv.DataVolley("example1.dvw")
+df = dv_instance.get_plays()
+print(df)
+```
+
+## Quick data clean
+
+If you see this data, there are a lot of empty columns. We can utilize pandas/siuba and pyjaniotr to help us remove empty columns and/or rows.
+
+```{python}
+from janitor import remove_empty
+from siuba import _, filter, select
+
+# Using a familar R version:
+# filter out empty player_name
+df1 = (df 
+       >> filter((_.skill.notna()) & (_.skill != 'Point'))
+      )
+# And remove empty columns
+df1 = remove_empty(df1)
+print(df1)
+```
+
+Doing this we go from `[1219 rows x 56 columns]` to `[608 rows x 41 columns]`
+
+We can further clean this data with removing columns we do not want.
+
+```{python}
+df1 = (df
+       >> filter((_.skill.notna()) & (_.skill != 'Point'))
+       >> select(~_.video_file_number, ~_.video_time, ~_.possesion_number)
+      )
+print(df1.head(40))
+```

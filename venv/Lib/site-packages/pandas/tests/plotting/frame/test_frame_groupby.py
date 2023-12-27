@@ -2,20 +2,21 @@
 
 import pytest
 
+import pandas.util._test_decorators as td
+
 from pandas import DataFrame
-from pandas.tests.plotting.common import _check_visible
-
-pytest.importorskip("matplotlib")
+from pandas.tests.plotting.common import TestPlotBase
 
 
-class TestDataFramePlotsGroupby:
+@td.skip_if_no_mpl
+class TestDataFramePlotsGroupby(TestPlotBase):
     def _assert_ytickslabels_visibility(self, axes, expected):
         for ax, exp in zip(axes, expected):
-            _check_visible(ax.get_yticklabels(), visible=exp)
+            self._check_visible(ax.get_yticklabels(), visible=exp)
 
     def _assert_xtickslabels_visibility(self, axes, expected):
         for ax, exp in zip(axes, expected):
-            _check_visible(ax.get_xticklabels(), visible=exp)
+            self._check_visible(ax.get_xticklabels(), visible=exp)
 
     @pytest.mark.parametrize(
         "kwargs, expected",

@@ -5,13 +5,10 @@ from pandas.util._validators import (
     validate_kwargs,
 )
 
-
-@pytest.fixture
-def _fname():
-    return "func"
+_fname = "func"
 
 
-def test_bad_kwarg(_fname):
+def test_bad_kwarg():
     good_arg = "f"
     bad_arg = good_arg + "o"
 
@@ -25,7 +22,7 @@ def test_bad_kwarg(_fname):
 
 
 @pytest.mark.parametrize("i", range(1, 3))
-def test_not_all_none(i, _fname):
+def test_not_all_none(i):
     bad_arg = "foo"
     msg = (
         rf"the '{bad_arg}' parameter is not supported "
@@ -43,7 +40,7 @@ def test_not_all_none(i, _fname):
         validate_kwargs(_fname, kwargs, compat_args)
 
 
-def test_validation(_fname):
+def test_validation():
     # No exceptions should be raised.
     compat_args = {"f": None, "b": 1, "ba": "s"}
 

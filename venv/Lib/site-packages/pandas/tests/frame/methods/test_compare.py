@@ -265,10 +265,6 @@ def test_compare_ea_and_np_dtype(val1, val2):
             ("b", "other"): np.nan,
         }
     )
-    if val1 is pd.NA and val2 is pd.NA:
-        # GH#18463 TODO: is this really the desired behavior?
-        expected.loc[1, ("a", "self")] = np.nan
-
     if val1 is pd.NA and np_version_gte1p25:
         # can't compare with numpy array if it contains pd.NA
         with pytest.raises(TypeError, match="boolean value of NA is ambiguous"):

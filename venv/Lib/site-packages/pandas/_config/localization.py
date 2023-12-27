@@ -10,12 +10,9 @@ import locale
 import platform
 import re
 import subprocess
-from typing import TYPE_CHECKING
+from typing import Generator
 
 from pandas._config.config import options
-
-if TYPE_CHECKING:
-    from collections.abc import Generator
 
 
 @contextmanager

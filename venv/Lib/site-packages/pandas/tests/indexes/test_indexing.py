@@ -56,7 +56,8 @@ class TestTake:
     def test_take(self, index):
         indexer = [4, 3, 0, 2]
         if len(index) < 5:
-            pytest.skip("Test doesn't make sense since not enough elements")
+            # not enough elements; ignore
+            return
 
         result = index.take(indexer)
         expected = index[indexer]
@@ -80,7 +81,7 @@ class TestTake:
         # -1 does not get treated as NA unless allow_fill=True is passed
         if len(index) == 0:
             # Test is not applicable
-            pytest.skip("Test doesn't make sense for empty index")
+            return
 
         result = index.take([0, 0, -1])
 
@@ -175,8 +176,10 @@ class TestContains:
 
 class TestGetLoc:
     def test_get_loc_non_hashable(self, index):
-        with pytest.raises(InvalidIndexError, match="[0, 1]"):
-            index.get_loc([0, 1])
+        # MultiIndex and Index raise TypeError, others InvalidIndexError
+
+        with pytest.raises((TypeError, InvalidIndexError), match="slice"):
+            index.get_loc(slice(0, 1))
 
     def test_get_loc_non_scalar_hashable(self, index):
         # GH52877
@@ -288,7 +291,7 @@ class TestPutmask:
     def test_putmask_with_wrong_mask(self, index):
         # GH#18368
         if not len(index):
-            pytest.skip("Test doesn't make sense for empty index")
+            return
 
         fill = index[0]
 

@@ -1,3 +1,5 @@
+import warnings
+
 import numpy as np
 import pytest
 
@@ -191,23 +193,16 @@ class TestCatAccessor:
         ]
 
         func_defs = [(fname, (), {}) for fname in func_names]
-        func_defs.extend(
-            f_def for f_def in special_func_defs if f_def[0] in dir(ser.dt)
-        )
+
+        for f_def in special_func_defs:
+            if f_def[0] in dir(ser.dt):
+                func_defs.append(f_def)
 
         for func, args, kwargs in func_defs:
-            warn_cls = []
-            if func == "to_period" and getattr(idx, "tz", None) is not None:
-                # dropping TZ
-                warn_cls.append(UserWarning)
-            if func == "to_pydatetime":
-                # deprecated to return Index[object]
-                warn_cls.append(FutureWarning)
-            if warn_cls:
-                warn_cls = tuple(warn_cls)
-            else:
-                warn_cls = None
-            with tm.assert_produces_warning(warn_cls):
+            with warnings.catch_warnings():
+                if func == "to_period":
+                    # dropping TZ
+                    warnings.simplefilter("ignore", UserWarning)
                 res = getattr(cat.dt, func)(*args, **kwargs)
                 exp = getattr(ser.dt, func)(*args, **kwargs)
 

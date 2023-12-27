@@ -1,0 +1,43 @@
+project: 
+  type: website
+  
+website: 
+  page-navigation: true
+  title: "pydatavolley"
+  navbar: 
+    right: 
+      - icon: github
+        href: https://github.com
+        aria-label: GitHub
+  
+  sidebar:
+    style: docked
+    search: true
+    collapse-level: 1
+    contents:
+      - href: index.qmd
+        text: Welcome
+      - section: Setup
+        contents:
+          - ide.qmd
+          - install_packages.qmd
+      - section: DVW files
+        contents:
+          - reading_files.qmd
+          - data_clean.qmd
+          - Adding data
+          - quarto-workflows/browser.md
+          - quarto-workflows/rstudio.qmd
+          - quarto-workflows/jupyter.md 
+      - learning-more.qmd
+
+format:
+  html:
+    theme:
+      - zephyr
+    toc: true
+    code-link: true
+    callout-appearance: simple
+    author-meta: "Tyler Widdison"
+
+editor: visual

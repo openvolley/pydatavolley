@@ -8,6 +8,7 @@ from pandas.core.arrays.sparse.array import (
     SparseArray,
     make_sparse_index,
 )
+from pandas.core.arrays.sparse.dtype import SparseDtype
 
 __all__ = [
     "BlockIndex",
@@ -15,5 +16,6 @@ __all__ = [
     "make_sparse_index",
     "SparseAccessor",
     "SparseArray",
+    "SparseDtype",
     "SparseFrameAccessor",
 ]

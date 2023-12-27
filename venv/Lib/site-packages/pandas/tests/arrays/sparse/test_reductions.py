@@ -3,11 +3,13 @@ import pytest
 
 from pandas import (
     NaT,
-    SparseDtype,
     Timestamp,
     isna,
 )
-from pandas.core.arrays.sparse import SparseArray
+from pandas.core.arrays.sparse import (
+    SparseArray,
+    SparseDtype,
+)
 
 
 class TestReductions:

@@ -3,7 +3,6 @@ Module for scope operations
 """
 from __future__ import annotations
 
-from collections import ChainMap
 import datetime
 import inspect
 from io import StringIO
@@ -11,7 +10,10 @@ import itertools
 import pprint
 import struct
 import sys
-from typing import TypeVar
+from typing import (
+    ChainMap,
+    TypeVar,
+)
 
 import numpy as np
 

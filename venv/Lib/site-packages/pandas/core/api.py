@@ -7,7 +7,6 @@ from pandas._libs import (
 from pandas._libs.missing import NA
 
 from pandas.core.dtypes.dtypes import (
-    ArrowDtype,
     CategoricalDtype,
     DatetimeTZDtype,
     IntervalDtype,
@@ -26,6 +25,7 @@ from pandas.core.algorithms import (
     value_counts,
 )
 from pandas.core.arrays import Categorical
+from pandas.core.arrays.arrow import ArrowDtype
 from pandas.core.arrays.boolean import BooleanDtype
 from pandas.core.arrays.floating import (
     Float32Dtype,

@@ -1,0 +1,40 @@
+---
+title: "Data cleaning"
+---
+
+## Quick data clean
+
+If you see this data, there are a lot of empty columns. We can utilize pandas/siuba and pyjaniotr to help us remove empty columns and/or rows.
+
+```{python}
+import pandas as pd
+import requests
+from datavolley import read_dv
+from janitor import remove_empty
+from siuba import _, filter, select
+# Read in data
+# Set the max rows and columns so we can see more data
+pd.set_option('display.max_rows', 50)
+pd.set_option('display.max_columns', 500)
+pd.set_option('display.width', 400)
+# Provided URL 
+url = "https://mevza.volleynet.at/dl/L2RhdGF2b2xsZXkvMjAyMS9NRUxfbWVuLyZNSUwtMS5kdnc="
+
+# Download the file
+res = requests.get(url)
+# Load the downloaded file
+with open("example1.dvw", 'wb') as file:
+    file.write(res.content)
+dv_instance = read_dv.DataVolley("example1.dvw")
+df = dv_instance.get_plays()
+
+# filter out empty player_name
+df1 = (df 
+       >> filter((_.skill.notna()) & (_.skill != 'Point'))
+      )
+# And remove empty columns
+df1 = remove_empty(df1)
+print(df1)
+```
+
+Doing this we go from `[1219 rows x 56 columns]` to `[608 rows x 41 columns]`

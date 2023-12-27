@@ -10,7 +10,7 @@ from pandas import (
 from pandas.core.arrays import (
     Categorical,
     DatetimeArray,
-    NumpyExtensionArray,
+    PandasArray,
     TimedeltaArray,
 )
 
@@ -65,11 +65,11 @@ class TestEmpty:
         assert result.shape == shape
 
     def test_empty_pandas_array(self):
-        arr = NumpyExtensionArray(np.array([1, 2]))
+        arr = PandasArray(np.array([1, 2]))
         dtype = arr.dtype
 
         shape = (3, 9)
-        result = NumpyExtensionArray._empty(shape, dtype=dtype)
-        assert isinstance(result, NumpyExtensionArray)
+        result = PandasArray._empty(shape, dtype=dtype)
+        assert isinstance(result, PandasArray)
         assert result.dtype == dtype
         assert result.shape == shape
