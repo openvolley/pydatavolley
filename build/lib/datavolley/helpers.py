@@ -65,7 +65,6 @@ def add_xy(data):
     data['end_coordinate'] = data['end_coordinate'].astype('Int64')
     data['end_coord_xy'] = data['end_coordinate'].apply(dv_index2xy)
     data[['end_coordinate_x', 'end_coordinate_y']] = pd.DataFrame(data['end_coord_xy'].apply(lambda x: x[0]).tolist())
-    
-    
+
     data = data.drop(columns = ['start_coord_xy', 'end_coord_xy', 'mid_coord_xy'])
     return data

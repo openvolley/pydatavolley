@@ -22,5 +22,3 @@ pip install pandas
 pip install siuba
 pip install pyjanitor
 ```
-
-If you are R user, using [siuba](https://siuba.org/guide/overview.html) will feel comfortable vs pandas.

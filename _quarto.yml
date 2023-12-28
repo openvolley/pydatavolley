@@ -17,25 +17,25 @@ website:
     contents:
       - href: index.qmd
         text: Welcome
-      - section: Setup
+      - section: 1 - Setup
         contents:
           - ide.qmd
           - install_packages.qmd
-      - section: DVW files
+      - section: 2 - DVW files
         contents:
           - reading_files.qmd
           - data_clean.qmd
           - Adding data
-          - quarto-workflows/browser.md
-          - quarto-workflows/rstudio.qmd
-          - quarto-workflows/jupyter.md 
-      - learning-more.qmd
+      - section: 3 - Creating tables
+        contents:
+          - tables
 
 format:
   html:
     theme:
       - zephyr
     toc: true
+    code-fold: show
     code-link: true
     callout-appearance: simple
     author-meta: "Tyler Widdison"

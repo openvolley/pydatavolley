@@ -1,5 +1,27 @@
 ---
-title: "IDE"
+title: "Using python"
 ---
 
-IDE or Integrated development environment. This book will be focused on use with [Visual Studio Code](https://code.visualstudio.com/). However you can use R and will have a video at some point reviewing how to use python in R.
+## The beginning
+
+IDE or Integrated development environment. This book will be focused on use with [Visual Studio Code](https://code.visualstudio.com/) (VSC).
+
+However you can use [R](https://rstudio.github.io/reticulate/).
+
+![](images/paste-2.png)
+
+The methods are focused on using Windows VLC however, using a Mac will work just as well inasmuch as your installation of [pip is properly performed](https://www.geeksforgeeks.org/how-to-install-pip-in-macos/#).
+
+## VSC Enviorment vs Projects vs None
+
+If you are a R user who doesn't care so much about organizing project structure, using python can be similar but also messy in the long run. Simply create a file where your path currently is, read dvw file(s) from the desired path and away you go! Warning this can get messy and difficult to navigate if you start using multiple ad hoc files, reading hundreds of files, whilst running reports or dashboards.
+
+The advantage of using environments is keeping your project structure easy to understand. You can also add your own package ingredients which can speed up the process of your file processing, keep clean your work space and run dashboards or reports easily.
+
+Using projects is very simple in VSC, which can help ease the messiness if you intend on using more than just reading files. Simple create a folder in the directory you want, start VSC, and open folder! Your project is started and anything you save at that point will go to the folder which you created your new folder in. This also allows for different files to be imported into each other.
+
+![](images/paste-1.png)
+
+## Combing Python and R?
+
+It is possible to use python in R studio, in this you can create a new project in R, parse your files in python and save a csv/excel file. Then read in R.
