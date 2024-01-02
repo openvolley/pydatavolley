@@ -4,7 +4,7 @@ import requests
 import pandas as pd
 import numpy as np
 from .get_players_from_md import read_players
-from .helpers import get_teams, calculate_skill, skill_map, eval_codes, desired_order, add_xy
+from .helpers import get_match, get_set, get_teams, calculate_skill, skill_map, eval_codes, desired_order, add_xy
 
 class DataVolley:
     """
@@ -16,6 +16,15 @@ class DataVolley:
     Attributes:
     - file_path (str): The path to the DataVolley file.
     - plays (pd.DataFrame): Processed data stored in a DataFrame.
+    - match_info (pd.DataFrame): Data of the match
+    - sets_info (pd.DataFrame): Data of each quarter set and duration
+    - home_team (str): The name of the home team.
+    - home_team_id (str): Unique identifier of the home team. 
+    - home_coaches (list): List of the names of the coaches of the home team.
+    - visiting_team (str): The name of the visiting team.
+    - visiting_team_id (str): Unique identifier of the visiting team. 
+    - visiting_team_coaches (list): List of the names of the coaches of the visiting team.
+    - get_players (pd.DataFrame): Retrieves a DataFrame containing a list of players from a specified team, or from all teams if none is specified.
     """
 
     def __init__(self, file_path = None):
@@ -28,6 +37,16 @@ class DataVolley:
         if file_path is None:
             file_path = self._download_example_data()
         self.file_path = file_path
+        self.match_info = None
+        self.sets_info = None
+        self.home_team = ""
+        self.home_team_id = ""
+        self.home_setswon = 0
+        self.visiting_team = ""
+        self.visiting_team_id = ""
+        self.visiting_setswon = 0
+        self.visiting_coaches = []
+        self.home_coaches = []
         self._read_data()
 
     def _download_example_data(self):
@@ -64,16 +83,53 @@ class DataVolley:
         full_file = pd.DataFrame(rows)
         full_file['meta_group'] = full_file[0].str.extract(r'\[(.*?)\]', expand=False).ffill()
 
-        # Get Player Names
-        meta_data = full_file[full_file['meta_group'] != '3SCOUT']
+        # Get Match information
+        self.match_info = get_match(rows)
+        self.sets_info = get_set(rows)
 
         # Get teams metadata
         teams = get_teams(rows)
-        home_team_id = teams[0].split(";")[0]
-        visiting_team_id = teams[1].split(";")[0]
-        home_team = teams[0].split(";")[1]
-        visiting_team = teams[1].split(";")[1]
+        self.home_team_id = teams[0].split(";")[0]
+        self.home_team = teams[0].split(";")[1]
+        self.home_setswon = int(teams[0].split(";")[2]) 
+        self.home_coaches = []
+        self.home_coaches.append(teams[0].split(';')[3])
+        self.home_coaches.append(teams[0].split(';')[4])
+        self.visiting_team_id = teams[1].split(";")[0]
+        self.visiting_team = teams[1].split(";")[1]
+        self.visiting_setswon = int(teams[1].split(";")[2])
+        self.visiting_coaches = []
+        self.visiting_coaches.append(teams[1].split(';')[3])
+        self.visiting_coaches.append(teams[1].split(';')[4])
 
+        # Get Player Names
+        meta_data = full_file[full_file['meta_group'] != '3SCOUT']
+        datarows = []
+        for idx, row in  meta_data[meta_data.meta_group == "3PLAYERS-H"].iterrows():
+            rowtext = row[0].rstrip()
+            if (rowtext.find(";")> 0):
+                datarows.append(rowtext.split(";")[:13])
+        self.players_home = pd.DataFrame(data=datarows,
+                               columns=["team_id","player_number","team",
+                                        "set1","set2","set3","set4","set5",
+                                        "player_id","lastname","name",
+                                        "nickname","role"])
+        self.players_home['team_id'] = self.home_team_id
+        self.players_home['team'] = self.home_team
+        self.players_home["player_name"] = self.players_home["name"] + " " + self.players_home["lastname"]
+        datarows = []
+        for idx, row in  meta_data[meta_data.meta_group == "3PLAYERS-V"].iterrows():
+            rowtext = row[0].rstrip()
+            if (rowtext.find(";")> 0):
+                datarows.append(rowtext.split(";")[:13])
+        self.players_visiting = pd.DataFrame(data=datarows,
+                               columns=["team_id","player_number","team",
+                                        "set1","set2","set3","set4","set5",
+                                        "player_id","lastname","name",
+                                        "nickname","role"])
+        self.players_visiting['team_id'] = self.visiting_team_id
+        self.players_visiting['team'] = self.visiting_team
+        self.players_visiting["player_name"] = self.players_visiting["name"] + " " + self.players_visiting["lastname"]
         # Parse out the [3SCOUT] and keep the rest
         index_of_scout = full_file.index[full_file[0] == '[3SCOUT]\n'][0]
 
@@ -100,15 +156,15 @@ class DataVolley:
 
 
         # Create team
-        plays['team'] = np.where(plays['code'].str[0:1] == '*', home_team, visiting_team)
+        plays['team'] = np.where(plays['code'].str[0:1] == '*', self.home_team, self.visiting_team)
 
         # Create player_number
         plays['player_number'] = plays['code'].str[1:3].str.extract(r'(\d{2})').astype(float).fillna(0).astype(int).astype(str)
         plays['player_number'] = np.where(plays['player_number'] == '0', np.nan, plays['player_number'])
 
         # Create player_name for both teams
-        plays = pd.merge(plays, pd.concat(list([read_players(meta_data, home_team, 'H'), 
-                                                read_players(meta_data, visiting_team, 'V')])
+        plays = pd.merge(plays, pd.concat(list([read_players(meta_data, self.home_team, 'H'), 
+                                                read_players(meta_data, self.visiting_team, 'V')])
                                         ), on=['player_number', 'team'], how='left')
 
         # Create skill
@@ -136,8 +192,8 @@ class DataVolley:
         plays['num_players_numeric'] = np.where((plays['skill'] == 'Attack') & (plays['num_players_numeric'] != '~~'), plays['num_players_numeric'], np.nan)
 
         # Create home_team_id
-        plays['home_team_id'] = home_team_id
-        plays['visiting_team_id'] = visiting_team_id
+        plays['home_team_id'] = self.home_team_id
+        plays['visiting_team_id'] = self.visiting_team_id
 
         # Create start_zone
         plays['start_zone'] = plays['code'].str[9:10]
@@ -158,7 +214,7 @@ class DataVolley:
         plays['rally_number'] = plays.groupby('set_number', group_keys=False)['skill'].apply(lambda x: (x == 'Serve').cumsum())
 
         # Create point_won_by
-        plays['point_won_by'] = plays.apply(lambda row: home_team if row['code'][0:2] == '*p' else visiting_team if row['code'][0:2] == 'ap' else None, axis=1)
+        plays['point_won_by'] = plays.apply(lambda row: self.home_team if row['code'][0:2] == '*p' else self.visiting_team if row['code'][0:2] == 'ap' else None, axis=1)
         plays['point_won_by'] = plays['point_won_by'].bfill()
         plays['point_won_by'] = np.where(plays['code'].str.contains('Up'), np.nan, plays['point_won_by'])
         plays['point_won_by'] = np.select(
@@ -192,12 +248,12 @@ class DataVolley:
         plays = add_xy(plays)
 
         # Create serving_team
-        plays['serving_team'] = np.where((plays['skill'] == 'Serve') & (plays['code'].str[0:1] == '*'), home_team, None)
-        plays['serving_team'] = np.where((plays['skill'] == 'Serve') & (plays['code'].str[0:1] == 'a'), visiting_team, plays['serving_team'])
+        plays['serving_team'] = np.where((plays['skill'] == 'Serve') & (plays['code'].str[0:1] == '*'), self.home_team, None)
+        plays['serving_team'] = np.where((plays['skill'] == 'Serve') & (plays['code'].str[0:1] == 'a'), self.visiting_team, plays['serving_team'])
         plays['serving_team'] = plays.groupby(['set_number', 'rally_number'])['serving_team'].ffill()
 
         # Create receiving_team
-        plays['receiving_team'] = np.where(plays['serving_team'] == home_team, visiting_team, home_team)
+        plays['receiving_team'] = np.where(plays['serving_team'] == self.home_team, self.visiting_team, self.home_team)
         plays['receiving_team'] = np.where(plays['serving_team'].isna(), np.nan, plays['receiving_team'])
 
         # Create point_phase
@@ -222,10 +278,10 @@ class DataVolley:
         # Create substitution
 
         # Create home_team
-        plays['home_team'] = home_team
+        plays['home_team'] = self.home_team
 
         # Create visiting_team
-        plays['visiting_team'] = visiting_team
+        plays['visiting_team'] = self.visiting_team
 
         # Create setter_position
         plays['setter_position'] = np.where(plays['home_team'] == plays['team'], plays['home_setter_position'], plays['visiting_setter_position'])
@@ -247,3 +303,23 @@ class DataVolley:
         - pd.DataFrame: Processed data stored in a DataFrame.
         """
         return self.plays
+
+    def get_players(self,team=None):
+        """
+        Retrieves a DataFrame containing a list of players from a specified team, or from all teams if none is specified.
+
+        Args:
+            team (str, optional): The name or the id of the team to filter players for. If None, players from all teams are returned.
+
+         Returns:
+                pd.DataFrame: A DataFrame containing the filtered players. 
+                If 'team' is specified, the DataFrame will contain only players from that team. 
+                If there are no players for the specified team, the DataFrame is returned with both teams.
+        """
+        players = pd.concat([self.players_home,self.players_visiting],ignore_index=True)
+        if team != None:
+            if ((team == self.home_team) or (team == self.home_team_id)):
+                players = self.players_home
+            if ((team == self.visiting_team) or (team == self.visiting_team_id)):
+                players = self.players_visiting
+        return players
