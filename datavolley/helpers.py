@@ -17,13 +17,13 @@ def get_match(rows_list):
     match_data["day"] = [match_row[0]]
     match_data["time"] =  [match_row[1]]
     match_data["season"] = [match_row[2]]
-    match_data["championshp"] = [match_row[3]]
+    match_data["championship"] = [match_row[3]]
     return pd.DataFrame(match_data)
 
 def get_set(rows_list):
     sets_index = rows_list.index('[3SET]\n')
     sets_data = []
-    sets_label = ["set","home1","visitor1","home2","visitor2","home3","visitor3", "hom4", "visitor4", "duration"]
+    sets_label = ["set","home1","visitor1","home2","visitor2","home3","visitor3", "home4", "visitor4", "duration"]
     for idx in range(1,6):
         rowdata = rows_list[sets_index + idx].strip().split(";")
         set_data = []
