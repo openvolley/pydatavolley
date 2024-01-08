@@ -9,6 +9,46 @@ def get_teams(rows_list):
     visiting_team = rows_list[teams_index + 2].strip()
     return home_team, visiting_team
 
+def get_match(rows_list):
+    # Find the index of [3MATCH]
+    match_data = {}
+    match_index = rows_list.index('[3MATCH]\n')
+    match_row = rows_list[match_index + 1].strip().split(";")
+    match_data["day"] = [match_row[0]]
+    match_data["time"] =  [match_row[1]]
+    match_data["season"] = [match_row[2]]
+    match_data["championship"] = [match_row[3]]
+    return pd.DataFrame(match_data)
+
+def get_set(rows_list):
+    sets_index = rows_list.index('[3SET]\n')
+    sets_data = []
+    sets_label = ["set","home1","visitor1","home2","visitor2","home3","visitor3", "home4", "visitor4", "duration"]
+    for idx in range(1,6):
+        rowdata = rows_list[sets_index + idx].strip().split(";")
+        set_data = []
+        set_data.append(idx) #set number
+        add = True
+        try:
+            set_data.append(int(rowdata[1].split("-")[0])) #1st quarter set IDX home 
+            set_data.append(int(rowdata[1].split("-")[1])) #1st quarter set IDX visitor 
+            set_data.append(int(rowdata[2].split("-")[0])) #2st quarter set IDX home 
+            set_data.append(int(rowdata[2].split("-")[1])) #2st quarter set IDX visitor
+            set_data.append(int(rowdata[3].split("-")[0])) #3st quarter set IDX home 
+            set_data.append(int(rowdata[3].split("-")[1])) #3st quarter set IDX visitor
+            set_data.append(int(rowdata[4].split("-")[0])) #4st quarter set IDX home 
+            set_data.append(int(rowdata[4].split("-")[1]))#4st quarter set IDX visitor
+        except Exception as e:
+            for notidx in range(9):
+                set_data.append(None) #1st quarter set IDX home 
+                add = False
+        
+        if (add):
+            set_data.append(int(rowdata[5]))
+        
+        sets_data.append(set_data)
+    return(pd.DataFrame(data=sets_data,columns=sets_label))
+
 # get player number out of code
 def calculate_skill(row):
     if pd.isna(row['player_number']):

@@ -32,7 +32,7 @@ from datavolley import read_dv
 import os
 
 # Assign path
-dvw_path_folder = os.path.expanduser("~\\desktop\\dvws\\1")
+dvw_path_folder = os.path.expanduser("~\\desktop\\dvws")
 file_extension = ".dvw"
 
 # Get a list of all files with the specified extension in the directory
@@ -93,12 +93,12 @@ print(combined_df[(combined_df['skill'].notna()) & (combined_df['skill'] != "Poi
 If you'd like to save your data into a csv.
 
 ```{python}
-combined_df.to_csv('combined_data.csv') # Where your current directory lives
+#combined_df.to_csv('combined_data.csv') # Where your current directory lives
 ```
 
-However, this method may present issues when it comes to encoding. You may want to choose some alternate methods when encoding becomes an issue. Saving to excel can help with that.
+However, this method may present issues when it comes to encoding. You may want to choose some alternate methods when encoding becomes an issue. Saving to excel is one option.
 
 ```{python}
 # You may need to run pip install openpyxl before saving to excel
-combined_df.to_excel('combined_data.xlsx')
+#combined_df.to_excel('combined_data.xlsx')
 ```

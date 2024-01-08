@@ -4,9 +4,9 @@ setup(
     name='pydatavolley',
     description='A python set of code for reading volleyball scouting files in DataVolley format (*.dvw)',
     url='https://github.com/openvolley/pydatavolley',
-    author='Tyler Widdison',
+    author=['Tyler Widdison', 'Maurizio Napolitano'],
     license='MIT',
-    version='2.2.8',
+    version='2.2.9',
     packages=find_packages(),
     install_requires=[
         'numpy>=1.23.3',
