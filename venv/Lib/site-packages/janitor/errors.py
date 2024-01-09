@@ -1,2 +1,0 @@
-class JanitorError(Exception):
-    pass

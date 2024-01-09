@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Tyler Widdison">
+
+<title>pydatavolley - Data cleaning</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./data_description.html" rel="next">
+<link href="./reading_files.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">pydatavolley</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com" rel="" target=""><i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./reading_files.html">2 - DVW files</a></li><li class="breadcrumb-item"><a href="./data_clean.html">Data cleaning</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Welcome</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+ <span class="menu-text">1 - Setup</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Using python</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./install_packages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Installing packages</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">2 - DVW files</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./reading_files.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reading dvw files</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data_clean.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Data cleaning</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+ <span class="menu-text">3 - Creating data</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data_description.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Description Example</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./heatmaps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Heatmap attacks</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#data-cleaning" id="toc-data-cleaning" class="nav-link active" data-scroll-target="#data-cleaning">Data cleaning</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Data cleaning</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="data-cleaning" class="level2">
+<h2 class="anchored" data-anchor-id="data-cleaning">Data cleaning</h2>
+<p>Depending on your needs, you may want to add a few items into your plays dataframe. Doing so can help navigate your data more efficiently in the long run.</p>
+<p>A simple data clean can be used with pyjanitor. Where we can remove all empty columns (if any exist).</p>
+<div class="cell" data-execution_count="1">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>pd.set_option(<span class="st">'display.max_columns'</span>, <span class="va">None</span>) </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>pd.set_option(<span class="st">'display.width'</span>, <span class="dv">300</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datavolley <span class="im">import</span> read_dv</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> janitor <span class="im">import</span> remove_empty</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>dv_instance <span class="op">=</span> read_dv.DataVolley(<span class="va">None</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> dv_instance.get_plays()</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> remove_empty(df)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[df[<span class="st">'skill'</span>].notna()])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                  match_id video_file_number video_time                code                      team player_number      player_name player_id      skill evaluation_code setter_position attack_code set_code set_type start_zone end_zone end_subzone num_players_numeric  \
+4     08b3fab1-91c5-4fa5-aee4-6ee54cd1a89c                 1        494   *19SM+~~~78A~~~00  University of Louisville            19  Shannon Shields   -296094      Serve               +               1         NaN      NaN      NaN          7        8           A                 NaN   
+5     08b3fab1-91c5-4fa5-aee4-6ee54cd1a89c                 1        495  a02RM-~~~58AM~~00B      University of Dayton             2    Maura Collins   -230138  Reception               -               6         NaN      NaN      NaN          5        8           A                 NaN   
+6     08b3fab1-91c5-4fa5-aee4-6ee54cd1a89c                 1        497   a08ET#~~~~8C~~~00      University of Dayton             8  Brooke Westbeld   -232525        Set               #               6         NaN      NaN        ~        NaN        8           C                 NaN   
+7     08b3fab1-91c5-4fa5-aee4-6ee54cd1a89c                 1        499  a10AT-X5~46CH2~00F      University of Dayton            10   Jamie Peterson    -11802     Attack               -               6          X5      NaN      NaN          4        6           C                   2   
+8     08b3fab1-91c5-4fa5-aee4-6ee54cd1a89c                 1        499   *11BT+~~~~2C~~~00  University of Louisville            11   Anna Stevenson   -278838      Block               +               1         NaN      NaN      NaN        NaN        2           C                 NaN   
+...                                    ...               ...        ...                 ...                       ...           ...              ...       ...        ...             ...             ...         ...      ...      ...        ...      ...         ...                 ...   
+1476  08b3fab1-91c5-4fa5-aee4-6ee54cd1a89c                 1       5217   *08EH#~~~~9D~~~+6  University of Louisville             8    Lexi Hamilton    -75970        Set               #               4         NaN      NaN        ~        NaN        9           D                 NaN   
+1477  08b3fab1-91c5-4fa5-aee4-6ee54cd1a89c                 1       5218  *10AH=V5~44BH2~+6F  University of Louisville            10      Mel McHenry    -75967     Attack               =               4          V5      NaN      NaN          4        4           B                   2   
+1478  08b3fab1-91c5-4fa5-aee4-6ee54cd1a89c                 1       5219             ap24:19      University of Dayton           NaN              NaN       NaN      Point             NaN               3         NaN      NaN      NaN        NaN      NaN         NaN                 NaN   
+1484  08b3fab1-91c5-4fa5-aee4-6ee54cd1a89c                 1       5252   a18SM=~~~71B~~~-5      University of Dayton            18      Grace Dynda   -282421      Serve               =               2         NaN      NaN      NaN          7        1           B                 NaN   
+1485  08b3fab1-91c5-4fa5-aee4-6ee54cd1a89c                 1       5253             *p25:19  University of Louisville           NaN              NaN       NaN      Point             NaN               4         NaN      NaN      NaN        NaN      NaN         NaN                 NaN   
+
+      home_team_score  visiting_team_score home_setter_position visiting_setter_position custom_code home_p1 home_p2 home_p3 home_p4 home_p5 home_p6 visiting_p1 visiting_p2 visiting_p3 visiting_p4 visiting_p5 visiting_p6  start_coordinate  mid_coordinate  end_coordinate point_phase   attack_phase  \
+4                   1                    0                    1                        6          00      19       9      11      15      10       7           1          16          17          10           6           8               431            &lt;NA&gt;            7642       Serve            nan   
+5                   1                    0                    1                        6         00B      19       9      11      15      10       7           1          16          17          10           6           8               431            &lt;NA&gt;            7642   Reception            nan   
+6                   1                    0                    1                        6          00      19       9      11      15      10       7           1          16          17          10           6           8              3147            &lt;NA&gt;            &lt;NA&gt;   Reception            nan   
+7                   1                    0                    1                        6         00F      19       9      11      15      10       7           1          16          17          10           6           8              4512            5522            8150   Reception      Reception   
+8                   1                    0                    1                        6          00      19       9      11      15      10       7           1          16          17          10           6           8              4578            &lt;NA&gt;            &lt;NA&gt;       Serve            nan   
+...               ...                  ...                  ...                      ...         ...     ...     ...     ...     ...     ...     ...         ...         ...         ...         ...         ...         ...               ...             ...             ...         ...            ...   
+1476               24                   19                    4                        3          +6      17      10       7      19       9      11          10          15           8           1          16           3              2469            &lt;NA&gt;            &lt;NA&gt;       Serve            nan   
+1477               24                   19                    4                        3         +6F      17      10       7      19       9      11          10          15           8           1          16           3              4211            &lt;NA&gt;            5270       Serve  BP-Transition   
+1478               24                   19                    4                        3        None      17      10       7      19       9      11          10          15           8           1          16           3              4830            &lt;NA&gt;            &lt;NA&gt;   Reception            nan   
+1484               25                   19                    4                        2          -5      17      10       7      19       9      11          18           8           1          16           3          10               337            &lt;NA&gt;            8812       Serve            nan   
+1485               25                   19                    4                        2        None      17      10       7      19       9      11          18           8           1          16           3          10              1288            &lt;NA&gt;            &lt;NA&gt;   Reception            nan   
+
+     start_coordinate_x start_coordinate_y mid_coordinate_x mid_coordinate_y end_coordinate_x end_coordinate_y set_number                 home_team         visiting_team home_team_id visiting_team_id              point_won_by              serving_team            receiving_team  rally_number  \
+4               1.26875           0.092596             &lt;NA&gt;             &lt;NA&gt;          1.68125         5.425924          1  University of Louisville  University of Dayton           17               42  University of Louisville  University of Louisville      University of Dayton             1   
+5               1.26875           0.092596             &lt;NA&gt;             &lt;NA&gt;          1.68125         5.425924          1  University of Louisville  University of Dayton           17               42  University of Louisville  University of Louisville      University of Dayton             1   
+6               1.86875           2.092594             &lt;NA&gt;             &lt;NA&gt;             &lt;NA&gt;             &lt;NA&gt;          1  University of Louisville  University of Dayton           17               42  University of Louisville  University of Louisville      University of Dayton             1   
+7               0.55625            3.12963          0.93125          3.87037          1.98125         5.796294          1  University of Louisville  University of Dayton           17               42  University of Louisville  University of Louisville      University of Dayton             1   
+8               3.03125            3.12963             &lt;NA&gt;             &lt;NA&gt;             &lt;NA&gt;             &lt;NA&gt;          1  University of Louisville  University of Dayton           17               42  University of Louisville  University of Louisville      University of Dayton             1   
+...                 ...                ...              ...              ...              ...              ...        ...                       ...                   ...          ...              ...                       ...                       ...                       ...           ...   
+1476            2.69375           1.574076             &lt;NA&gt;             &lt;NA&gt;             &lt;NA&gt;             &lt;NA&gt;          3  University of Louisville  University of Dayton           17               42      University of Dayton  University of Louisville      University of Dayton            43   
+1477            0.51875           2.907408             &lt;NA&gt;             &lt;NA&gt;          2.73125         3.648148          3  University of Louisville  University of Dayton           17               42      University of Dayton  University of Louisville      University of Dayton            43   
+1478            1.23125           3.351852             &lt;NA&gt;             &lt;NA&gt;             &lt;NA&gt;             &lt;NA&gt;          3  University of Louisville  University of Dayton           17               42      University of Dayton  University of Louisville      University of Dayton            43   
+1484            1.49375           0.018522             &lt;NA&gt;             &lt;NA&gt;          0.55625         6.314812          3  University of Louisville  University of Dayton           17               42  University of Louisville      University of Dayton  University of Louisville            44   
+1485            3.40625           0.685188             &lt;NA&gt;             &lt;NA&gt;             &lt;NA&gt;             &lt;NA&gt;          3  University of Louisville  University of Dayton           17               42  University of Louisville      University of Dayton  University of Louisville            44   
+
+      possesion_number  
+4                    0  
+5                    1  
+6                    1  
+7                    1  
+8                    2  
+...                ...  
+1476                 2  
+1477                 2  
+1478                 3  
+1484                 0  
+1485                 1  
+
+[928 rows x 56 columns]</code></pre>
+</div>
+</div>
+<hr>
+<p>Perhaps you might want to change the match_id to the filename of the dvw.</p>
+<div class="cell" data-execution_count="2">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dv_instance <span class="op">=</span> read_dv.DataVolley(<span class="va">None</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>new_match_id <span class="op">=</span> dv_instance.file_path.split(<span class="st">'</span><span class="ch">\\</span><span class="st">'</span>)[<span class="op">-</span><span class="dv">1</span>].split(<span class="st">'.dvw'</span>)[<span class="dv">0</span>]</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'match_id'</span>] <span class="op">=</span> new_match_id</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[df[<span class="st">'skill'</span>].notna()].head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>       match_id video_file_number video_time                code                      team player_number      player_name player_id      skill evaluation_code setter_position attack_code set_code set_type start_zone end_zone end_subzone num_players_numeric  home_team_score  visiting_team_score  \
+4  example_data                 1        494   *19SM+~~~78A~~~00  University of Louisville            19  Shannon Shields   -296094      Serve               +               1         NaN      NaN      NaN          7        8           A                 NaN                1                    0   
+5  example_data                 1        495  a02RM-~~~58AM~~00B      University of Dayton             2    Maura Collins   -230138  Reception               -               6         NaN      NaN      NaN          5        8           A                 NaN                1                    0   
+6  example_data                 1        497   a08ET#~~~~8C~~~00      University of Dayton             8  Brooke Westbeld   -232525        Set               #               6         NaN      NaN        ~        NaN        8           C                 NaN                1                    0   
+7  example_data                 1        499  a10AT-X5~46CH2~00F      University of Dayton            10   Jamie Peterson    -11802     Attack               -               6          X5      NaN      NaN          4        6           C                   2                1                    0   
+8  example_data                 1        499   *11BT+~~~~2C~~~00  University of Louisville            11   Anna Stevenson   -278838      Block               +               1         NaN      NaN      NaN        NaN        2           C                 NaN                1                    0   
+
+  home_setter_position visiting_setter_position custom_code home_p1 home_p2 home_p3 home_p4 home_p5 home_p6 visiting_p1 visiting_p2 visiting_p3 visiting_p4 visiting_p5 visiting_p6  start_coordinate  mid_coordinate  end_coordinate point_phase attack_phase start_coordinate_x start_coordinate_y  \
+4                    1                        6          00      19       9      11      15      10       7           1          16          17          10           6           8               431            &lt;NA&gt;            7642       Serve          nan            1.26875           0.092596   
+5                    1                        6         00B      19       9      11      15      10       7           1          16          17          10           6           8               431            &lt;NA&gt;            7642   Reception          nan            1.26875           0.092596   
+6                    1                        6          00      19       9      11      15      10       7           1          16          17          10           6           8              3147            &lt;NA&gt;            &lt;NA&gt;   Reception          nan            1.86875           2.092594   
+7                    1                        6         00F      19       9      11      15      10       7           1          16          17          10           6           8              4512            5522            8150   Reception    Reception            0.55625            3.12963   
+8                    1                        6          00      19       9      11      15      10       7           1          16          17          10           6           8              4578            &lt;NA&gt;            &lt;NA&gt;       Serve          nan            3.03125            3.12963   
+
+  mid_coordinate_x mid_coordinate_y end_coordinate_x end_coordinate_y set_number                 home_team         visiting_team home_team_id visiting_team_id              point_won_by              serving_team        receiving_team  rally_number  possesion_number  
+4             &lt;NA&gt;             &lt;NA&gt;          1.68125         5.425924          1  University of Louisville  University of Dayton           17               42  University of Louisville  University of Louisville  University of Dayton             1                 0  
+5             &lt;NA&gt;             &lt;NA&gt;          1.68125         5.425924          1  University of Louisville  University of Dayton           17               42  University of Louisville  University of Louisville  University of Dayton             1                 1  
+6             &lt;NA&gt;             &lt;NA&gt;             &lt;NA&gt;             &lt;NA&gt;          1  University of Louisville  University of Dayton           17               42  University of Louisville  University of Louisville  University of Dayton             1                 1  
+7          0.93125          3.87037          1.98125         5.796294          1  University of Louisville  University of Dayton           17               42  University of Louisville  University of Louisville  University of Dayton             1                 1  
+8             &lt;NA&gt;             &lt;NA&gt;             &lt;NA&gt;             &lt;NA&gt;          1  University of Louisville  University of Dayton           17               42  University of Louisville  University of Louisville  University of Dayton             1                 2  </code></pre>
+</div>
+</div>
+<hr>
+<p>Any data cleaning taken place can prove useful long term. Perhaps there is a nested folder which contains the week of the season, the league, the conference, maybe the file has the correct date. Parsing additional data into your dataset will give more tools in your data journey.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./reading_files.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Reading dvw files</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./data_description.html" class="pagination-link">
+        <span class="nav-page-text">Data Description Example</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
