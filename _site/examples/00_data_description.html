@@ -233,14 +233,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<div class="cell" data-execution_count="102">
+<div class="cell" data-execution_count="1">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datavolley <span class="im">import</span> read_dv</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-execution_count="103">
+<div class="cell" data-execution_count="2">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> urllib.request</span>
@@ -252,7 +252,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">file</span>.write(source)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-execution_count="104">
+<div class="cell" data-execution_count="3">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># change this if you have your file</span></span>
@@ -263,7 +263,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>plays <span class="op">=</span> dvf.get_plays()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-execution_count="105">
+<div class="cell" data-execution_count="4">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>championship <span class="op">=</span> dvf.match_info.championship.values[<span class="dv">0</span>]</span>
@@ -272,7 +272,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>match_season <span class="op">=</span> dvf.match_info.season.values[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-execution_count="106">
+<div class="cell" data-execution_count="5">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>total_minutes <span class="op">=</span> dvf.sets_info.duration.<span class="bu">sum</span>()</span>
@@ -280,7 +280,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>minutes <span class="op">=</span> total_minutes <span class="op">%</span> <span class="dv">60</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-execution_count="107">
+<div class="cell" data-execution_count="6">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>string_sets <span class="op">=</span> <span class="st">""</span></span>
@@ -290,13 +290,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>   duraton_sets <span class="op">+=</span> <span class="bu">str</span>(row[<span class="st">"duration"</span>]) <span class="op">+</span> <span class="st">"',"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-execution_count="108">
+<div class="cell" data-execution_count="7">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>duration_sets <span class="op">=</span> duraton_sets.rstrip(<span class="st">","</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-execution_count="109">
+<div class="cell" data-execution_count="8">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"""</span></span>
@@ -311,15 +311,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
-21/04/2018 - 19.30.00
-1. Bundesliga Frauen - 1. Bundesliga Frauen - Playoffs
-Allianz MTV Stuttgart - SSC Palmberg Schwerin 
-2-3 (25-21) (22-25) (22-25) (25-21) (12-15) 
-duration: 02:17h (27',29',30',30',21')
+26/12/2023 - 17.00.00
+Serie A1 Femminile
+Wash4green Pinerolo - HONDA OLIVERO S.BERNARDO CUNEO 
+2-3 (25-20) (13-25) (25-23) (22-25) (15-17) 
+duration: 02:06h (27',22',29',26',22')
 </code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="110">
+<div class="cell" data-execution_count="9">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(dvf.home_team)</span>
@@ -341,38 +341,38 @@ duration: 02:17h (27',29',30',30',21')
 <span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">in parentheses: number of points, number of errors"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Allianz MTV Stuttgart
+<pre><code>Wash4green Pinerolo
 name    name
-1   Nikoleta Perovic (21,3)
-2   Femke Stoltenborg (2,1)
-3   Micheli Tomazela Pissinato (0,0)
-5   Mallory Grace McCage (16,4)
-6   Annie Cesar (0,2)
-7   Renata Sandor (12,10)
-8   Julia Schaefer (1,1)
-10  Pia KÃ¤stner (1,0)
-11  Teodora Pusic (0,0)
-12  Deborah van Daelen (5,3)
-14  Jenna Potts (0,0)
-16  Michaela Mlejnkova (18,5)
-17  Paige Tapp (7,2)
+1   Indre Sorokaite (18,9)
+2   Francesca Cosi (0,2)
+3   Carlotta Cambi (0,5)
+4   Giada Di Mario (0,5)
+5   Tessa Polder (2,5)
+8   Silvia Bussoli (0,0)
+9   Matilde Rostagno (0,0)
+10  Ilenia Moro (0,4)
+11  Maja Storck (16,8)
+12  Letizia Camera (0,1)
+13  Anett Nemeth (4,1)
+18  Yasmina Akrari (12,9)
+19  Adelina Ungureanu (29,8)
 coaches
- Athanasopoulos Giannis
- Paraschidis I, Miyashiro T
+ Marchiaro Michele
+ Naddeo Alberto
 
 in parentheses: number of points, number of errors</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="111">
+<div class="cell" data-execution_count="10">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>dvf.home_coaches[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="111">
-<pre><code>'Athanasopoulos Giannis'</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>'Marchiaro Michele'</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="112">
+<div class="cell" data-execution_count="11">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(dvf.visiting_team)</span>
@@ -394,24 +394,25 @@ in parentheses: number of points, number of errors</code></pre>
 <span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">in parentheses: number of points, number of errors"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>SSC Palmberg Schwerin
+<pre><code>HONDA OLIVERO S.BERNARDO CUNEO
 name    name
-1   Greta SzakmÃ¡ry (25,8)
-2   Martenne Julia Bettendorf (0,0)
-3   Louisa Lippmann (20,9)
-5   Sabrina Krause (0,0)
-6   Jennifer Geerties (11,5)
-7   Luna Veronica Carocci (0,3)
-8   Kaisa Alanko (1,1)
-10  Denise Hanke (6,4)
-11  Beta Dumancic (12,0)
-12  Lauren Barfield (9,0)
-14  Elisa Lohmann (0,0)
-15  Jelena Oluic (2,0)
-16  Marie SchÃ¶lzel (0,0)
+2   Francesca Scola (0,0)
+4   Saly Thior (0,0)
+5   Alice Tanase (0,0)
+6   Federica Ferrario (0,5)
+7   Amandha Sylves (13,8)
+8   Lena Stigrot (17,10)
+9   Anna Adelusi (7,6)
+10  Madison Kubik (19,6)
+12  Terry Ruth Enweonwu (6,11)
+13  Noemi Signorile (3,2)
+14  Anna Hall (15,2)
+15  Serena Scognamillo (0,0)
+17  Anna Haak (2,1)
+21  Beatrice Molinaro (0,0)
 coaches
- Koslowski Felix
- Hartmann M, Sens P
+ Bellano Massimo
+ Aime Emanuele
 
 in parentheses: number of points, number of errors</code></pre>
 </div>
