@@ -1,0 +1,80 @@
+{
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": "entity.name.function.letter.nlp",
+                "settings": {
+                    "foreground": "#dc1b1b"
+                }
+            },
+            {
+                "scope": "variable.parameter.nlp",
+                "settings": {
+                    "foreground": "#f8fa87"
+                }
+            },
+            {
+                "scope": "keyword.attribute.nlp",
+                "settings": {
+                    "foreground": "#f293fb"
+                }
+            },
+            {
+                "scope": "constant.numeric.tree",
+                "settings": {
+                    "foreground": "#93bffb"
+                }
+            },
+            {
+                "scope": "keyword.fired.tree",
+                "settings": {
+                    "foreground": "#dc1b1b"
+                }
+            },
+            {
+                "scope": "keyword.rewrite.tree",
+                "settings": {
+                    "foreground": "#f8fa87"
+                }
+            },
+            {
+                "scope": "keyword.node.tree",
+                "settings": {
+                    "foreground": "#4e8e3c"
+                }
+            },
+            {
+                "scope": "variable.parameter.txxt",
+                "settings": {
+                    "foreground": "#f8fa87"
+                }
+            },
+            {
+                "scope": "keyword.concept.kbb1",
+                "settings": {
+                    "foreground": "#909228"
+                }
+            },
+            {
+                "scope": "keyword.concept.kbb",
+                "settings": {
+                    "foreground": "#e3ee50"
+                }
+            },
+            {
+                "scope": "keyword.concept.kbb1",
+                "settings": {
+                    "foreground": "#2eb657"
+                }
+            },
+            {
+                "scope": "keyword.concept.kbb2",
+                "settings": {
+                    "foreground": "#e049d9"
+                }
+            }
+        ]
+    },
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "git.ignoreLimitWarning": true
+}

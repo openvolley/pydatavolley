@@ -1,0 +1,41 @@
+project: 
+  type: website
+  
+website: 
+  page-navigation: true
+  title: "pydatavolley"
+  navbar: 
+    right: 
+      - icon: github
+        href: https://github.com
+        aria-label: GitHub
+  
+  sidebar:
+    style: docked
+    search: true
+    collapse-level: 1
+    contents:
+        section: index.qmd
+      - section: 1 - Setup
+        contents:
+          - ide.qmd
+          - install_packages.qmd
+      - section: 2 - DVW files
+        contents:
+          - reading_files.qmd
+          - data_clean.qmd
+      - section: 3 - Creating data
+        contents:
+          - data_description.qmd
+
+format:
+  html:
+    theme:
+      - zephyr
+    toc: true
+    code-fold: show
+    code-link: true
+    callout-appearance: simple
+    author-meta: "Tyler Widdison"
+
+editor: visual

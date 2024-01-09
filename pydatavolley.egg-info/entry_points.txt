@@ -1,0 +1,2 @@
+[console_scripts]
+pydatavolley = datavolley.read_dv:main

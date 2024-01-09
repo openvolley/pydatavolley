@@ -1,0 +1,24 @@
+---
+title: "Installing packages"
+---
+
+## Packages {#Packages}
+
+Using [pip](https://pypi.org/search/?q=pydatavolley) or rather package installer for Python, you can download pydatavolley.
+
+Using windows:
+
+``` bash
+pip install pydatavolley
+```
+
+If you are using a mac there are likely some additional steps you'll need to follow to install pip first. You can find those here: <https://www.geeksforgeeks.org/how-to-install-pip-in-macos/#>
+
+Some additional packages used in this book:
+
+``` bash
+pip install numpy
+pip install pandas
+pip install siuba
+pip install pyjanitor
+```
