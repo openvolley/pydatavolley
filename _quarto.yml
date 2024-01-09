@@ -25,10 +25,9 @@ website:
         contents:
           - reading_files.qmd
           - data_clean.qmd
-          - Adding data
       - section: 3 - Creating data
         contents:
-          - data_description
+          - data_description.qmd
 
 format:
   html:

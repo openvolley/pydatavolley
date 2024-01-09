@@ -1,1 +1,0 @@
-Sitemap: https://openvolley.github.io/pydatavolley/sitemap.xml
