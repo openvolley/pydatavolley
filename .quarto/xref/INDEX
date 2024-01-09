@@ -1,0 +1,26 @@
+{
+  "data_clean.qmd": {
+    "data_clean.html": "4ddf6013"
+  },
+  "data_description.qmd": {
+    "data_description.html": "6907979e"
+  },
+  "examples/00_data_description.ipynb": {
+    "00_data_description.html": "0c0ef769"
+  },
+  "examples/01_heatmap_attacks.ipynb": {
+    "01_heatmap_attacks.html": "a9ab4d92"
+  },
+  "ide.qmd": {
+    "ide.html": "8ba9df19"
+  },
+  "index.qmd": {
+    "index.html": "2818292e"
+  },
+  "install_packages.qmd": {
+    "install_packages.html": "75d06750"
+  },
+  "reading_files.qmd": {
+    "reading_files.html": "11241da4"
+  }
+}
