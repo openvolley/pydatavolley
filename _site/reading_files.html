@@ -153,21 +153,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Welcome</span></a>
-  </div>
-</li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Welcome</span></span>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
  <span class="menu-text">1 - Setup</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ide.html" class="sidebar-item-text sidebar-link">
@@ -184,13 +182,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
  <span class="menu-text">2 - DVW files</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./reading_files.html" class="sidebar-item-text sidebar-link active">
@@ -207,13 +205,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
  <span class="menu-text">3 - Creating data</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data_description.html" class="sidebar-item-text sidebar-link">
@@ -280,16 +278,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>                                match_id video_file_number video_time                code                      team player_number      player_name player_id      skill evaluation_code setter_position attack_code set_code set_type start_zone end_zone end_subzone num_players_numeric  \
-4   82d1c2b8-97ec-4a85-b97f-9044874be7e9                 1        494   *19SM+~~~78A~~~00  University of Louisville            19  Shannon Shields   -296094      Serve               +               1         NaN      NaN      NaN          7        8           A                 NaN   
-5   82d1c2b8-97ec-4a85-b97f-9044874be7e9                 1        495  a02RM-~~~58AM~~00B      University of Dayton             2    Maura Collins   -230138  Reception               -               6         NaN      NaN      NaN          5        8           A                 NaN   
-6   82d1c2b8-97ec-4a85-b97f-9044874be7e9                 1        497   a08ET#~~~~8C~~~00      University of Dayton             8  Brooke Westbeld   -232525        Set               #               6         NaN      NaN        ~        NaN        8           C                 NaN   
-7   82d1c2b8-97ec-4a85-b97f-9044874be7e9                 1        499  a10AT-X5~46CH2~00F      University of Dayton            10   Jamie Peterson    -11802     Attack               -               6          X5      NaN      NaN          4        6           C                   2   
-8   82d1c2b8-97ec-4a85-b97f-9044874be7e9                 1        499   *11BT+~~~~2C~~~00  University of Louisville            11   Anna Stevenson   -278838      Block               +               1         NaN      NaN      NaN        NaN        2           C                 NaN   
-9   82d1c2b8-97ec-4a85-b97f-9044874be7e9                 1        500  *19DT+~~~42AB~~00B  University of Louisville            19  Shannon Shields   -296094        Dig               +               1         NaN      NaN      NaN          4        2           A                 NaN   
-10  82d1c2b8-97ec-4a85-b97f-9044874be7e9                 1        502   *08EH#~~~~8A~~~00  University of Louisville             8    Lexi Hamilton    -75970        Set               #               1         NaN      NaN        ~        NaN        8           A                 NaN   
-11  82d1c2b8-97ec-4a85-b97f-9044874be7e9                 1        504  *09AH#V5~41BH2~00F  University of Louisville             9  Claire Chaussee   -225496     Attack               #               1          V5      NaN      NaN          4        1           B                   2   
-12  82d1c2b8-97ec-4a85-b97f-9044874be7e9                 1        504   a17BH=~~~~2B~~~00      University of Dayton            17       Sierra Pla    -11804      Block               =               6         NaN      NaN      NaN        NaN        2           B                 NaN   
-18  82d1c2b8-97ec-4a85-b97f-9044874be7e9                 1        519   *19SM#~~~71C~~~+1  University of Louisville            19  Shannon Shields   -296094      Serve               #               1         NaN      NaN      NaN          7        1           C                 NaN   
+4   ae974f0a-4fc5-40a0-8e50-4c7eb8b46c17                 1        494   *19SM+~~~78A~~~00  University of Louisville            19  Shannon Shields   -296094      Serve               +               1         NaN      NaN      NaN          7        8           A                 NaN   
+5   ae974f0a-4fc5-40a0-8e50-4c7eb8b46c17                 1        495  a02RM-~~~58AM~~00B      University of Dayton             2    Maura Collins   -230138  Reception               -               6         NaN      NaN      NaN          5        8           A                 NaN   
+6   ae974f0a-4fc5-40a0-8e50-4c7eb8b46c17                 1        497   a08ET#~~~~8C~~~00      University of Dayton             8  Brooke Westbeld   -232525        Set               #               6         NaN      NaN        ~        NaN        8           C                 NaN   
+7   ae974f0a-4fc5-40a0-8e50-4c7eb8b46c17                 1        499  a10AT-X5~46CH2~00F      University of Dayton            10   Jamie Peterson    -11802     Attack               -               6          X5      NaN      NaN          4        6           C                   2   
+8   ae974f0a-4fc5-40a0-8e50-4c7eb8b46c17                 1        499   *11BT+~~~~2C~~~00  University of Louisville            11   Anna Stevenson   -278838      Block               +               1         NaN      NaN      NaN        NaN        2           C                 NaN   
+9   ae974f0a-4fc5-40a0-8e50-4c7eb8b46c17                 1        500  *19DT+~~~42AB~~00B  University of Louisville            19  Shannon Shields   -296094        Dig               +               1         NaN      NaN      NaN          4        2           A                 NaN   
+10  ae974f0a-4fc5-40a0-8e50-4c7eb8b46c17                 1        502   *08EH#~~~~8A~~~00  University of Louisville             8    Lexi Hamilton    -75970        Set               #               1         NaN      NaN        ~        NaN        8           A                 NaN   
+11  ae974f0a-4fc5-40a0-8e50-4c7eb8b46c17                 1        504  *09AH#V5~41BH2~00F  University of Louisville             9  Claire Chaussee   -225496     Attack               #               1          V5      NaN      NaN          4        1           B                   2   
+12  ae974f0a-4fc5-40a0-8e50-4c7eb8b46c17                 1        504   a17BH=~~~~2B~~~00      University of Dayton            17       Sierra Pla    -11804      Block               =               6         NaN      NaN      NaN        NaN        2           B                 NaN   
+18  ae974f0a-4fc5-40a0-8e50-4c7eb8b46c17                 1        519   *19SM#~~~71C~~~+1  University of Louisville            19  Shannon Shields   -296094      Serve               #               1         NaN      NaN      NaN          7        1           C                 NaN   
 
     home_team_score  visiting_team_score home_setter_position visiting_setter_position custom_code home_p1 home_p2 home_p3 home_p4 home_p5 home_p6 visiting_p1 visiting_p2 visiting_p3 visiting_p4 visiting_p5 visiting_p6  start_coordinate  mid_coordinate  end_coordinate point_phase   attack_phase  \
 4                 1                    0                    1                        6          00      19       9      11      15      10       7           1          16          17          10           6           8               431            &lt;NA&gt;            7642       Serve            nan   
@@ -366,16 +364,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-stdout">
 <pre><code>DVW files read: 4
                                 match_id video_file_number video_time                code                             team player_number           player_name player_id      skill evaluation_code setter_position attack_code set_code set_type start_zone end_zone end_subzone num_players_numeric  \
-4   35f3f8f1-f055-4545-80ff-ff82d6ce0ec1                 1        553   *07SM+~~~15B~~~00            University of Arizona             7             Ana Heath   -392644      Serve               +               1         NaN      NaN      NaN          1        5           B                 NaN   
-5   35f3f8f1-f055-4545-80ff-ff82d6ce0ec1                 1        554  a17RM-~~~15BW~~00B  University of California, Davis            17            Megan Lenn   -318259  Reception               -               1         NaN      NaN      NaN          1        5           B                 NaN   
-6   35f3f8f1-f055-4545-80ff-ff82d6ce0ec1                 1        556   a02EH#~~~~7B~~~00  University of California, Davis             2           Casi Newman   -318257        Set               #               1         NaN      NaN        ~        NaN        7           B                 NaN   
-7   35f3f8f1-f055-4545-80ff-ff82d6ce0ec1                 1        557  a09AH+V5~41BH2~00F  University of California, Davis             9         Amara Aimufua   -318258     Attack               +               1          V5      NaN      NaN          4        1           B                   2   
-8   35f3f8f1-f055-4545-80ff-ff82d6ce0ec1                 1        558   *02BH/~~~~2B~~~00            University of Arizona             2  Sofia Maldonado Diaz   -312203      Block               /               1         NaN      NaN      NaN        NaN        2           B                 NaN   
-9   35f3f8f1-f055-4545-80ff-ff82d6ce0ec1                 1        558  a09DH+~~~44CC~~00F  University of California, Davis             9         Amara Aimufua   -318258        Dig               +               1         NaN      NaN      NaN          4        4           C                 NaN   
-10  35f3f8f1-f055-4545-80ff-ff82d6ce0ec1                 1        559   a07EH#~~~~3D~~~00  University of California, Davis             7              Julia Ng   -336145        Set               #               1         NaN      NaN        ~        NaN        3           D                 NaN   
-11  35f3f8f1-f055-4545-80ff-ff82d6ce0ec1                 1        561  a03AH-V6~25BH2~00F  University of California, Davis             3      Olivia Utterback   -318256     Attack               -               1          V6      NaN      NaN          2        5           B                   2   
-12  35f3f8f1-f055-4545-80ff-ff82d6ce0ec1                 1        561   *22BH+~~~~4C~~~00            University of Arizona            22         Nicole Briggs   -334503      Block               +               1         NaN      NaN      NaN        NaN        4           C                 NaN   
-13  35f3f8f1-f055-4545-80ff-ff82d6ce0ec1                 1        562  *05DH#~~~26BB~~00B            University of Arizona             5         Jordan Wilson   -434959        Dig               #               1         NaN      NaN      NaN          2        6           B                 NaN   
+4   b2b9290e-1da5-4e4b-aa22-229b354e3312                 1        553   *07SM+~~~15B~~~00            University of Arizona             7             Ana Heath   -392644      Serve               +               1         NaN      NaN      NaN          1        5           B                 NaN   
+5   b2b9290e-1da5-4e4b-aa22-229b354e3312                 1        554  a17RM-~~~15BW~~00B  University of California, Davis            17            Megan Lenn   -318259  Reception               -               1         NaN      NaN      NaN          1        5           B                 NaN   
+6   b2b9290e-1da5-4e4b-aa22-229b354e3312                 1        556   a02EH#~~~~7B~~~00  University of California, Davis             2           Casi Newman   -318257        Set               #               1         NaN      NaN        ~        NaN        7           B                 NaN   
+7   b2b9290e-1da5-4e4b-aa22-229b354e3312                 1        557  a09AH+V5~41BH2~00F  University of California, Davis             9         Amara Aimufua   -318258     Attack               +               1          V5      NaN      NaN          4        1           B                   2   
+8   b2b9290e-1da5-4e4b-aa22-229b354e3312                 1        558   *02BH/~~~~2B~~~00            University of Arizona             2  Sofia Maldonado Diaz   -312203      Block               /               1         NaN      NaN      NaN        NaN        2           B                 NaN   
+9   b2b9290e-1da5-4e4b-aa22-229b354e3312                 1        558  a09DH+~~~44CC~~00F  University of California, Davis             9         Amara Aimufua   -318258        Dig               +               1         NaN      NaN      NaN          4        4           C                 NaN   
+10  b2b9290e-1da5-4e4b-aa22-229b354e3312                 1        559   a07EH#~~~~3D~~~00  University of California, Davis             7              Julia Ng   -336145        Set               #               1         NaN      NaN        ~        NaN        3           D                 NaN   
+11  b2b9290e-1da5-4e4b-aa22-229b354e3312                 1        561  a03AH-V6~25BH2~00F  University of California, Davis             3      Olivia Utterback   -318256     Attack               -               1          V6      NaN      NaN          2        5           B                   2   
+12  b2b9290e-1da5-4e4b-aa22-229b354e3312                 1        561   *22BH+~~~~4C~~~00            University of Arizona            22         Nicole Briggs   -334503      Block               +               1         NaN      NaN      NaN        NaN        4           C                 NaN   
+13  b2b9290e-1da5-4e4b-aa22-229b354e3312                 1        562  *05DH#~~~26BB~~00B            University of Arizona             5         Jordan Wilson   -434959        Dig               #               1         NaN      NaN      NaN          2        6           B                 NaN   
 
     home_team_score  visiting_team_score home_setter_position visiting_setter_position custom_code home_p1 home_p2 home_p3 home_p4 home_p5 home_p6 visiting_p1 visiting_p2 visiting_p3 visiting_p4 visiting_p5 visiting_p6  start_coordinate  mid_coordinate  end_coordinate point_phase   attack_phase  \
 4                 1                    0                    1                        1          00       7      11      22       2       5      32           2           3           9          13          17          21               282            &lt;NA&gt;            8080       Serve            nan   
@@ -451,16 +449,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-stdout">
 <pre><code>DVW files read: 15
                                 match_id video_file_number video_time                code                             team player_number           player_name player_id      skill evaluation_code setter_position attack_code set_code set_type start_zone end_zone end_subzone num_players_numeric  \
-4   58d0a2f6-9e2c-4bc9-b127-36d5945725fe                 1        553   *07SM+~~~15B~~~00            University of Arizona             7             Ana Heath   -392644      Serve               +               1         NaN      NaN      NaN          1        5           B                 NaN   
-5   58d0a2f6-9e2c-4bc9-b127-36d5945725fe                 1        554  a17RM-~~~15BW~~00B  University of California, Davis            17            Megan Lenn   -318259  Reception               -               1         NaN      NaN      NaN          1        5           B                 NaN   
-6   58d0a2f6-9e2c-4bc9-b127-36d5945725fe                 1        556   a02EH#~~~~7B~~~00  University of California, Davis             2           Casi Newman   -318257        Set               #               1         NaN      NaN        ~        NaN        7           B                 NaN   
-7   58d0a2f6-9e2c-4bc9-b127-36d5945725fe                 1        557  a09AH+V5~41BH2~00F  University of California, Davis             9         Amara Aimufua   -318258     Attack               +               1          V5      NaN      NaN          4        1           B                   2   
-8   58d0a2f6-9e2c-4bc9-b127-36d5945725fe                 1        558   *02BH/~~~~2B~~~00            University of Arizona             2  Sofia Maldonado Diaz   -312203      Block               /               1         NaN      NaN      NaN        NaN        2           B                 NaN   
-9   58d0a2f6-9e2c-4bc9-b127-36d5945725fe                 1        558  a09DH+~~~44CC~~00F  University of California, Davis             9         Amara Aimufua   -318258        Dig               +               1         NaN      NaN      NaN          4        4           C                 NaN   
-10  58d0a2f6-9e2c-4bc9-b127-36d5945725fe                 1        559   a07EH#~~~~3D~~~00  University of California, Davis             7              Julia Ng   -336145        Set               #               1         NaN      NaN        ~        NaN        3           D                 NaN   
-11  58d0a2f6-9e2c-4bc9-b127-36d5945725fe                 1        561  a03AH-V6~25BH2~00F  University of California, Davis             3      Olivia Utterback   -318256     Attack               -               1          V6      NaN      NaN          2        5           B                   2   
-12  58d0a2f6-9e2c-4bc9-b127-36d5945725fe                 1        561   *22BH+~~~~4C~~~00            University of Arizona            22         Nicole Briggs   -334503      Block               +               1         NaN      NaN      NaN        NaN        4           C                 NaN   
-13  58d0a2f6-9e2c-4bc9-b127-36d5945725fe                 1        562  *05DH#~~~26BB~~00B            University of Arizona             5         Jordan Wilson   -434959        Dig               #               1         NaN      NaN      NaN          2        6           B                 NaN   
+4   ce83be7e-d41d-4739-8ea9-136a6e2ebe30                 1        553   *07SM+~~~15B~~~00            University of Arizona             7             Ana Heath   -392644      Serve               +               1         NaN      NaN      NaN          1        5           B                 NaN   
+5   ce83be7e-d41d-4739-8ea9-136a6e2ebe30                 1        554  a17RM-~~~15BW~~00B  University of California, Davis            17            Megan Lenn   -318259  Reception               -               1         NaN      NaN      NaN          1        5           B                 NaN   
+6   ce83be7e-d41d-4739-8ea9-136a6e2ebe30                 1        556   a02EH#~~~~7B~~~00  University of California, Davis             2           Casi Newman   -318257        Set               #               1         NaN      NaN        ~        NaN        7           B                 NaN   
+7   ce83be7e-d41d-4739-8ea9-136a6e2ebe30                 1        557  a09AH+V5~41BH2~00F  University of California, Davis             9         Amara Aimufua   -318258     Attack               +               1          V5      NaN      NaN          4        1           B                   2   
+8   ce83be7e-d41d-4739-8ea9-136a6e2ebe30                 1        558   *02BH/~~~~2B~~~00            University of Arizona             2  Sofia Maldonado Diaz   -312203      Block               /               1         NaN      NaN      NaN        NaN        2           B                 NaN   
+9   ce83be7e-d41d-4739-8ea9-136a6e2ebe30                 1        558  a09DH+~~~44CC~~00F  University of California, Davis             9         Amara Aimufua   -318258        Dig               +               1         NaN      NaN      NaN          4        4           C                 NaN   
+10  ce83be7e-d41d-4739-8ea9-136a6e2ebe30                 1        559   a07EH#~~~~3D~~~00  University of California, Davis             7              Julia Ng   -336145        Set               #               1         NaN      NaN        ~        NaN        3           D                 NaN   
+11  ce83be7e-d41d-4739-8ea9-136a6e2ebe30                 1        561  a03AH-V6~25BH2~00F  University of California, Davis             3      Olivia Utterback   -318256     Attack               -               1          V6      NaN      NaN          2        5           B                   2   
+12  ce83be7e-d41d-4739-8ea9-136a6e2ebe30                 1        561   *22BH+~~~~4C~~~00            University of Arizona            22         Nicole Briggs   -334503      Block               +               1         NaN      NaN      NaN        NaN        4           C                 NaN   
+13  ce83be7e-d41d-4739-8ea9-136a6e2ebe30                 1        562  *05DH#~~~26BB~~00B            University of Arizona             5         Jordan Wilson   -434959        Dig               #               1         NaN      NaN      NaN          2        6           B                 NaN   
 
     home_team_score  visiting_team_score home_setter_position visiting_setter_position custom_code home_p1 home_p2 home_p3 home_p4 home_p5 home_p6 visiting_p1 visiting_p2 visiting_p3 visiting_p4 visiting_p5 visiting_p6  start_coordinate  mid_coordinate  end_coordinate point_phase   attack_phase  \
 4                 1                    0                    1                        1          00       7      11      22       2       5      32           2           3           9          13          17          21               282            &lt;NA&gt;            8080       Serve            nan   

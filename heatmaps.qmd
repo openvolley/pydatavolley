@@ -1,0 +1,74 @@
+---
+title: "Heatmap attacks"
+---
+
+```{python}
+from datavolley import read_dv
+import datavolley.pycourt as pycourt
+import datavolley.pycourt as half_pycourt 
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import warnings
+warnings.filterwarnings("ignore", "is_categorical_dtype")
+warnings.filterwarnings("ignore", "use_inf_as_na")
+```
+
+## Data reading
+
+In this case, we will use the sample data that PyDataVolley is built upon and extract the actions using the get_plays() method.
+
+```{python}
+dvf = read_dv.DataVolley()
+plays = dvf.get_plays()
+```
+
+## Visualize the arrival of attacks
+
+From the game actions we extract the information the x and y coordinates of the point of arrival of the attack. Our goal is to visualize the points where the ball arrives: where most of the play therefore takes place.
+
+```{python}
+attacks_data= plays[(plays['skill'] == 'Attack') & (plays.home_team==dvf.home_team)] 
+coordinate_df = attacks_data[['end_coordinate_x','end_coordinate_y']]
+
+def plot_coordinates(coordinates):
+    pycourt.pycourt()
+    # Plot the coordinates
+    plt.scatter(coordinates['end_coordinate_x'], coordinates['end_coordinate_y'], color='red')
+    plt.show(block=True)
+
+plot_coordinates(coordinate_df)
+```
+
+## Visualize the heatmap of attacks
+
+Using the same data we create the kernel density with seaborn and draw it on the field
+
+```{python}
+# heatmap of the end direction of attacks
+fig, ax = plt.subplots()
+pycourt.pycourt(ax)
+sns.kdeplot(x=coordinate_df['end_coordinate_x'], y=coordinate_df['end_coordinate_y'], ax=ax, cmap="YlOrRd", fill=True, alpha=0.5)
+plt.show()
+
+```
+
+# Half a field
+
+Among the functions available in pydatavolley is the ability to display half a court. Here we show how to use it
+
+```{python}
+# Creating the volleyball court
+fig, ax = plt.subplots()
+pycourt.half_pycourt(ax)
+# Creating the heatmap
+sns.kdeplot(x=coordinate_df['end_coordinate_x'], y=coordinate_df['end_coordinate_y'], ax=ax, cmap="YlOrRd", fill=True, alpha=0.5)
+plt.show()
+```
+
+```{python}
+df = plays[(plays['skill'] == 'Attack')]
+total_attacks = df.groupby(['player_name', 'team']).size().reset_index(name='total')
+print(total_attacks)
+```

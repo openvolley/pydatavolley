@@ -1,8 +1,6 @@
 ---
-title: "Getting started with pydatavolley"
+title: "Welcome"
 ---
-
-## Welcome {#welcome}
 
 Welcome to pydatavolley, where data analysis meets volleyball. This book is a curated collection of skills designed for the volleyball analyst eager to transcend the conventional boundaries of data exploration.
 
@@ -12,4 +10,4 @@ Whether you're a seasoned analyst looking to enhance your skills or a newcomer e
 
 ## Acknowledgements {#Acknowledgements}
 
-Openvolley team and their support for my addition to pydatavolley.
+[Openvolley](https://openvolley.github.io/) team and their support for my addition to pydatavolley.

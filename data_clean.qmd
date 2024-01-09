@@ -6,6 +6,31 @@ title: "Data cleaning"
 
 Depending on your needs, you may want to add a few items into your plays dataframe. Doing so can help navigate your data more efficiently in the long run.
 
-```{python}
+A simple data clean can be used with pyjanitor. Where we can remove all empty columns (if any exist).
 
+```{python}
+import pandas as pd
+pd.set_option('display.max_columns', None) 
+pd.set_option('display.width', 300)
+from datavolley import read_dv
+from janitor import remove_empty
+dv_instance = read_dv.DataVolley(None)
+df = dv_instance.get_plays()
+df = remove_empty(df)
+print(df[df['skill'].notna()])
 ```
+
+------------------------------------------------------------------------
+
+Perhaps you might want to change the match_id to the filename of the dvw.
+
+```{python}
+dv_instance = read_dv.DataVolley(None)
+new_match_id = dv_instance.file_path.split('\\')[-1].split('.dvw')[0]
+df['match_id'] = new_match_id
+print(df[df['skill'].notna()].head())
+```
+
+------------------------------------------------------------------------
+
+Any data cleaning taken place can prove useful long term. Perhaps there is a nested folder which contains the week of the season, the league, the conference, maybe the file has the correct date. Parsing additional data into your dataset will give more tools in your data journey.
