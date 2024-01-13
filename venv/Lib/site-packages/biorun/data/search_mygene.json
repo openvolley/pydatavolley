@@ -1,0 +1,17 @@
+[
+    {
+        "name": "2-haloalkanoic acid dehalogenase",
+        "refseq": {
+            "genomic": "NW_022157117.1",
+            "protein": "XP_031009656.1",
+            "rna": "XM_031145776.1",
+            "translation": {
+                "protein": "XP_031009656.1",
+                "rna": "XM_031145776.1"
+            }
+        },
+        "symbol": "HAD",
+        "taxid": 1316788,
+        "taxname": "Lachnellula hyalina"
+    }
+]

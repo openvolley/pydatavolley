@@ -2,8 +2,16 @@ project:
   type: website
   
 website: 
+  reader-mode: true
   page-navigation: true
   title: "pydatavolley"
+  page-footer:
+    left: |
+      Written by Tyler Widdison, Maurizio Napolitano.
+    right: |
+      This book was built with <a href="https://quarto.org/">Quarto</a>.
+  site-url: pydatavolley.openvolley.org
+  repo-branch: gh-pages
   navbar: 
     right: 
       - icon: github
@@ -15,7 +23,7 @@ website:
     search: true
     collapse-level: 1
     contents:
-      - section: index.qmd
+      - index.qmd
       - section: 1 - Setup
         contents:
           - ide.qmd
@@ -32,7 +40,8 @@ website:
 format: 
   html:
     theme:
-      - zephyr
+      - cosmo
+      - pydv.scss
     toc: true
     code-fold: show
     code-link: true

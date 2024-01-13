@@ -1,0 +1,8 @@
+#
+# Alias file.
+#
+# Comments and empty lines are ignored.
+#
+NC_045512.2 Wuhan
+MN996532.2  RaTG13
+KM233118.1  Ebola2014

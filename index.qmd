@@ -4,7 +4,7 @@ title: "Welcome"
 
 Welcome to pydatavolley, where data analysis meets volleyball. This book is a curated collection of skills designed for the volleyball analyst eager to transcend the conventional boundaries of data exploration.
 
-In the following chapters, we will delve into various topics that not only harness the power of Python but also explore the realm of R. Each chapter and section of this book is crafted to seamlessly integrate both languages, providing a comprehensive and versatile approach to data analysis in the context of volleyball. We will focus on using [pandas](https://pandas.pydata.org/), if your are a R user interesting in a more R tidyverse structure consider using [siuba](https://github.com/machow/siuba/) which replicates the use of dplyr from R's tidyverse.
+In the following chapters, we will delve into various topics that not only harness the power of Python but also explore the realm of [R](https://posit.co/download/rstudio-desktop/). Each chapter and section of this book is crafted to seamlessly integrate both languages, providing a comprehensive and versatile approach to data analysis in the context of volleyball. We will focus on using [pandas](https://pandas.pydata.org/) in Python. [Tidyverse](https://www.tidyverse.org/) in R. If you would like a more Tidyverse approach in Python, consider using [siuba](https://github.com/machow/siuba/) which replicates the use of dplyr into Python.
 
 Whether you're a seasoned analyst looking to enhance your skills or a newcomer eager to explore the intersection of data, pydatavolley is your guide.
 

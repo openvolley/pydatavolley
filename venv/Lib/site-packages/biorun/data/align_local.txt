@@ -1,0 +1,9 @@
+
+# seq1 (3) vs seq2 (3)
+# pident=100.0% len=3 ident=3 mis=0 del=0 ins=0
+# local: score=3.0 match=1 mismatch=2 gapopen=11 gapextend=1
+
+GAT
+|||
+GAT
+

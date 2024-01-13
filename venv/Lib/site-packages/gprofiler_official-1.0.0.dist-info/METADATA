@@ -1,0 +1,186 @@
+Metadata-Version: 2.1
+Name: gprofiler-official
+Version: 1.0.0
+Summary: Functional enrichment analysis and more via the g:Profiler toolkit
+Home-page: https://biit.cs.ut.ee/gprofiler/
+Author: Uku Raudvere
+Author-email: biit.support@ut.ee
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+
+# gprofiler
+
+## Project description
+
+The official Python 3 interface to the [g:Profiler](https://biit.cs.ut.ee/gprofiler/) 
+toolkit for enrichment analysis of functional (GO and other) terms, 
+conversion between identifier namespaces and mapping orhologous genes in related organisms. 
+
+It has an optional dependency on pandas.
+
+### Installing gprofiler
+
+the recommended way of installing gprofiler is using pip
+```bash
+pip install gprofiler-official
+```
+
+### Legacy version 
+
+The `0.3.x` series of gprofiler-official is incompatible with the `1.0.x` series. We changed the major version number to 
+signify the breaking changes in the API. To install the previous version of `gprofiler-official`, use the command
+```bash
+pip install gprofiler-official==0.3.5
+```
+
+## Tools:
+
+To use any of the tools in the g:Profiler toolkit, first initialize the GProfiler object.
+
+```python
+from gprofiler import GProfiler
+gp = GProfiler(
+    user_agent='ExampleTool', #optional user agent
+    return_dataframe=True, #return pandas dataframe or plain python structures    
+)
+```
+
+
+### g:GOSt (profile)
+
+```python
+from gprofiler import GProfiler
+
+gp = GProfiler(return_dataframe=True)
+gp.profile(organism='hsapiens',
+            query=['NR1H4','TRIP12','UBC','FCRL3','PLXNA3','GDNF','VPS11'])
+```
+
+Output:
+```
+source      native                                            name   p_value  significant                                        description  term_size  query_size  intersection_size  effective_domain_size  precision    recall    query                               parents
+GO:BP  GO:0048585     negative regulation of response to stimulus  0.004229         True  "Any process that stops, prevents, or reduces ...       1610           7                  6                  17622   0.857143  0.003727  query_1  [GO:0048583, GO:0048519, GO:0050896]
+GO:BP  GO:0002224            toll-like receptor signaling pathway  0.016351         True  "Any series of molecular signals generated as ...        133           7                  3                  17622   0.428571  0.022556  query_1                          [GO:0002221]
+GO:BP  GO:0048486      parasympathetic nervous system development  0.026199         True  "The process whose specific outcome is the pro...         19           7                  2                  17622   0.285714  0.105263  query_1              [GO:0048483, GO:0048731]
+GO:BP  GO:0034162          toll-like receptor 9 signaling pathway  0.038733         True  "Any series of molecular signals generated as ...         23           7                  2                  17622   0.285714  0.086957  query_1                          [GO:0002224]
+GO:BP  GO:0002221  pattern recognition receptor signaling pathway  0.039782         True  "Any series of molecular signals generated as ...        179           7                  3                  17622   0.428571  0.016760  query_1                          [GO:0002758]
+CORUM  CORUM:5669                           PlexinA3-Nrp1 complex  0.049767         True                              PlexinA3-Nrp1 complex          2           2                  1                   3620   0.500000  0.500000  query_1                       [CORUM:0000000]
+CORUM  CORUM:5759                           PLXNA3-RANBPM complex  0.049767         True                              PLXNA3-RANBPM complex          2           2                  1                   3620   0.500000  0.500000  query_1                       [CORUM:0000000]
+```
+
+* `source` is the code for the datasource
+* `native` is the ID for the enriched term/functional category in its native namespace.
+* `name` is the readable name for the enriched term, `description` is the longer description if available.
+* `p_value` is the corrected p-value for the 
+* `term_size`, `query_size`, `intersection_size`, `effective_domain_size` are parameters to the hypergeometric test.
+* `query` is the name of the query and is significant if multiple queries were made in one call (e.g `gp.profile(query={'query1':['NR1H4'], 'query2':['NR1H4','TRIP12']})`)
+
+Setting the parameter `no_evidences=False` would add the column `intersections` (a list of genes that are annotated to the term and are present in the query )
+and the column `evidences` (a list of lists of GO evidence codes for the intersecting genes)
+
+
+
+
+NB! the parameter `combined` significantly changes the output structure by packing the results of distinct queries together.
+For example:
+
+```python
+gp.profile(query={'query1':['NR1H4'], 'query2':['NR1H4','TRIP12']}, combined=True)
+```
+Output (truncated):
+```
+source      native                                               name                                     p_values                                        description  term_size query_sizes intersection_sizes  effective_domain_size                                           parents
+GO:MF  GO:1902122                      chenodeoxycholic acid binding  [0.024822026073022193, 0.04964405214614093]  "Interacting selectively and non-covalently wi...          1      [1, 2]             [1, 1]                  17516                          [GO:0032052, GO:0005496]
+GO:MF  GO:0035257                   nuclear hormone receptor binding                  [1.0, 0.033391754400990514]  "Interacting selectively and non-covalently wi...        154      [1, 2]             [1, 2]                  17516                          [GO:0051427, GO:0061629]
+GO:MF  GO:0051427                           hormone receptor binding                   [1.0, 0.04929258983003374]  "Interacting selectively and non-covalently wi...        187      [1, 2]             [1, 2]                  17516                                      [GO:0005102]
+```
+
+
+### g:Convert (convert)
+
+```python
+from gprofiler import GProfiler
+
+gp = GProfiler(return_dataframe=True)
+gp.convert(organism='hsapiens',
+            query=['NR1H4','TRIP12','UBC','FCRL3','PLXNA3','GDNF','VPS11'],
+            target_namespace='ENTREZGENE_ACC')
+
+```
+
+Output:
+```
+incoming converted  n_incoming  n_converted    name                                        description                           namespaces    query
+  NR1H4      9971           1            1   NR1H4  nuclear receptor subfamily 1 group H member 4 ...  ENTREZGENE,HGNC,UNIPROT_GN,WIKIGENE  query_1
+ TRIP12      9320           2            1  TRIP12  thyroid hormone receptor interactor 12 [Source...  ENTREZGENE,HGNC,UNIPROT_GN,WIKIGENE  query_1
+    UBC      7316           3            1     UBC    ubiquitin C [Source:HGNC Symbol;Acc:HGNC:12468]  ENTREZGENE,HGNC,UNIPROT_GN,WIKIGENE  query_1
+  FCRL3    115352           4            1   FCRL3  Fc receptor like 3 [Source:HGNC Symbol;Acc:HGN...  ENTREZGENE,HGNC,UNIPROT_GN,WIKIGENE  query_1
+ PLXNA3     55558           5            1  PLXNA3       plexin A3 [Source:HGNC Symbol;Acc:HGNC:9101]             ENTREZGENE,HGNC,WIKIGENE  query_1
+   GDNF      2668           6            1    GDNF  glial cell derived neurotrophic factor [Source...  ENTREZGENE,HGNC,UNIPROT_GN,WIKIGENE  query_1
+  VPS11     55823           7            1   VPS11  VPS11, CORVET/HOPS core subunit [Source:HGNC S...  ENTREZGENE,HGNC,UNIPROT_GN,WIKIGENE  query_1
+ PLXNA3     55558           5            1  PLXNA3       plexin A3 [Source:HGNC Symbol;Acc:HGNC:9101]             ENTREZGENE,HGNC,WIKIGENE  query_1
+```
+
+`incoming` column lists the input gene, `converted` lists the gene in the target namespace (Entrez Gene accession number in this case). 
+
+
+
+### g:Orth (orth)
+
+```python
+from gprofiler import GProfiler
+
+gp = GProfiler(return_dataframe=True)
+gp.orth(organism='hsapiens',
+            query=['NR1H4','TRIP12','UBC','FCRL3','PLXNA3','GDNF','VPS11'],
+            target='mmusculus')
+
+```
+Output:
+```
+incoming        converted       ortholog_ensg  n_incoming  n_converted  n_result    name                                        description                           namespaces
+  NR1H4  ENSG00000012504  ENSMUSG00000047638           1            1         1   Nr1h4  nuclear receptor subfamily 1, group H, member ...  ENTREZGENE,HGNC,UNIPROT_GN,WIKIGENE
+ TRIP12  ENSG00000153827  ENSMUSG00000026219           2            1         1  Trip12  thyroid hormone receptor interactor 12 [Source...  ENTREZGENE,HGNC,UNIPROT_GN,WIKIGENE
+    UBC  ENSG00000150991  ENSMUSG00000008348           3            1         1     Ubc      ubiquitin C [Source:MGI Symbol;Acc:MGI:98889]  ENTREZGENE,HGNC,UNIPROT_GN,WIKIGENE
+  FCRL3  ENSG00000160856                 N/A           4            1         1     N/A                                                N/A  ENTREZGENE,HGNC,UNIPROT_GN,WIKIGENE
+ PLXNA3  ENSG00000130827  ENSMUSG00000031398           5            1         1  Plxna3       plexin A3 [Source:MGI Symbol;Acc:MGI:107683]             ENTREZGENE,HGNC,WIKIGENE
+   GDNF  ENSG00000168621  ENSMUSG00000022144           6            1         1    Gdnf  glial cell line derived neurotrophic factor [S...  ENTREZGENE,HGNC,UNIPROT_GN,WIKIGENE
+  VPS11  ENSG00000160695  ENSMUSG00000032127           7            1         1   Vps11  VPS11, CORVET/HOPS core subunit [Source:MGI Sy...  ENTREZGENE,HGNC,UNIPROT_GN,WIKIGENE
+
+```
+
+`incoming` is the input gene, `converted` is the canonical Ensembl ID for the input gene, 
+`ortholog_ensg` is the canonical Ensembl ID for the orthologous gene in the target organism.
+
+### g:SNPense (snpense)
+
+```python
+from gprofiler import GProfiler
+
+gp = GProfiler(return_dataframe=True)
+gp.snpense(query=['rs11734132', 'rs7961894', 'rs4305276', 'rs17396340'])
+```
+Output:
+
+```
+rs_id chromosome strand      start        end              ensgs gene_names                                           variants
+rs11734132                           -1         -1                 []         []  {'intron_variant': 0, 'non_coding_transcript_v...
+ rs7961894         12      +  121927677  121927677  [ENSG00000158023]    [WDR66]  {'intron_variant': 3, 'non_coding_transcript_v...
+ rs4305276          2      +  240555596  240555596  [ENSG00000144504]   [ANKMY1]  {'intron_variant': 57, 'non_coding_transcript_...
+rs17396340          1      +   10226118   10226118  [ENSG00000054523]    [KIF1B]  {'intron_variant': 8, 'non_coding_transcript_v...
+
+```
+* `rs_id` is the input rs-number
+* `chromosome`, `strand`, `start` and `end` encode the position of the variation
+* `ensgs` and `gene_names` are lists of protein-encoding genes associated with the rs-number.
+* `variants` are predicted variant effects.
+

@@ -2,23 +2,27 @@
 title: "Installing packages"
 ---
 
-## Packages {#Packages}
+## Python packages {#Packages}
 
-Using [pip](https://pypi.org/search/?q=pydatavolley) or rather package installer for Python, you can download pydatavolley.
+Using [pip](https://pypi.org/search/?q=pydatavolley) for Python, you can download [pydatavolley](https://github.com/openvolley/pydatavolley).
 
-Using windows:
+You can reference the [Pandas Book](https://pandas.pydata.org/) for further research in data manipulation using Pands.
 
 ``` bash
 pip install pydatavolley
+pip install pandas
+pip install numpy
 ```
 
-If you are using a mac there are likely some additional steps you'll need to follow to install pip first. You can find those here: <https://www.geeksforgeeks.org/how-to-install-pip-in-macos/#>
+## R packages
 
-Some additional packages used in this book:
+Using remotes in R, you can download [datavolley](https://github.com/openvolley/datavolley).
 
-``` bash
-pip install numpy
-pip install pandas
-pip install siuba
-pip install pyjanitor
+You can see all the [tidyverse packages](https://www.tidyverse.org/) and some of the learning tools avaiable.
+
+```{r}
+#| output: FALSE
+remotes::install_github("openvolley/datavolley")
+install.packages('knitr', repos = "http://cran.us.r-project.org")
+install.packages("tidyverse", repos = "http://cran.us.r-project.org")
 ```

@@ -8,7 +8,7 @@
 
 <meta name="author" content="Tyler Widdison">
 
-<title>pydatavolley - Using python</title>
+<title>pydatavolley - Tools to use</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -90,6 +90,11 @@ ul.task-list li input[type="checkbox"] {
   </li>  
 </ul>
             <div class="quarto-navbar-tools">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
 </div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
@@ -99,7 +104,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ide.html">1 - Setup</a></li><li class="breadcrumb-item"><a href="./ide.html">Using python</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ide.html">1 - Setup</a></li><li class="breadcrumb-item"><a href="./ide.html">Tools to use</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -119,23 +124,25 @@ ul.task-list li input[type="checkbox"] {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Welcome</span></span>
-  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
  <span class="menu-text">1 - Setup</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ide.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Using python</span></a>
+ <span class="menu-text">Tools to use</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -148,13 +155,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
  <span class="menu-text">2 - DVW files</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./reading_files.html" class="sidebar-item-text sidebar-link">
@@ -171,13 +178,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
  <span class="menu-text">3 - Creating data</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data_description.html" class="sidebar-item-text sidebar-link">
@@ -202,9 +209,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#the-beginning" id="toc-the-beginning" class="nav-link active" data-scroll-target="#the-beginning">The beginning</a></li>
-  <li><a href="#vsc-enviorment-vs-projects-vs-none" id="toc-vsc-enviorment-vs-projects-vs-none" class="nav-link" data-scroll-target="#vsc-enviorment-vs-projects-vs-none">VSC Enviorment vs Projects vs None</a></li>
-  <li><a href="#combing-python-and-r" id="toc-combing-python-and-r" class="nav-link" data-scroll-target="#combing-python-and-r">Combing Python and R?</a></li>
+  <li><a href="#python" id="toc-python" class="nav-link active" data-scroll-target="#python">Python</a></li>
+  <li><a href="#r" id="toc-r" class="nav-link" data-scroll-target="#r">R</a></li>
   </ul>
 </nav>
     </div>
@@ -213,7 +219,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Using python</h1>
+<h1 class="title">Tools to use</h1>
 </div>
 
 
@@ -228,23 +234,15 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="the-beginning" class="level2">
-<h2 class="anchored" data-anchor-id="the-beginning">The beginning</h2>
-<p>IDE or Integrated development environment. This book will be focused on use with <a href="https://code.visualstudio.com/">Visual Studio Code</a> (VSC).</p>
-<p>However you can use <a href="https://rstudio.github.io/reticulate/">R</a>.</p>
-<p><img src="images/paste-2.png" class="img-fluid"></p>
-<p>The methods are focused on using Windows VLC however, using a Mac will work just as well inasmuch as your installation of <a href="https://www.geeksforgeeks.org/how-to-install-pip-in-macos/#">pip is properly performed</a>.</p>
+<section id="python" class="level2">
+<h2 class="anchored" data-anchor-id="python">Python</h2>
+<p><a href="https://code.visualstudio.com/">Visual Studio Code</a> (VSC) is used while Python examples are shown. Visual Studio Code is a text editor, like Notepad, but on steroids. It’s a tool that helps programmers write and organize their code. There is a great <a href="https://code.visualstudio.com/docs/python/jupyter-support-py">interactive tutorial</a> if your interested in getting deep into it.</p>
 </section>
-<section id="vsc-enviorment-vs-projects-vs-none" class="level2">
-<h2 class="anchored" data-anchor-id="vsc-enviorment-vs-projects-vs-none">VSC Enviorment vs Projects vs None</h2>
-<p>If you are a R user who doesn’t care so much about organizing project structure, using python can be similar but also messy in the long run. Simply create a file where your path currently is, read dvw file(s) from the desired path and away you go! Warning this can get messy and difficult to navigate if you start using multiple ad hoc files, reading hundreds of files, whilst running reports or dashboards.</p>
-<p>The advantage of using environments is keeping your project structure easy to understand. You can also add your own package ingredients which can speed up the process of your file processing, keep clean your work space and run dashboards or reports easily.</p>
-<p>Using projects is very simple in VSC, which can help ease the messiness if you intend on using more than just reading files. Simple create a folder in the directory you want, start VSC, and open folder! Your project is started and anything you save at that point will go to the folder which you created your new folder in. This also allows for different files to be imported into each other.</p>
-<p><img src="images/paste-1.png" class="img-fluid"></p>
-</section>
-<section id="combing-python-and-r" class="level2">
-<h2 class="anchored" data-anchor-id="combing-python-and-r">Combing Python and R?</h2>
-<p>It is possible to use python in R studio, in this you can create a new project in R, parse your files in python and save a csv/excel file. Then read in R.</p>
+<section id="r" class="level2">
+<h2 class="anchored" data-anchor-id="r">R</h2>
+<p><a href="https://posit.co/download/rstudio-desktop/">RStudio</a> is used while R examples are shown. RStudio desktop has a great interactive window which is easy to use and begin.</p>
+<p>Here is a installation guide for R studio and the datavolley package.</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/gxO4Ie_MVjI" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 
 
 </section>
@@ -496,6 +494,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Written by Tyler Widdison, Maurizio Napolitano.</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
+  </div>
+</footer>
 
 
 
