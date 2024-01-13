@@ -3,8 +3,8 @@ title: "pydatavolley"
 format: gfm
 ---
 
-A python package for reading volleyball scouting files in DataVolley format (\*.dvw).
-<pydatavolley.openvolley.org>
+A python package for reading volleyball scouting files in DataVolley format (\*.dvw). <https://openvolley.github.io/pydatavolley/reading_files.html>
+
 <https://pypi.org/project/pydatavolley>
 
 ## Installation

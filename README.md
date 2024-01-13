@@ -2,10 +2,9 @@
 
 A python package for reading volleyball scouting files in DataVolley
 format (\*.dvw).
+<https://openvolley.github.io/pydatavolley/reading_files.html>
 
-<https://pypi.org/project/pydatavolley/>
-
-<https://openvolley.github.io/pydatavolley/>
+<https://pypi.org/project/pydatavolley>
 
 ## Installation
 
@@ -31,16 +30,16 @@ print(df.head(10))
 ```
 
                                    match_id video_file_number video_time                code                      team player_number      player_name player_id      skill evaluation_code setter_position attack_code set_code set_type start_zone end_zone end_subzone num_players_numeric  home_team_score  visiting_team_score home_setter_position visiting_setter_position custom_code home_p1 home_p2  \
-    0  262cd0f8-1035-4faa-a24a-f6982a77304f                 1        494            *P19>LUp  University of Louisville           NaN              NaN       NaN        NaN             NaN               1         NaN      NaN      NaN        NaN      NaN         NaN                 NaN             <NA>                 <NA>                    1                        6        None      19       9   
-    1  262cd0f8-1035-4faa-a24a-f6982a77304f                 1        494             *z1>LUp  University of Louisville           NaN              NaN       NaN        NaN             NaN               1         NaN      NaN      NaN        NaN      NaN         NaN                 NaN             <NA>                 <NA>                    1                        6        None      19       9   
-    2  262cd0f8-1035-4faa-a24a-f6982a77304f                 1        494            aP08>LUp      University of Dayton           NaN              NaN       NaN        NaN             NaN               6         NaN      NaN      NaN        NaN      NaN         NaN                 NaN             <NA>                 <NA>                    1                        6        None      19       9   
-    3  262cd0f8-1035-4faa-a24a-f6982a77304f                 1        494             az6>LUp      University of Dayton           NaN              NaN       NaN        NaN             NaN               6         NaN      NaN      NaN        NaN      NaN         NaN                 NaN             <NA>                 <NA>                    1                        6        None      19       9   
-    4  262cd0f8-1035-4faa-a24a-f6982a77304f                 1        494   *19SM+~~~78A~~~00  University of Louisville            19  Shannon Shields   -296094      Serve               +               1         NaN      NaN      NaN          7        8           A                 NaN                1                    0                    1                        6          00      19       9   
-    5  262cd0f8-1035-4faa-a24a-f6982a77304f                 1        495  a02RM-~~~58AM~~00B      University of Dayton             2    Maura Collins   -230138  Reception               -               6         NaN      NaN      NaN          5        8           A                 NaN                1                    0                    1                        6         00B      19       9   
-    6  262cd0f8-1035-4faa-a24a-f6982a77304f                 1        497   a08ET#~~~~8C~~~00      University of Dayton             8  Brooke Westbeld   -232525        Set               #               6         NaN      NaN        ~        NaN        8           C                 NaN                1                    0                    1                        6          00      19       9   
-    7  262cd0f8-1035-4faa-a24a-f6982a77304f                 1        499  a10AT-X5~46CH2~00F      University of Dayton            10   Jamie Peterson    -11802     Attack               -               6          X5      NaN      NaN          4        6           C                   2                1                    0                    1                        6         00F      19       9   
-    8  262cd0f8-1035-4faa-a24a-f6982a77304f                 1        499   *11BT+~~~~2C~~~00  University of Louisville            11   Anna Stevenson   -278838      Block               +               1         NaN      NaN      NaN        NaN        2           C                 NaN                1                    0                    1                        6          00      19       9   
-    9  262cd0f8-1035-4faa-a24a-f6982a77304f                 1        500  *19DT+~~~42AB~~00B  University of Louisville            19  Shannon Shields   -296094        Dig               +               1         NaN      NaN      NaN          4        2           A                 NaN                1                    0                    1                        6         00B      19       9   
+    0  43a81f3d-8e46-4e60-b147-41259fec80f3                 1        494            *P19>LUp  University of Louisville           NaN              NaN       NaN        NaN             NaN               1         NaN      NaN      NaN        NaN      NaN         NaN                 NaN             <NA>                 <NA>                    1                        6        None      19       9   
+    1  43a81f3d-8e46-4e60-b147-41259fec80f3                 1        494             *z1>LUp  University of Louisville           NaN              NaN       NaN        NaN             NaN               1         NaN      NaN      NaN        NaN      NaN         NaN                 NaN             <NA>                 <NA>                    1                        6        None      19       9   
+    2  43a81f3d-8e46-4e60-b147-41259fec80f3                 1        494            aP08>LUp      University of Dayton           NaN              NaN       NaN        NaN             NaN               6         NaN      NaN      NaN        NaN      NaN         NaN                 NaN             <NA>                 <NA>                    1                        6        None      19       9   
+    3  43a81f3d-8e46-4e60-b147-41259fec80f3                 1        494             az6>LUp      University of Dayton           NaN              NaN       NaN        NaN             NaN               6         NaN      NaN      NaN        NaN      NaN         NaN                 NaN             <NA>                 <NA>                    1                        6        None      19       9   
+    4  43a81f3d-8e46-4e60-b147-41259fec80f3                 1        494   *19SM+~~~78A~~~00  University of Louisville            19  Shannon Shields   -296094      Serve               +               1         NaN      NaN      NaN          7        8           A                 NaN                1                    0                    1                        6          00      19       9   
+    5  43a81f3d-8e46-4e60-b147-41259fec80f3                 1        495  a02RM-~~~58AM~~00B      University of Dayton             2    Maura Collins   -230138  Reception               -               6         NaN      NaN      NaN          5        8           A                 NaN                1                    0                    1                        6         00B      19       9   
+    6  43a81f3d-8e46-4e60-b147-41259fec80f3                 1        497   a08ET#~~~~8C~~~00      University of Dayton             8  Brooke Westbeld   -232525        Set               #               6         NaN      NaN        ~        NaN        8           C                 NaN                1                    0                    1                        6          00      19       9   
+    7  43a81f3d-8e46-4e60-b147-41259fec80f3                 1        499  a10AT-X5~46CH2~00F      University of Dayton            10   Jamie Peterson    -11802     Attack               -               6          X5      NaN      NaN          4        6           C                   2                1                    0                    1                        6         00F      19       9   
+    8  43a81f3d-8e46-4e60-b147-41259fec80f3                 1        499   *11BT+~~~~2C~~~00  University of Louisville            11   Anna Stevenson   -278838      Block               +               1         NaN      NaN      NaN        NaN        2           C                 NaN                1                    0                    1                        6          00      19       9   
+    9  43a81f3d-8e46-4e60-b147-41259fec80f3                 1        500  *19DT+~~~42AB~~00B  University of Louisville            19  Shannon Shields   -296094        Dig               +               1         NaN      NaN      NaN          4        2           A                 NaN                1                    0                    1                        6         00B      19       9   
 
       home_p3 home_p4 home_p5 home_p6 visiting_p1 visiting_p2 visiting_p3 visiting_p4 visiting_p5 visiting_p6  start_coordinate  mid_coordinate  end_coordinate point_phase attack_phase start_coordinate_x start_coordinate_y mid_coordinate_x mid_coordinate_y end_coordinate_x end_coordinate_y set_number                 home_team         visiting_team home_team_id visiting_team_id  \
     0      11      15      10       7           1          16          17          10           6           8              <NA>            <NA>            <NA>   Reception          nan               <NA>               <NA>             <NA>             <NA>             <NA>             <NA>          1  University of Louisville  University of Dayton           17               42   
@@ -109,27 +108,27 @@ print(
 )
 ```
 
-               player_name                                     team  Att   K  K_pct
-    0           Lia Hawken                   University of Portland  103  35  0.340
-    1          Maui Robins                   University of Portland   96  42  0.438
-    2       Genevieve Bane                     Saint Mary's College   87  31  0.356
-    3       Kjersti Strong                     Saint Mary's College   77  41  0.532
-    4       Leonie Freytag                   University of Portland   74  27  0.365
-    5        Maria Petkova              University of San Francisco   73  23  0.315
-    6         Layla Truitt                   Santa Clara University   68  24  0.353
-    7          Lucia Busso                   University of Portland   68  26  0.382
-    8        Sophia Tulino                   Santa Clara University   67  25  0.373
-    9        Karolina Nova              University of San Francisco   63  18  0.286
-    10      Abby Castillon                     Saint Mary's College   61  22  0.361
-    11      Clarissa Klein                     Saint Mary's College   58  21  0.362
-    12  Mabrey Shaffmaster             University of North Carolina   57  21  0.368
-    13       Hannah Taylor                     Saint Mary's College   55  25  0.455
-    14        Dani Richins                   Weber State University   50  19  0.380
-    15       Alexa Edwards                University of the Pacific   50  14  0.280
-    16       Autumn Larson                       Gonzaga University   49  13  0.265
-    17        Emani Foster             University of North Carolina   47  20  0.426
-    18          Zoe Thiros                       Gonzaga University   47  10  0.213
-    19       Perri Starkey  California State University, Northridge   46  12  0.261
+                 player_name                                      team  Att   K  K_pct
+    0         Tommi Stockham   California Polytechnic State University   46  14  0.304
+    1        Lizzy Markovska   California Polytechnic State University   45  10  0.222
+    2       Caitlan Buettner                        University of Iowa   44  12  0.273
+    3        Ameena Campbell    California State University, Fullerton   43  13  0.302
+    4           Lyla Traylor    California State University, Fullerton   41  11  0.268
+    5           Madison Corf                San Diego State University   37  12  0.324
+    6           Sage Brustad             Eastern Washington University   36  11  0.306
+    7           Jaelyn Hodge                     University of Arizona   33  14  0.424
+    8       Olivia Utterback           University of California, Davis   31  17  0.548
+    9          Jordan Wilson                     University of Arizona   31  12  0.387
+    10     Annabelle Thalken   California Polytechnic State University   30   7  0.233
+    11       Reese Diersbock           University of California, Davis   30  10  0.333
+    12      Kalista Lukovich             Eastern Washington University   27  10  0.370
+    13       Heipua Tautua'A                San Diego State University   27  11  0.407
+    14  Sofia Maldonado Diaz                     University of Arizona   27  10  0.370
+    15       Naomi Chankoumi  California State University, Bakersfield   27  10  0.370
+    16      Taylor Underwood                San Diego State University   26  14  0.538
+    17        Nataly Moravec                        University of Iowa   23   9  0.391
+    18           Paige Dugan  California State University, Bakersfield   23   5  0.217
+    19            Kate Slack   California Polytechnic State University   22   4  0.182
 
 ------------------------------------------------------------------------
 
