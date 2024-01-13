@@ -23,7 +23,7 @@ website:
     search: true
     collapse-level: 1
     contents:
-      - index.qmd
+      - section: index.qmd
       - section: 1 - Setup
         contents:
           - ide.qmd
