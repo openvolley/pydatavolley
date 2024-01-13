@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://openvolley.github.io/pydatavolley/reading_files.html</loc>
-    <lastmod>2024-01-09T09:12:15.675Z</lastmod>
+    <loc>pydatavolley.openvolley.org/reading_files.html</loc>
+    <lastmod>2024-01-13T07:03:33.502Z</lastmod>
   </url>
   <url>
-    <loc>https://openvolley.github.io/pydatavolley/index.html</loc>
-    <lastmod>2024-01-09T09:12:02.400Z</lastmod>
+    <loc>pydatavolley.openvolley.org/index.html</loc>
+    <lastmod>2024-01-13T07:03:05.520Z</lastmod>
   </url>
   <url>
-    <loc>https://openvolley.github.io/pydatavolley/heatmaps.html</loc>
-    <lastmod>2024-01-09T09:12:01.562Z</lastmod>
+    <loc>pydatavolley.openvolley.org/heatmaps.html</loc>
+    <lastmod>2024-01-13T07:03:04.736Z</lastmod>
   </url>
   <url>
-    <loc>https://openvolley.github.io/pydatavolley/examples/00_data_description.html</loc>
-    <lastmod>2024-01-09T09:11:52.757Z</lastmod>
+    <loc>pydatavolley.openvolley.org/examples/00_data_description.html</loc>
+    <lastmod>2024-01-13T07:02:55.511Z</lastmod>
   </url>
   <url>
-    <loc>https://openvolley.github.io/pydatavolley/data_clean.html</loc>
-    <lastmod>2024-01-09T09:11:44.400Z</lastmod>
+    <loc>pydatavolley.openvolley.org/data_clean.html</loc>
+    <lastmod>2024-01-13T07:02:48.340Z</lastmod>
   </url>
   <url>
-    <loc>https://openvolley.github.io/pydatavolley/data_description.html</loc>
-    <lastmod>2024-01-09T09:11:52.276Z</lastmod>
+    <loc>pydatavolley.openvolley.org/data_description.html</loc>
+    <lastmod>2024-01-13T07:02:55.076Z</lastmod>
   </url>
   <url>
-    <loc>https://openvolley.github.io/pydatavolley/examples/01_heatmap_attacks.html</loc>
-    <lastmod>2024-01-09T09:11:53.390Z</lastmod>
+    <loc>pydatavolley.openvolley.org/examples/01_heatmap_attacks.html</loc>
+    <lastmod>2024-01-13T07:02:56.096Z</lastmod>
   </url>
   <url>
-    <loc>https://openvolley.github.io/pydatavolley/ide.html</loc>
-    <lastmod>2024-01-09T09:12:01.985Z</lastmod>
+    <loc>pydatavolley.openvolley.org/ide.html</loc>
+    <lastmod>2024-01-13T07:03:05.127Z</lastmod>
   </url>
   <url>
-    <loc>https://openvolley.github.io/pydatavolley/install_packages.html</loc>
-    <lastmod>2024-01-09T09:12:02.776Z</lastmod>
+    <loc>pydatavolley.openvolley.org/install_packages.html</loc>
+    <lastmod>2024-01-13T07:03:22.540Z</lastmod>
   </url>
 </urlset>
