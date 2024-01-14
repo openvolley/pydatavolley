@@ -48,6 +48,8 @@ atks <- head(atks, 5)
 knitr::kable(atks)
 ```
 
+## Advanced filtering
+
 ### Advanced filtering
 
 We can narrow down our analysis to instances where a particular player receives the ball during attacks or when a set code occurs in the preceding skill. This can be achieved using methods that allow us to examine the previous skill or the next skill, enabling targeted filtering for these specific scenarios.
