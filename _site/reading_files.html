@@ -234,12 +234,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The provided example file is used. You would typically fill in the <code>None</code> with the actual path of your dvw files.</p>
 <div class="cell" data-tbl-pyex="Example python reading data">
 <details open=""><summary>Code</summary><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datavolley <span class="im">import</span> read_dv</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> Markdown</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>dv_instance <span class="op">=</span> read_dv.DataVolley(<span class="va">None</span>) <span class="co"># Replace `None` with path of your dvw file </span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> dv_instance.get_plays()</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df[df[<span class="st">'skill'</span>].notna()]</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.head(<span class="dv">10</span>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>Markdown(df.to_markdown(index <span class="op">=</span> <span class="va">False</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> Markdown</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>pd.set_option(<span class="st">'display.max_colwidth'</span>, <span class="dv">1000</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>dv_instance <span class="op">=</span> read_dv.DataVolley(<span class="va">None</span>) <span class="co"># Replace `None` with path of your dvw file </span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> dv_instance.get_plays()</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df[df[<span class="st">'skill'</span>].notna()]</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.head(<span class="dv">10</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>Markdown(df.to_markdown(index <span class="op">=</span> <span class="va">False</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <colgroup>
@@ -360,7 +362,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">6a9ca9b2-c6cf-4064-9a5d-c379daf99920</td>
+<td style="text-align: left;">8886526b-f6f5-47c6-a6a1-238b678ac332</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">494</td>
 <td style="text-align: left;">*19SM+~<del>78A</del>~00</td>
@@ -418,7 +420,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: right;">0</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">6a9ca9b2-c6cf-4064-9a5d-c379daf99920</td>
+<td style="text-align: left;">8886526b-f6f5-47c6-a6a1-238b678ac332</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">495</td>
 <td style="text-align: left;">a02RM-~<del>58AM</del>00B</td>
@@ -476,7 +478,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: right;">1</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">6a9ca9b2-c6cf-4064-9a5d-c379daf99920</td>
+<td style="text-align: left;">8886526b-f6f5-47c6-a6a1-238b678ac332</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">497</td>
 <td style="text-align: left;">a08ET#~~<del>8C</del>~00</td>
@@ -534,7 +536,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: right;">1</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">6a9ca9b2-c6cf-4064-9a5d-c379daf99920</td>
+<td style="text-align: left;">8886526b-f6f5-47c6-a6a1-238b678ac332</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">499</td>
 <td style="text-align: left;">a10AT-X5<sub>46CH2</sub>00F</td>
@@ -592,7 +594,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: right;">1</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">6a9ca9b2-c6cf-4064-9a5d-c379daf99920</td>
+<td style="text-align: left;">8886526b-f6f5-47c6-a6a1-238b678ac332</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">499</td>
 <td style="text-align: left;">*11BT+~~<del>2C</del>~00</td>
@@ -650,7 +652,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: right;">2</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">6a9ca9b2-c6cf-4064-9a5d-c379daf99920</td>
+<td style="text-align: left;">8886526b-f6f5-47c6-a6a1-238b678ac332</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">500</td>
 <td style="text-align: left;">*19DT+~<del>42AB</del>00B</td>
@@ -708,7 +710,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: right;">2</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">6a9ca9b2-c6cf-4064-9a5d-c379daf99920</td>
+<td style="text-align: left;">8886526b-f6f5-47c6-a6a1-238b678ac332</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">502</td>
 <td style="text-align: left;">*08EH#~~<del>8A</del>~00</td>
@@ -766,7 +768,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: right;">2</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">6a9ca9b2-c6cf-4064-9a5d-c379daf99920</td>
+<td style="text-align: left;">8886526b-f6f5-47c6-a6a1-238b678ac332</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">504</td>
 <td style="text-align: left;">*09AH#V5<sub>41BH2</sub>00F</td>
@@ -824,7 +826,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: right;">2</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">6a9ca9b2-c6cf-4064-9a5d-c379daf99920</td>
+<td style="text-align: left;">8886526b-f6f5-47c6-a6a1-238b678ac332</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">504</td>
 <td style="text-align: left;">a17BH=~~<del>2B</del>~00</td>
@@ -882,7 +884,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: right;">3</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">6a9ca9b2-c6cf-4064-9a5d-c379daf99920</td>
+<td style="text-align: left;">8886526b-f6f5-47c6-a6a1-238b678ac332</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">504</td>
 <td style="text-align: left;">*p01:00</td>
