@@ -1,0 +1,91 @@
+---
+title: "Plays filtering"
+---
+
+### Plays filtering
+
+Once you have your data loaded into a plays dataframe, you can perform various filtering operations to focus on specific skills. This section covers techniques for filtering skills such as reception, serve, attack, set, dig, block, and more.
+
+## Python - Filtering for attacks
+
+```{python}
+from datavolley import read_dv
+import pandas as pd
+from IPython.display import Markdown
+dv_instance = read_dv.DataVolley(None) # Replace `None` with path of your dvw file 
+df = dv_instance.get_plays()
+atks = df[df['skill'] == 'Attack']
+atks = atks.head(5)
+Markdown(atks.to_markdown(index = False))
+```
+
+## Python - Filtering for attacks by player
+
+```{python}
+atks = df[(df['skill'] == 'Attack') & (df['player_name'] == 'Claire Chaussee')]
+atks = atks.head(5)
+Markdown(atks.to_markdown(index = False))
+```
+
+## R - Filtering for attacks
+
+```{r}
+#| warning: FALSE
+library(datavolley)
+library(dplyr)
+x <- dv_read("datavolley//example_data.dvw") # Example data from python
+px <- x$plays
+atks <- px %>% filter(skill == 'Attack') 
+atks <- head(atks, 5)
+knitr::kable(atks)
+```
+
+## R - Filtering for attacks by player
+
+```{r}
+atks <- px %>% filter(skill == 'Attack' & player_name == 'Claire Chaussee')
+atks <- head(atks, 5)
+knitr::kable(atks)
+```
+
+### Advanced filtering
+
+We can narrow down our analysis to instances where a particular player receives the ball during attacks or when a set code occurs in the preceding skill. This can be achieved using methods that allow us to examine the previous skill or the next skill, enabling targeted filtering for these specific scenarios.
+
+### Python - Filtering for attacks by player reception
+
+```{python}
+atks = df[(df['skill'] == 'Attack') & 
+    (df['player_name'] == 'Claire Chaussee') & 
+    (df['player_name'].shift(2) == 'Mel McHenry') & 
+    (df['skill'].shift(2) == 'Reception')]
+Markdown(atks.to_markdown(index = False))
+```
+
+### Python - Filtering for attacks by set code
+
+```{python}
+atks = df[(df['skill'] == 'Attack') & 
+    (df['player_name'] == 'Claire Chaussee') & 
+    (df['set_code'].shift(1) == 'K1')]
+Markdown(atks.to_markdown(index = False))
+```
+
+### R - Filtering for attacks by player reception
+
+```{r}
+atks <- px %>% filter(skill == 'Attack' & 
+                      player_name == 'Claire Chaussee' & 
+                      lag(player_name,2) == 'Mel McHenry' & 
+                      lag(skill,2) == 'Reception')
+knitr::kable(atks)
+```
+
+### R - Filtering for attacks by set code
+
+```{r}
+atks <- px %>% filter(skill == 'Attack' & 
+                      player_name == 'Claire Chaussee' & 
+                      lag(set_code,1) == 'K1')
+knitr::kable(atks)
+```

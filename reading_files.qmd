@@ -1,33 +1,39 @@
 ---
-title: "Reading dvw files"
+title: "Reading plays - dvw files"
 ---
 
 ## DVW files
 
 The data project scouting software, [data volley 4](https://www.dataproject.com/Products/EN/en/Volleyball/DataVolley4) produces .dvw files. These files are similar to a text file. If your interested in some example files, you can find them [here](https://mevza.volleynet.at/Download/59).
 
-## Python - Reading a dvw file
+## Python - Reading plays from a dvw file
 
 The provided example file is used. You would typically fill in the `None` with the actual path of your dvw files.
 
 ```{python}
 #| tbl-pyex: Example python reading data
 from datavolley import read_dv
+import pandas as pd
+from IPython.display import Markdown
+pd.set_option('display.max_colwidth', 1000)
 dv_instance = read_dv.DataVolley(None) # Replace `None` with path of your dvw file 
 df = dv_instance.get_plays()
+df = df[df['skill'].notna()]
 df = df.head(10)
-print(df.to_markdown(tablefmt="grid"))
+Markdown(df.to_markdown(index = False))
 ```
 
-## R - Reading a dvw file
+## R - Reading plays from a dvw file
 
 The provided example file is used. You would typically fill in the `None` with the actual path of your dvw files.
 
 ```{r}
 #| warning: FALSE
 library(datavolley)
+library(tidyverse)
 x <- dv_read("datavolley//example_data.dvw") # Example data from python
 px <- x$plays
+px <- px %>% filter(!is.na(skill))
 px <- head(px, 10)
 knitr::kable(px)
 ```

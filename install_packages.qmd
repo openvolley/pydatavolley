@@ -4,7 +4,7 @@ title: "Installing packages"
 
 ## Python packages {#Packages}
 
-Using [pip](https://pypi.org/search/?q=pydatavolley) for Python, you can download [pydatavolley](https://github.com/openvolley/pydatavolley).
+Using [pip](https://pypi.org/search/?q=pydatavolley) ([tutorial here](https://webdevwizardyt.com/how-to-install-pip-in-visual-studio-code-a-step-by-step-guide/)) for Python, you can download [pydatavolley](https://github.com/openvolley/pydatavolley).
 
 You can reference the [Pandas Book](https://pandas.pydata.org/) for further research in data manipulation using Pands.
 
@@ -18,7 +18,7 @@ pip install numpy
 
 Using remotes in R, you can download [datavolley](https://github.com/openvolley/datavolley).
 
-You can see all the [tidyverse packages](https://www.tidyverse.org/) and some of the learning tools avaiable.
+You can see all the [tidyverse packages](https://www.tidyverse.org/) and some of the learning tools available.
 
 ```{r}
 #| output: FALSE

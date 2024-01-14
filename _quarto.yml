@@ -2,39 +2,35 @@ project:
   type: website
   
 website: 
-  reader-mode: true
   page-navigation: true
-  title: "pydatavolley"
+  title: "Exploring with datavolley: Python and R at Openvolley"
   page-footer:
     left: |
-      Written by Tyler Widdison, Maurizio Napolitano.
-    right: |
-      This book was built with <a href="https://quarto.org/">Quarto</a>.
+      Written by Tyler Widdison
   site-url: pydatavolley.openvolley.org
   repo-branch: gh-pages
   navbar: 
+    logo: https://avatars.slack-edge.com/2021-01-31/1719076279312_f2c733e323dab6cfc11b_88.png
     right: 
       - icon: github
-        href: https://github.com
+        href: https://github.com/openvolley
         aria-label: GitHub
-  
+
   sidebar:
     style: docked
-    search: true
     collapse-level: 1
     contents:
-      - section: index.qmd
-      - section: 1 - Setup
+      - section: "Basics"
         contents:
-          - ide.qmd
+          - index.qmd
+          - tools.qmd
           - install_packages.qmd
-      - section: 2 - DVW files
+      - section: DVW files
         contents:
           - reading_files.qmd
-          - data_clean.qmd
-      - section: 3 - Creating data
+          - filtering.qmd
+      - section: Heatmaps
         contents:
-          - data_description.qmd
           - heatmaps.qmd
 
 format: 

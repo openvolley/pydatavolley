@@ -8,7 +8,7 @@
 
 <meta name="author" content="Tyler Widdison">
 
-<title>pydatavolley - Data cleaning</title>
+<title>Exploring with datavolley: Python and R at Openvolley - Data cleaning</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,8 +65,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./data_description.html" rel="next">
-<link href="./reading_files.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -107,8 +105,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="https://avatars.slack-edge.com/2021-01-31/1719076279312_f2c733e323dab6cfc11b_88.png" alt="" class="navbar-logo">
+    </a>
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">pydatavolley</span>
+    <span class="navbar-title">Exploring with datavolley: Python and R at Openvolley</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -118,17 +119,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com" rel="" target=""><i class="bi bi-github" role="img" aria-label="GitHub">
+    <a class="nav-link" href="https://github.com/openvolley" rel="" target=""><i class="bi bi-github" role="img" aria-label="GitHub">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
 </ul>
             <div class="quarto-navbar-tools">
-  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
-  <div class="quarto-reader-toggle-btn">
-  <i class="bi"></i>
-  </div>
-</a>
 </div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
@@ -138,12 +134,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./reading_files.html">2 - DVW files</a></li><li class="breadcrumb-item"><a href="./data_clean.html">Data cleaning</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Data cleaning</li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
     </div>
   </nav>
 </header>
@@ -151,29 +144,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Welcome</span></span>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
- <span class="menu-text">1 - Setup</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+ <span class="menu-text">Basics</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ide.html" class="sidebar-item-text sidebar-link">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tools.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tools to use</span></a>
   </div>
 </li>
@@ -187,42 +177,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
- <span class="menu-text">2 - DVW files</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+ <span class="menu-text">DVW files</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./reading_files.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Reading dvw files</span></a>
+ <span class="menu-text">Reading plays - dvw files</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data_clean.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Data cleaning</span></a>
+  <a href="./filtering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Plays filtering</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
- <span class="menu-text">3 - Creating data</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+ <span class="menu-text">Heatmaps</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./data_description.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Data Description Example</span></a>
-  </div>
-</li>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./heatmaps.html" class="sidebar-item-text sidebar-link">
@@ -284,17 +268,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>                                  match_id video_file_number video_time                code                      team player_number      player_name player_id      skill evaluation_code setter_position attack_code set_code set_type start_zone end_zone end_subzone num_players_numeric  \
-4     e1303433-d117-434d-a946-3e467b83d522                 1        494   *19SM+~~~78A~~~00  University of Louisville            19  Shannon Shields   -296094      Serve               +               1         NaN      NaN      NaN          7        8           A                 NaN   
-5     e1303433-d117-434d-a946-3e467b83d522                 1        495  a02RM-~~~58AM~~00B      University of Dayton             2    Maura Collins   -230138  Reception               -               6         NaN      NaN      NaN          5        8           A                 NaN   
-6     e1303433-d117-434d-a946-3e467b83d522                 1        497   a08ET#~~~~8C~~~00      University of Dayton             8  Brooke Westbeld   -232525        Set               #               6         NaN      NaN        ~        NaN        8           C                 NaN   
-7     e1303433-d117-434d-a946-3e467b83d522                 1        499  a10AT-X5~46CH2~00F      University of Dayton            10   Jamie Peterson    -11802     Attack               -               6          X5      NaN      NaN          4        6           C                   2   
-8     e1303433-d117-434d-a946-3e467b83d522                 1        499   *11BT+~~~~2C~~~00  University of Louisville            11   Anna Stevenson   -278838      Block               +               1         NaN      NaN      NaN        NaN        2           C                 NaN   
+4     7da9652a-2c72-4b0d-902b-eea3e49d1e30                 1        494   *19SM+~~~78A~~~00  University of Louisville            19  Shannon Shields   -296094      Serve               +               1         NaN      NaN      NaN          7        8           A                 NaN   
+5     7da9652a-2c72-4b0d-902b-eea3e49d1e30                 1        495  a02RM-~~~58AM~~00B      University of Dayton             2    Maura Collins   -230138  Reception               -               6         NaN      NaN      NaN          5        8           A                 NaN   
+6     7da9652a-2c72-4b0d-902b-eea3e49d1e30                 1        497   a08ET#~~~~8C~~~00      University of Dayton             8  Brooke Westbeld   -232525        Set               #               6         NaN      NaN        ~        NaN        8           C                 NaN   
+7     7da9652a-2c72-4b0d-902b-eea3e49d1e30                 1        499  a10AT-X5~46CH2~00F      University of Dayton            10   Jamie Peterson    -11802     Attack               -               6          X5      NaN      NaN          4        6           C                   2   
+8     7da9652a-2c72-4b0d-902b-eea3e49d1e30                 1        499   *11BT+~~~~2C~~~00  University of Louisville            11   Anna Stevenson   -278838      Block               +               1         NaN      NaN      NaN        NaN        2           C                 NaN   
 ...                                    ...               ...        ...                 ...                       ...           ...              ...       ...        ...             ...             ...         ...      ...      ...        ...      ...         ...                 ...   
-1476  e1303433-d117-434d-a946-3e467b83d522                 1       5217   *08EH#~~~~9D~~~+6  University of Louisville             8    Lexi Hamilton    -75970        Set               #               4         NaN      NaN        ~        NaN        9           D                 NaN   
-1477  e1303433-d117-434d-a946-3e467b83d522                 1       5218  *10AH=V5~44BH2~+6F  University of Louisville            10      Mel McHenry    -75967     Attack               =               4          V5      NaN      NaN          4        4           B                   2   
-1478  e1303433-d117-434d-a946-3e467b83d522                 1       5219             ap24:19      University of Dayton           NaN              NaN       NaN      Point             NaN               3         NaN      NaN      NaN        NaN      NaN         NaN                 NaN   
-1484  e1303433-d117-434d-a946-3e467b83d522                 1       5252   a18SM=~~~71B~~~-5      University of Dayton            18      Grace Dynda   -282421      Serve               =               2         NaN      NaN      NaN          7        1           B                 NaN   
-1485  e1303433-d117-434d-a946-3e467b83d522                 1       5253             *p25:19  University of Louisville           NaN              NaN       NaN      Point             NaN               4         NaN      NaN      NaN        NaN      NaN         NaN                 NaN   
+1476  7da9652a-2c72-4b0d-902b-eea3e49d1e30                 1       5217   *08EH#~~~~9D~~~+6  University of Louisville             8    Lexi Hamilton    -75970        Set               #               4         NaN      NaN        ~        NaN        9           D                 NaN   
+1477  7da9652a-2c72-4b0d-902b-eea3e49d1e30                 1       5218  *10AH=V5~44BH2~+6F  University of Louisville            10      Mel McHenry    -75967     Attack               =               4          V5      NaN      NaN          4        4           B                   2   
+1478  7da9652a-2c72-4b0d-902b-eea3e49d1e30                 1       5219             ap24:19      University of Dayton           NaN              NaN       NaN      Point             NaN               3         NaN      NaN      NaN        NaN      NaN         NaN                 NaN   
+1484  7da9652a-2c72-4b0d-902b-eea3e49d1e30                 1       5252   a18SM=~~~71B~~~-5      University of Dayton            18      Grace Dynda   -282421      Serve               =               2         NaN      NaN      NaN          7        1           B                 NaN   
+1485  7da9652a-2c72-4b0d-902b-eea3e49d1e30                 1       5253             *p25:19  University of Louisville           NaN              NaN       NaN      Point             NaN               4         NaN      NaN      NaN        NaN      NaN         NaN                 NaN   
 
       home_team_score  visiting_team_score home_setter_position visiting_setter_position custom_code home_p1 home_p2 home_p3 home_p4 home_p5 home_p6 visiting_p1 visiting_p2 visiting_p3 visiting_p4 visiting_p5 visiting_p6  start_coordinate  mid_coordinate  end_coordinate point_phase   attack_phase  \
 4                   1                    0                    1                        6          00      19       9      11      15      10       7           1          16          17          10           6           8               431            &lt;NA&gt;            7642       Serve            nan   
@@ -611,26 +595,16 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="./reading_files.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Reading dvw files</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="./data_description.html" class="pagination-link">
-        <span class="nav-page-text">Data Description Example</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Written by Tyler Widdison, Maurizio Napolitano.</div>   
+    <div class="nav-footer-left">Written by Tyler Widdison</div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
-    <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
   </div>
 </footer>
 
