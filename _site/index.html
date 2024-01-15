@@ -25,7 +25,6 @@ ul.task-list li input[type="checkbox"] {
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
@@ -101,9 +100,12 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Basics</a></li><li class="breadcrumb-item"><a href="./index.html">Welcome</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Welcome</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
     </div>
   </nav>
 </header>
@@ -111,23 +113,28 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">Basics</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Welcome</span></a>
   </div>
 </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+ <span class="menu-text">Basics</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tools.html" class="sidebar-item-text sidebar-link">
@@ -159,8 +166,20 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./selecting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Selecting</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./filtering.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Plays filtering</span></a>
+ <span class="menu-text">Filtering</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./additions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data additions</span></a>
   </div>
 </li>
       </ul>
@@ -192,8 +211,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#Welcome" id="toc-Welcome" class="nav-link active" data-scroll-target="#Welcome">Welcome</a></li>
-  <li><a href="#Acknowledgements" id="toc-Acknowledgements" class="nav-link" data-scroll-target="#Acknowledgements">Acknowledgements</a></li>
+  <li><a href="#Acknowledgements" id="toc-Acknowledgements" class="nav-link active" data-scroll-target="#Acknowledgements">Acknowledgements</a></li>
   </ul>
 </nav>
     </div>
@@ -217,12 +235,9 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="Welcome" class="level2">
-<h2 class="anchored" data-anchor-id="Welcome">Welcome</h2>
 <p>Welcome to pydatavolley, where data analysis meets volleyball. This book is a curated collection of skills designed for the volleyball analyst eager to transcend the conventional boundaries of data exploration.</p>
 <p>In the following chapters, we will delve into various topics that not only harness the power of Python but also explore the realm of <a href="https://posit.co/download/rstudio-desktop/">R</a>. Each chapter and section of this book is crafted to seamlessly integrate both languages, providing a comprehensive and versatile approach to data analysis in the context of volleyball. We will focus on using <a href="https://pandas.pydata.org/">pandas</a> in Python. <a href="https://www.tidyverse.org/">Tidyverse</a> in R. If you would like a more Tidyverse approach in Python, consider using <a href="https://github.com/machow/siuba/">siuba</a> which replicates the use of dplyr into Python.</p>
 <p>Whether you’re a seasoned analyst looking to enhance your skills or a newcomer eager to explore the intersection of data, pydatavolley is your guide.</p>
-</section>
 <section id="Acknowledgements" class="level2">
 <h2 class="anchored" data-anchor-id="Acknowledgements">Acknowledgements</h2>
 <p><a href="https://openvolley.github.io/">Openvolley</a> team and their support for my addition to pydatavolley.</p>

@@ -1,0 +1,40 @@
+---
+title: "Data additions"
+---
+
+There might come a time where you will need to add new columns to your dataset. You can customize these assignments based on your specific needs and conditions. This allows you to add new columns for various purposes such as filtering or to make other data-wrangling tasks easier.
+
+*These examples are taken from [openvolley snippits](https://snippets.openvolley.org/data-augmentation.html).*
+
+### The setter of a given attack
+
+**Aim:** Identify the player who made the set associated with each attack (noting that some files might not have the setting action coded for all attacks, or even coded at all).
+
+### Python - adding set player name
+
+```{python}
+from datavolley import read_dv
+import pandas as pd
+from IPython.display import Markdown
+import numpy as np
+dv_instance = read_dv.DataVolley(None) # Replace `None` with path of your dvw file 
+df = dv_instance.get_plays()
+df['set_player_name'] = np.where((df['skill'] == 'Attack') & (df['skill'].shift(1) == 'Set') & (df['team'] == df['team'].shift(1)), df['player_name'].shift(1), np.nan)
+filtered_df = df[df['skill'] == 'Attack'][['team', 'player_name', 'skill', 'evaluation_code', 'set_player_name']].head(5)
+Markdown(filtered_df.to_markdown(index = False))
+```
+
+------------------------------------------------------------------------
+
+### R - adding set player name
+
+```{r}
+library(datavolley)
+library(dplyr)
+x <- dv_read("datavolley//example_data.dvw") # Example data from python
+px <- x$plays
+px <- px %>% mutate(set_player_name = case_when(skill == "Attack" & lag(skill) == "Set" & team == lag(team) ~ lag(player_name)))
+knitr::kable(px %>% select(team, player_name, skill, evaluation_code, set_player_name))
+```
+
+If you needed to add set code you can use the same code and replace `player_name` with `set_code`

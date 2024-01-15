@@ -1,0 +1,34 @@
+---
+title: "Selecting"
+---
+
+### Plays selecting
+
+This section covers the idea of selecting columns from your data. Returning a subset of columns that are relevant to your analysis, making it easier to work with and understand the dataset. This process helps in condensing or minimizing the dataset, reducing its column size to focus on the essential information.
+
+### Python - selecting
+
+```{python}
+#| warning: FALSE
+from datavolley import read_dv
+import pandas as pd
+from IPython.display import Markdown
+dv_instance = read_dv.DataVolley(None) # Replace `None` with path of your dvw file 
+df = dv_instance.get_plays()
+selected_df = df[['team', 'player_name', 'skill', 'evaluation_code', 'point_won_by']].head(20)
+Markdown(selected_df.to_markdown(index = False))
+```
+
+------------------------------------------------------------------------
+
+### R - selecting
+
+```{r}
+#| warning: FALSE
+library(datavolley)
+library(dplyr)
+x <- dv_read("datavolley//example_data.dvw") # Example data from python
+px <- x$plays
+selected_px <- px %>% dplyr::select(team, player_name, skill, evaluation_code, point_won_by)
+knitr::kable(selected_px %>% head(20))
+```

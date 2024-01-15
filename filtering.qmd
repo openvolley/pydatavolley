@@ -1,8 +1,8 @@
 ---
-title: "Plays filtering"
+title: "Filtering"
 ---
 
-### Plays filtering
+### Filtering
 
 Once you have your data loaded into a plays dataframe, you can perform various filtering operations to focus on specific skills. This section covers techniques for filtering skills such as reception, serve, attack, set, dig, block, and more.
 
@@ -19,6 +19,8 @@ atks = atks.head(5)
 Markdown(atks.to_markdown(index = False))
 ```
 
+------------------------------------------------------------------------
+
 ## Python - Filtering for attacks by player
 
 ```{python}
@@ -26,6 +28,8 @@ atks = df[(df['skill'] == 'Attack') & (df['player_name'] == 'Claire Chaussee')]
 atks = atks.head(5)
 Markdown(atks.to_markdown(index = False))
 ```
+
+------------------------------------------------------------------------
 
 ## R - Filtering for attacks
 
@@ -39,6 +43,8 @@ atks <- px %>% filter(skill == 'Attack')
 atks <- head(atks, 5)
 knitr::kable(atks)
 ```
+
+------------------------------------------------------------------------
 
 ## R - Filtering for attacks by player
 
@@ -64,6 +70,8 @@ atks = df[(df['skill'] == 'Attack') &
 Markdown(atks.to_markdown(index = False))
 ```
 
+------------------------------------------------------------------------
+
 ### Python - Filtering for attacks by set code
 
 ```{python}
@@ -72,6 +80,8 @@ atks = df[(df['skill'] == 'Attack') &
     (df['set_code'].shift(1) == 'K1')]
 Markdown(atks.to_markdown(index = False))
 ```
+
+------------------------------------------------------------------------
 
 ### R - Filtering for attacks by player reception
 
@@ -82,6 +92,8 @@ atks <- px %>% filter(skill == 'Attack' &
                       lag(skill,2) == 'Reception')
 knitr::kable(atks)
 ```
+
+------------------------------------------------------------------------
 
 ### R - Filtering for attacks by set code
 

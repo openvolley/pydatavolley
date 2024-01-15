@@ -7,8 +7,6 @@ website:
   page-footer:
     left: |
       Written by Tyler Widdison
-  site-url: pydatavolley.openvolley.org
-  repo-branch: gh-pages
   navbar: 
     logo: https://avatars.slack-edge.com/2021-01-31/1719076279312_f2c733e323dab6cfc11b_88.png
     right: 
@@ -17,18 +15,23 @@ website:
         aria-label: GitHub
 
   sidebar:
-    style: docked
+    style: "docked"
+    search: true
+    pinned: true
     collapse-level: 1
     contents:
+      - href: index.qmd
+        text: Welcome
       - section: "Basics"
         contents:
-          - index.qmd
           - tools.qmd
           - install_packages.qmd
       - section: DVW files
         contents:
           - reading_files.qmd
+          - selecting.qmd
           - filtering.qmd
+          - additions.qmd
       - section: Heatmaps
         contents:
           - heatmaps.qmd
@@ -41,7 +44,4 @@ format:
     toc: true
     code-fold: show
     code-link: true
-    callout-appearance: simple
     author-meta: "Tyler Widdison"
-
-editor: visual
