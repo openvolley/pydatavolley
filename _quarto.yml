@@ -2,6 +2,7 @@ project:
   type: website
   
 website: 
+  site-url: https://pydatavolley.openvolley.org
   page-navigation: true
   title: "Exploring with datavolley: Python and R at Openvolley"
   page-footer:
@@ -20,8 +21,7 @@ website:
     pinned: true
     collapse-level: 1
     contents:
-      - href: index.qmd
-        text: Welcome
+      - section: index.qmd
       - section: "Basics"
         contents:
           - tools.qmd
