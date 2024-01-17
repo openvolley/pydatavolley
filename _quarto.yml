@@ -4,7 +4,7 @@ project:
 website: 
   site-url: https://pydatavolley.openvolley.org
   page-navigation: true
-  title: "Exploring with datavolley: Python and R at Openvolley"
+  title: "openvolley - Data analysis in R and Python"
   page-footer:
     left: |
       Written by Tyler Widdison

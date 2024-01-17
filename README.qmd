@@ -5,19 +5,12 @@ format: gfm
 
 A python package for reading volleyball scouting files in DataVolley format (\*.dvw).
 
-<https://openvolley.github.io/pydatavolley/index.html>
-
-<https://pypi.org/project/pydatavolley>
+<https://pydatavolley.openvolley.org/>
 
 ## Installation
 
-[^1]
-
-[^1]: If updating fails, you may need to `pip uninstall pydatavolley` - then reinstall `pip install pydatavolley`
-
 ```         
 pip install pydatavolley
-pip install --upgrade pydatavolley
 ```
 
 ## [Examples]{.underline}
@@ -72,7 +65,7 @@ print(
          K=('evaluation_code', lambda x: x.eq('#').sum(skipna=True)),
          K_pct=('evaluation_code', lambda x: round((x.eq('#').sum(skipna=True) / x.count()), 3)))
     .reset_index()
-    .sort_values(by='Att', ascending=False)
+    .sort_values(by='K_pct', ascending=False)
     .head(20)
     .reset_index(drop=True)
     .to_string()
