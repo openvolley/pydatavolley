@@ -6,7 +6,7 @@ title: "Reading plays - dvw files"
 
 The data project scouting software, [data volley 4](https://www.dataproject.com/Products/EN/en/Volleyball/DataVolley4) produces .dvw files. These files are similar to a text file. If your interested in some example files, you can find them [here](https://mevza.volleynet.at/Download/59).
 
-## Python - Reading plays from a dvw file
+## Python - Reading plays from one dvw file
 
 The provided example file is used. You would typically fill in the `None` with the actual path of your dvw files.
 
@@ -19,11 +19,41 @@ pd.set_option('display.max_colwidth', 1000)
 dv_instance = read_dv.DataVolley(None) # Replace `None` with path of your dvw file 
 df = dv_instance.get_plays()
 df = df[df['skill'].notna()]
-df = df.head(10)
-Markdown(df.to_markdown(index = False))
+df = df.head(5)
+Markdown(df.to_markdown(index = False, tablefmt="github", maxcolwidths=[None]))
 ```
 
-## R - Reading plays from a dvw file
+## Python - Reading plays from multiple files
+
+```{python}
+import os
+
+# Assign path
+dvw_path_folder = os.path.expanduser("~\\desktop\\dvws")
+file_extension = ".dvw"
+
+# Get a list of all files with the specified extension in the directory
+file_list = [f for f in os.listdir(dvw_path_folder) if f.endswith(file_extension)]
+
+# Initialize an empty DataFrame to store combined data
+combined_df = pd.DataFrame()
+
+def process_file(path):
+    dv_instance = read_dv.DataVolley(os.path.join(dvw_path_folder, path))
+    df = dv_instance.get_plays()
+    return df
+
+# Loop through each file path
+for file_name in file_list:
+    combined_df = pd.concat([combined_df, process_file(file_name)], ignore_index=True)
+
+match_count = combined_df[['match_id']].drop_duplicates()
+Markdown(match_count.to_markdown(index = False))
+```
+
+------------------------------------------------------------------------
+
+## R - Reading plays from one dvw file
 
 The provided example file is used. You would typically fill in the `None` with the actual path of your dvw files.
 
@@ -34,6 +64,18 @@ library(tidyverse)
 x <- dv_read("datavolley//example_data.dvw") # Example data from python
 px <- x$plays
 px <- px %>% filter(!is.na(skill))
-px <- head(px, 10)
+px <- head(px, 5)
 knitr::kable(px)
+```
+
+## R - Reading plays from multiple files
+
+```{r}
+#| warning: FALSE
+dvw_path_folder <- path.expand("~/dvws")
+d <- dir(dvw_path_folder, pattern = "dvw$", full.names = TRUE)
+lx <- lapply(d, dv_read, insert_technical_timeouts = FALSE)
+px <- bind_rows(lapply(lx, plays))
+match_count <- px %>% distinct(match_id)
+knitr::kable(match_count)
 ```

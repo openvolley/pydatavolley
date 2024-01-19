@@ -26,9 +26,9 @@ website:
         contents:
           - tools.qmd
           - install_packages.qmd
-      - section: DVW files
-        contents:
           - reading_files.qmd
+      - section: Data wrangling
+        contents:
           - selecting.qmd
           - filtering.qmd
           - additions.qmd

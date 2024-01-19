@@ -297,6 +297,7 @@ class DataVolley:
         existing_columns = [col for col in desired_order if col in plays.columns]
         plays = plays[existing_columns]
         self.plays = plays
+        plays = plays.replace({np.nan: None})
         return plays
 
     def get_plays(self):

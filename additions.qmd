@@ -1,5 +1,5 @@
 ---
-title: "Data additions"
+title: "Data transformations"
 ---
 
 There might come a time where you will need to add new columns to your dataset. You can customize these assignments based on your specific needs and conditions. This allows you to add new columns for various purposes such as filtering or to make other data-wrangling tasks easier.

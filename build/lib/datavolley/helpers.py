@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+
 # Function to extract teams
 def get_teams(rows_list):
     # Find the index of [3TEAMS]

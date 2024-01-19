@@ -5,6 +5,7 @@ import pandas as pd
 import numpy as np
 from .get_players_from_md import read_players
 from .helpers import get_match, get_set, get_teams, calculate_skill, skill_map, eval_codes, desired_order, add_xy
+from charset_normalizer import from_path
 
 class DataVolley:
     """
@@ -75,8 +76,11 @@ class DataVolley:
         This method reads the file, extracts metadata, and creates a DataFrame
         containing relevant information about plays.
         """
+
+        # identify character encoding
+        results = from_path(self.file_path)
         rows = [] # Initialize lists to store data
-        with open(self.file_path, 'r') as file: # Read the file and extract data
+        with open(self.file_path, 'r',encoding=results.best().encoding) as file: # Read the file and extract data
             for line in file:
                 rows.append(line)
 
@@ -293,6 +297,7 @@ class DataVolley:
         existing_columns = [col for col in desired_order if col in plays.columns]
         plays = plays[existing_columns]
         self.plays = plays
+        plays = plays.replace({np.nan: None})
         return plays
 
     def get_plays(self):

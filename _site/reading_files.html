@@ -122,7 +122,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./reading_files.html">DVW files</a></li><li class="breadcrumb-item"><a href="./reading_files.html">Reading plays - dvw files</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./tools.html">Basics</a></li><li class="breadcrumb-item"><a href="./reading_files.html">Reading plays - dvw files</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -144,13 +144,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
  <span class="menu-text">Basics</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tools.html" class="sidebar-item-text sidebar-link">
@@ -163,24 +163,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Installing packages</span></a>
   </div>
 </li>
-      </ul>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
- <span class="menu-text">DVW files</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./reading_files.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Reading plays - dvw files</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+ <span class="menu-text">Data wrangling</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./selecting.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Selecting</span></a>
@@ -195,7 +195,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./additions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Data additions</span></a>
+ <span class="menu-text">Data transformations</span></a>
   </div>
 </li>
       </ul>
@@ -226,8 +226,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
 <li><a href="#dvw-files" id="toc-dvw-files" class="nav-link active" data-scroll-target="#dvw-files">DVW files</a></li>
-  <li><a href="#python---reading-plays-from-a-dvw-file" id="toc-python---reading-plays-from-a-dvw-file" class="nav-link" data-scroll-target="#python---reading-plays-from-a-dvw-file">Python - Reading plays from a dvw file</a></li>
-  <li><a href="#r---reading-plays-from-a-dvw-file" id="toc-r---reading-plays-from-a-dvw-file" class="nav-link" data-scroll-target="#r---reading-plays-from-a-dvw-file">R - Reading plays from a dvw file</a></li>
+  <li><a href="#python---reading-plays-from-one-dvw-file" id="toc-python---reading-plays-from-one-dvw-file" class="nav-link" data-scroll-target="#python---reading-plays-from-one-dvw-file">Python - Reading plays from one dvw file</a></li>
+  <li><a href="#python---reading-plays-from-multiple-files" id="toc-python---reading-plays-from-multiple-files" class="nav-link" data-scroll-target="#python---reading-plays-from-multiple-files">Python - Reading plays from multiple files</a></li>
+  <li><a href="#r---reading-plays-from-one-dvw-file" id="toc-r---reading-plays-from-one-dvw-file" class="nav-link" data-scroll-target="#r---reading-plays-from-one-dvw-file">R - Reading plays from one dvw file</a></li>
+  <li><a href="#r---reading-plays-from-multiple-files" id="toc-r---reading-plays-from-multiple-files" class="nav-link" data-scroll-target="#r---reading-plays-from-multiple-files">R - Reading plays from multiple files</a></li>
   </ul></nav>
     </div>
 <!-- main -->
@@ -247,7 +249,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header><section id="dvw-files" class="level2"><h2 class="anchored" data-anchor-id="dvw-files">DVW files</h2>
 <p>The data project scouting software, <a href="https://www.dataproject.com/Products/EN/en/Volleyball/DataVolley4">data volley 4</a> produces .dvw files. These files are similar to a text file. If your interested in some example files, you can find them <a href="https://mevza.volleynet.at/Download/59">here</a>.</p>
-</section><section id="python---reading-plays-from-a-dvw-file" class="level2"><h2 class="anchored" data-anchor-id="python---reading-plays-from-a-dvw-file">Python - Reading plays from a dvw file</h2>
+</section><section id="python---reading-plays-from-one-dvw-file" class="level2"><h2 class="anchored" data-anchor-id="python---reading-plays-from-one-dvw-file">Python - Reading plays from one dvw file</h2>
 <p>The provided example file is used. You would typically fill in the <code>None</code> with the actual path of your dvw files.</p>
 <div class="cell" data-tbl-pyex="Example python reading data">
 <details open=""><summary>Code</summary><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datavolley <span class="im">import</span> read_dv</span>
@@ -257,8 +259,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>dv_instance <span class="op">=</span> read_dv.DataVolley(<span class="va">None</span>) <span class="co"># Replace `None` with path of your dvw file </span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> dv_instance.get_plays()</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df[df[<span class="st">'skill'</span>].notna()]</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.head(<span class="dv">10</span>)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>Markdown(df.to_markdown(index <span class="op">=</span> <span class="va">False</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.head(<span class="dv">5</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>Markdown(df.to_markdown(index <span class="op">=</span> <span class="va">False</span>, tablefmt<span class="op">=</span><span class="st">"github"</span>, maxcolwidths<span class="op">=</span>[<span class="va">None</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <colgroup>
@@ -320,657 +322,414 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <col style="width: 1%">
 </colgroup>
 <thead><tr class="header">
-<th style="text-align: left;">match_id</th>
-<th style="text-align: right;">video_file_number</th>
-<th style="text-align: right;">video_time</th>
-<th style="text-align: left;">code</th>
-<th style="text-align: left;">team</th>
-<th style="text-align: right;">player_number</th>
-<th style="text-align: left;">player_name</th>
-<th style="text-align: right;">player_id</th>
-<th style="text-align: left;">skill</th>
-<th style="text-align: left;">evaluation_code</th>
-<th style="text-align: right;">setter_position</th>
-<th style="text-align: left;">attack_code</th>
-<th style="text-align: right;">set_code</th>
-<th style="text-align: left;">set_type</th>
-<th style="text-align: right;">start_zone</th>
-<th style="text-align: right;">end_zone</th>
-<th style="text-align: left;">end_subzone</th>
-<th style="text-align: right;">num_players_numeric</th>
-<th style="text-align: right;">home_team_score</th>
-<th style="text-align: right;">visiting_team_score</th>
-<th style="text-align: right;">home_setter_position</th>
-<th style="text-align: right;">visiting_setter_position</th>
-<th style="text-align: left;">custom_code</th>
-<th style="text-align: right;">home_p1</th>
-<th style="text-align: right;">home_p2</th>
-<th style="text-align: right;">home_p3</th>
-<th style="text-align: right;">home_p4</th>
-<th style="text-align: right;">home_p5</th>
-<th style="text-align: right;">home_p6</th>
-<th style="text-align: right;">visiting_p1</th>
-<th style="text-align: right;">visiting_p2</th>
-<th style="text-align: right;">visiting_p3</th>
-<th style="text-align: right;">visiting_p4</th>
-<th style="text-align: right;">visiting_p5</th>
-<th style="text-align: right;">visiting_p6</th>
-<th style="text-align: right;">start_coordinate</th>
-<th style="text-align: left;">mid_coordinate</th>
-<th style="text-align: left;">end_coordinate</th>
-<th style="text-align: left;">point_phase</th>
-<th style="text-align: left;">attack_phase</th>
-<th style="text-align: right;">start_coordinate_x</th>
-<th style="text-align: right;">start_coordinate_y</th>
-<th style="text-align: left;">mid_coordinate_x</th>
-<th style="text-align: left;">mid_coordinate_y</th>
-<th style="text-align: left;">end_coordinate_x</th>
-<th style="text-align: left;">end_coordinate_y</th>
-<th style="text-align: right;">set_number</th>
-<th style="text-align: left;">home_team</th>
-<th style="text-align: left;">visiting_team</th>
-<th style="text-align: right;">home_team_id</th>
-<th style="text-align: right;">visiting_team_id</th>
-<th style="text-align: left;">point_won_by</th>
-<th style="text-align: left;">serving_team</th>
-<th style="text-align: left;">receiving_team</th>
-<th style="text-align: right;">rally_number</th>
-<th style="text-align: right;">possesion_number</th>
+<th>match_id</th>
+<th>video_file_number</th>
+<th>video_time</th>
+<th>code</th>
+<th>team</th>
+<th>player_number</th>
+<th>player_name</th>
+<th>player_id</th>
+<th>skill</th>
+<th>evaluation_code</th>
+<th>setter_position</th>
+<th>attack_code</th>
+<th>set_code</th>
+<th>set_type</th>
+<th>start_zone</th>
+<th>end_zone</th>
+<th>end_subzone</th>
+<th>num_players_numeric</th>
+<th>home_team_score</th>
+<th>visiting_team_score</th>
+<th>home_setter_position</th>
+<th>visiting_setter_position</th>
+<th>custom_code</th>
+<th>home_p1</th>
+<th>home_p2</th>
+<th>home_p3</th>
+<th>home_p4</th>
+<th>home_p5</th>
+<th>home_p6</th>
+<th>visiting_p1</th>
+<th>visiting_p2</th>
+<th>visiting_p3</th>
+<th>visiting_p4</th>
+<th>visiting_p5</th>
+<th>visiting_p6</th>
+<th>start_coordinate</th>
+<th>mid_coordinate</th>
+<th>end_coordinate</th>
+<th>point_phase</th>
+<th>attack_phase</th>
+<th>start_coordinate_x</th>
+<th>start_coordinate_y</th>
+<th>mid_coordinate_x</th>
+<th>mid_coordinate_y</th>
+<th>end_coordinate_x</th>
+<th>end_coordinate_y</th>
+<th>set_number</th>
+<th>home_team</th>
+<th>visiting_team</th>
+<th>home_team_id</th>
+<th>visiting_team_id</th>
+<th>point_won_by</th>
+<th>serving_team</th>
+<th>receiving_team</th>
+<th>rally_number</th>
+<th>possesion_number</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">2b5e5ac3-e2cf-4326-b35c-7e841b2e7d60</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">494</td>
-<td style="text-align: left;">*19SM+~<del>78A</del>~00</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: right;">19</td>
-<td style="text-align: left;">Shannon Shields</td>
-<td style="text-align: right;">-296094</td>
-<td style="text-align: left;">Serve</td>
-<td style="text-align: left;">+</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">nan</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: left;">A</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: left;">00</td>
-<td style="text-align: right;">19</td>
-<td style="text-align: right;">9</td>
-<td style="text-align: right;">11</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">16</td>
-<td style="text-align: right;">17</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">431</td>
-<td style="text-align: left;"><na></na></td>
-<td style="text-align: left;">7642</td>
-<td style="text-align: left;">Serve</td>
-<td style="text-align: left;">nan</td>
-<td style="text-align: right;">1.26875</td>
-<td style="text-align: right;">0.092596</td>
-<td style="text-align: left;"><na></na></td>
-<td style="text-align: left;"><na></na></td>
-<td style="text-align: left;">1.68125</td>
-<td style="text-align: left;">5.425924</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">University of Dayton</td>
-<td style="text-align: right;">17</td>
-<td style="text-align: right;">42</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">University of Dayton</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
+<td>f21c7df0-9f7f-49fd-a16d-79bf997088df</td>
+<td>1</td>
+<td>494</td>
+<td>*19SM+~<del>78A</del>~00</td>
+<td>University of Louisville</td>
+<td>19</td>
+<td>Shannon Shields</td>
+<td>-296094</td>
+<td>Serve</td>
+<td>+</td>
+<td>1</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>7</td>
+<td>8</td>
+<td>A</td>
+<td>nan</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>6</td>
+<td>00</td>
+<td>19</td>
+<td>9</td>
+<td>11</td>
+<td>15</td>
+<td>10</td>
+<td>7</td>
+<td>1</td>
+<td>16</td>
+<td>17</td>
+<td>10</td>
+<td>6</td>
+<td>8</td>
+<td>431</td>
+<td><na></na></td>
+<td>7642</td>
+<td>Serve</td>
+<td>nan</td>
+<td>1.26875</td>
+<td>0.092596</td>
+<td><na></na></td>
+<td><na></na></td>
+<td>1.68125</td>
+<td>5.425924</td>
+<td>1</td>
+<td>University of Louisville</td>
+<td>University of Dayton</td>
+<td>17</td>
+<td>42</td>
+<td>University of Louisville</td>
+<td>University of Louisville</td>
+<td>University of Dayton</td>
+<td>1</td>
+<td>0</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2b5e5ac3-e2cf-4326-b35c-7e841b2e7d60</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">495</td>
-<td style="text-align: left;">a02RM-~<del>58AM</del>00B</td>
-<td style="text-align: left;">University of Dayton</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">Maura Collins</td>
-<td style="text-align: right;">-230138</td>
-<td style="text-align: left;">Reception</td>
-<td style="text-align: left;">-</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: left;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">nan</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: left;">A</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: left;">00B</td>
-<td style="text-align: right;">19</td>
-<td style="text-align: right;">9</td>
-<td style="text-align: right;">11</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">16</td>
-<td style="text-align: right;">17</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">431</td>
-<td style="text-align: left;"><na></na></td>
-<td style="text-align: left;">7642</td>
-<td style="text-align: left;">Reception</td>
-<td style="text-align: left;">nan</td>
-<td style="text-align: right;">1.26875</td>
-<td style="text-align: right;">0.092596</td>
-<td style="text-align: left;"><na></na></td>
-<td style="text-align: left;"><na></na></td>
-<td style="text-align: left;">1.68125</td>
-<td style="text-align: left;">5.425924</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">University of Dayton</td>
-<td style="text-align: right;">17</td>
-<td style="text-align: right;">42</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">University of Dayton</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
+<td>f21c7df0-9f7f-49fd-a16d-79bf997088df</td>
+<td>1</td>
+<td>495</td>
+<td>a02RM-~<del>58AM</del>00B</td>
+<td>University of Dayton</td>
+<td>2</td>
+<td>Maura Collins</td>
+<td>-230138</td>
+<td>Reception</td>
+<td>-</td>
+<td>6</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>5</td>
+<td>8</td>
+<td>A</td>
+<td>nan</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>6</td>
+<td>00B</td>
+<td>19</td>
+<td>9</td>
+<td>11</td>
+<td>15</td>
+<td>10</td>
+<td>7</td>
+<td>1</td>
+<td>16</td>
+<td>17</td>
+<td>10</td>
+<td>6</td>
+<td>8</td>
+<td>431</td>
+<td><na></na></td>
+<td>7642</td>
+<td>Reception</td>
+<td>nan</td>
+<td>1.26875</td>
+<td>0.092596</td>
+<td><na></na></td>
+<td><na></na></td>
+<td>1.68125</td>
+<td>5.425924</td>
+<td>1</td>
+<td>University of Louisville</td>
+<td>University of Dayton</td>
+<td>17</td>
+<td>42</td>
+<td>University of Louisville</td>
+<td>University of Louisville</td>
+<td>University of Dayton</td>
+<td>1</td>
+<td>1</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">2b5e5ac3-e2cf-4326-b35c-7e841b2e7d60</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">497</td>
-<td style="text-align: left;">a08ET#~~<del>8C</del>~00</td>
-<td style="text-align: left;">University of Dayton</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: left;">Brooke Westbeld</td>
-<td style="text-align: right;">-232525</td>
-<td style="text-align: left;">Set</td>
-<td style="text-align: left;">#</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: left;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">~</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: left;">C</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: left;">00</td>
-<td style="text-align: right;">19</td>
-<td style="text-align: right;">9</td>
-<td style="text-align: right;">11</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">16</td>
-<td style="text-align: right;">17</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">3147</td>
-<td style="text-align: left;"><na></na></td>
-<td style="text-align: left;"><na></na></td>
-<td style="text-align: left;">Reception</td>
-<td style="text-align: left;">nan</td>
-<td style="text-align: right;">1.86875</td>
-<td style="text-align: right;">2.09259</td>
-<td style="text-align: left;"><na></na></td>
-<td style="text-align: left;"><na></na></td>
-<td style="text-align: left;"><na></na></td>
-<td style="text-align: left;"><na></na></td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">University of Dayton</td>
-<td style="text-align: right;">17</td>
-<td style="text-align: right;">42</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">University of Dayton</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
+<td>f21c7df0-9f7f-49fd-a16d-79bf997088df</td>
+<td>1</td>
+<td>497</td>
+<td>a08ET#~~<del>8C</del>~00</td>
+<td>University of Dayton</td>
+<td>8</td>
+<td>Brooke Westbeld</td>
+<td>-232525</td>
+<td>Set</td>
+<td>#</td>
+<td>6</td>
+<td>nan</td>
+<td>nan</td>
+<td>~</td>
+<td>nan</td>
+<td>8</td>
+<td>C</td>
+<td>nan</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>6</td>
+<td>00</td>
+<td>19</td>
+<td>9</td>
+<td>11</td>
+<td>15</td>
+<td>10</td>
+<td>7</td>
+<td>1</td>
+<td>16</td>
+<td>17</td>
+<td>10</td>
+<td>6</td>
+<td>8</td>
+<td>3147</td>
+<td><na></na></td>
+<td><na></na></td>
+<td>Reception</td>
+<td>nan</td>
+<td>1.86875</td>
+<td>2.09259</td>
+<td><na></na></td>
+<td><na></na></td>
+<td><na></na></td>
+<td><na></na></td>
+<td>1</td>
+<td>University of Louisville</td>
+<td>University of Dayton</td>
+<td>17</td>
+<td>42</td>
+<td>University of Louisville</td>
+<td>University of Louisville</td>
+<td>University of Dayton</td>
+<td>1</td>
+<td>1</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2b5e5ac3-e2cf-4326-b35c-7e841b2e7d60</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">499</td>
-<td style="text-align: left;">a10AT-X5<sub>46CH2</sub>00F</td>
-<td style="text-align: left;">University of Dayton</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: left;">Jamie Peterson</td>
-<td style="text-align: right;">-11802</td>
-<td style="text-align: left;">Attack</td>
-<td style="text-align: left;">-</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: left;">X5</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">nan</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: left;">C</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: left;">00F</td>
-<td style="text-align: right;">19</td>
-<td style="text-align: right;">9</td>
-<td style="text-align: right;">11</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">16</td>
-<td style="text-align: right;">17</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">4512</td>
-<td style="text-align: left;">5522</td>
-<td style="text-align: left;">8150</td>
-<td style="text-align: left;">Reception</td>
-<td style="text-align: left;">Reception</td>
-<td style="text-align: right;">0.55625</td>
-<td style="text-align: right;">3.12963</td>
-<td style="text-align: left;">0.9312499999999999</td>
-<td style="text-align: left;">3.8703700000000008</td>
-<td style="text-align: left;">1.9812500000000002</td>
-<td style="text-align: left;">5.796294</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">University of Dayton</td>
-<td style="text-align: right;">17</td>
-<td style="text-align: right;">42</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">University of Dayton</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
+<td>f21c7df0-9f7f-49fd-a16d-79bf997088df</td>
+<td>1</td>
+<td>499</td>
+<td>a10AT-X5<sub>46CH2</sub>00F</td>
+<td>University of Dayton</td>
+<td>10</td>
+<td>Jamie Peterson</td>
+<td>-11802</td>
+<td>Attack</td>
+<td>-</td>
+<td>6</td>
+<td>X5</td>
+<td>nan</td>
+<td>nan</td>
+<td>4</td>
+<td>6</td>
+<td>C</td>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>6</td>
+<td>00F</td>
+<td>19</td>
+<td>9</td>
+<td>11</td>
+<td>15</td>
+<td>10</td>
+<td>7</td>
+<td>1</td>
+<td>16</td>
+<td>17</td>
+<td>10</td>
+<td>6</td>
+<td>8</td>
+<td>4512</td>
+<td>5522</td>
+<td>8150</td>
+<td>Reception</td>
+<td>Reception</td>
+<td>0.55625</td>
+<td>3.12963</td>
+<td>0.9312499999999999</td>
+<td>3.8703700000000008</td>
+<td>1.9812500000000002</td>
+<td>5.796294</td>
+<td>1</td>
+<td>University of Louisville</td>
+<td>University of Dayton</td>
+<td>17</td>
+<td>42</td>
+<td>University of Louisville</td>
+<td>University of Louisville</td>
+<td>University of Dayton</td>
+<td>1</td>
+<td>1</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">2b5e5ac3-e2cf-4326-b35c-7e841b2e7d60</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">499</td>
-<td style="text-align: left;">*11BT+~~<del>2C</del>~00</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: right;">11</td>
-<td style="text-align: left;">Anna Stevenson</td>
-<td style="text-align: right;">-278838</td>
-<td style="text-align: left;">Block</td>
-<td style="text-align: left;">+</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">C</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: left;">00</td>
-<td style="text-align: right;">19</td>
-<td style="text-align: right;">9</td>
-<td style="text-align: right;">11</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">16</td>
-<td style="text-align: right;">17</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">4578</td>
-<td style="text-align: left;"><na></na></td>
-<td style="text-align: left;"><na></na></td>
-<td style="text-align: left;">Serve</td>
-<td style="text-align: left;">nan</td>
-<td style="text-align: right;">3.03125</td>
-<td style="text-align: right;">3.12963</td>
-<td style="text-align: left;"><na></na></td>
-<td style="text-align: left;"><na></na></td>
-<td style="text-align: left;"><na></na></td>
-<td style="text-align: left;"><na></na></td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">University of Dayton</td>
-<td style="text-align: right;">17</td>
-<td style="text-align: right;">42</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">University of Dayton</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">2b5e5ac3-e2cf-4326-b35c-7e841b2e7d60</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">500</td>
-<td style="text-align: left;">*19DT+~<del>42AB</del>00B</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: right;">19</td>
-<td style="text-align: left;">Shannon Shields</td>
-<td style="text-align: right;">-296094</td>
-<td style="text-align: left;">Dig</td>
-<td style="text-align: left;">+</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">nan</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">A</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: left;">00B</td>
-<td style="text-align: right;">19</td>
-<td style="text-align: right;">9</td>
-<td style="text-align: right;">11</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">16</td>
-<td style="text-align: right;">17</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">4512</td>
-<td style="text-align: left;">5522</td>
-<td style="text-align: left;">5912</td>
-<td style="text-align: left;">Serve</td>
-<td style="text-align: left;">nan</td>
-<td style="text-align: right;">0.55625</td>
-<td style="text-align: right;">3.12963</td>
-<td style="text-align: left;">0.9312499999999999</td>
-<td style="text-align: left;">3.8703700000000008</td>
-<td style="text-align: left;">0.5562499999999999</td>
-<td style="text-align: left;">4.166665999999999</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">University of Dayton</td>
-<td style="text-align: right;">17</td>
-<td style="text-align: right;">42</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">University of Dayton</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">2b5e5ac3-e2cf-4326-b35c-7e841b2e7d60</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">502</td>
-<td style="text-align: left;">*08EH#~~<del>8A</del>~00</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: left;">Lexi Hamilton</td>
-<td style="text-align: right;">-75970</td>
-<td style="text-align: left;">Set</td>
-<td style="text-align: left;">#</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">~</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: left;">A</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: left;">00</td>
-<td style="text-align: right;">19</td>
-<td style="text-align: right;">9</td>
-<td style="text-align: right;">11</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">16</td>
-<td style="text-align: right;">17</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">2859</td>
-<td style="text-align: left;"><na></na></td>
-<td style="text-align: left;"><na></na></td>
-<td style="text-align: left;">Serve</td>
-<td style="text-align: left;">nan</td>
-<td style="text-align: right;">2.31875</td>
-<td style="text-align: right;">1.87037</td>
-<td style="text-align: left;"><na></na></td>
-<td style="text-align: left;"><na></na></td>
-<td style="text-align: left;"><na></na></td>
-<td style="text-align: left;"><na></na></td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">University of Dayton</td>
-<td style="text-align: right;">17</td>
-<td style="text-align: right;">42</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">University of Dayton</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">2b5e5ac3-e2cf-4326-b35c-7e841b2e7d60</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">504</td>
-<td style="text-align: left;">*09AH#V5<sub>41BH2</sub>00F</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: right;">9</td>
-<td style="text-align: left;">Claire Chaussee</td>
-<td style="text-align: right;">-225496</td>
-<td style="text-align: left;">Attack</td>
-<td style="text-align: left;">#</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">V5</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">nan</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">B</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: left;">00F</td>
-<td style="text-align: right;">19</td>
-<td style="text-align: right;">9</td>
-<td style="text-align: right;">11</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">16</td>
-<td style="text-align: right;">17</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">4316</td>
-<td style="text-align: left;">5517</td>
-<td style="text-align: left;">7918</td>
-<td style="text-align: left;">Serve</td>
-<td style="text-align: left;">BP-Transition</td>
-<td style="text-align: right;">0.70625</td>
-<td style="text-align: right;">2.98148</td>
-<td style="text-align: left;">0.7437500000000001</td>
-<td style="text-align: left;">3.8703700000000008</td>
-<td style="text-align: left;">0.78125</td>
-<td style="text-align: left;">5.6481460000000006</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">University of Dayton</td>
-<td style="text-align: right;">17</td>
-<td style="text-align: right;">42</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">University of Dayton</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">2b5e5ac3-e2cf-4326-b35c-7e841b2e7d60</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">504</td>
-<td style="text-align: left;">a17BH=~~<del>2B</del>~00</td>
-<td style="text-align: left;">University of Dayton</td>
-<td style="text-align: right;">17</td>
-<td style="text-align: left;">Sierra Pla</td>
-<td style="text-align: right;">-11804</td>
-<td style="text-align: left;">Block</td>
-<td style="text-align: left;">=</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: left;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">B</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: left;">00</td>
-<td style="text-align: right;">19</td>
-<td style="text-align: right;">9</td>
-<td style="text-align: right;">11</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">16</td>
-<td style="text-align: right;">17</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">4583</td>
-<td style="text-align: left;"><na></na></td>
-<td style="text-align: left;"><na></na></td>
-<td style="text-align: left;">Reception</td>
-<td style="text-align: left;">nan</td>
-<td style="text-align: right;">3.21875</td>
-<td style="text-align: right;">3.12963</td>
-<td style="text-align: left;"><na></na></td>
-<td style="text-align: left;"><na></na></td>
-<td style="text-align: left;"><na></na></td>
-<td style="text-align: left;"><na></na></td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">University of Dayton</td>
-<td style="text-align: right;">17</td>
-<td style="text-align: right;">42</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">University of Dayton</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">3</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">2b5e5ac3-e2cf-4326-b35c-7e841b2e7d60</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">504</td>
-<td style="text-align: left;">*p01:00</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">Point</td>
-<td style="text-align: left;">nan</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: left;"></td>
-<td style="text-align: right;">19</td>
-<td style="text-align: right;">9</td>
-<td style="text-align: right;">11</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">16</td>
-<td style="text-align: right;">17</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">4493</td>
-<td style="text-align: left;"><na></na></td>
-<td style="text-align: left;"><na></na></td>
-<td style="text-align: left;">Serve</td>
-<td style="text-align: left;">nan</td>
-<td style="text-align: right;">3.59375</td>
-<td style="text-align: right;">3.05556</td>
-<td style="text-align: left;"><na></na></td>
-<td style="text-align: left;"><na></na></td>
-<td style="text-align: left;"><na></na></td>
-<td style="text-align: left;"><na></na></td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">University of Dayton</td>
-<td style="text-align: right;">17</td>
-<td style="text-align: right;">42</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">University of Dayton</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">3</td>
+<td>f21c7df0-9f7f-49fd-a16d-79bf997088df</td>
+<td>1</td>
+<td>499</td>
+<td>*11BT+~~<del>2C</del>~00</td>
+<td>University of Louisville</td>
+<td>11</td>
+<td>Anna Stevenson</td>
+<td>-278838</td>
+<td>Block</td>
+<td>+</td>
+<td>1</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>2</td>
+<td>C</td>
+<td>nan</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>6</td>
+<td>00</td>
+<td>19</td>
+<td>9</td>
+<td>11</td>
+<td>15</td>
+<td>10</td>
+<td>7</td>
+<td>1</td>
+<td>16</td>
+<td>17</td>
+<td>10</td>
+<td>6</td>
+<td>8</td>
+<td>4578</td>
+<td><na></na></td>
+<td><na></na></td>
+<td>Serve</td>
+<td>nan</td>
+<td>3.03125</td>
+<td>3.12963</td>
+<td><na></na></td>
+<td><na></na></td>
+<td><na></na></td>
+<td><na></na></td>
+<td>1</td>
+<td>University of Louisville</td>
+<td>University of Dayton</td>
+<td>17</td>
+<td>42</td>
+<td>University of Louisville</td>
+<td>University of Louisville</td>
+<td>University of Dayton</td>
+<td>1</td>
+<td>2</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-</section><section id="r---reading-plays-from-a-dvw-file" class="level2"><h2 class="anchored" data-anchor-id="r---reading-plays-from-a-dvw-file">R - Reading plays from a dvw file</h2>
+</section><section id="python---reading-plays-from-multiple-files" class="level2"><h2 class="anchored" data-anchor-id="python---reading-plays-from-multiple-files">Python - Reading plays from multiple files</h2>
+<div class="cell">
+<details open=""><summary>Code</summary><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign path</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>dvw_path_folder <span class="op">=</span> os.path.expanduser(<span class="st">"~</span><span class="ch">\\</span><span class="st">desktop</span><span class="ch">\\</span><span class="st">dvws"</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>file_extension <span class="op">=</span> <span class="st">".dvw"</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Get a list of all files with the specified extension in the directory</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>file_list <span class="op">=</span> [f <span class="cf">for</span> f <span class="kw">in</span> os.listdir(dvw_path_folder) <span class="cf">if</span> f.endswith(file_extension)]</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize an empty DataFrame to store combined data</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>combined_df <span class="op">=</span> pd.DataFrame()</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> process_file(path):</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    dv_instance <span class="op">=</span> read_dv.DataVolley(os.path.join(dvw_path_folder, path))</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> dv_instance.get_plays()</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> df</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Loop through each file path</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> file_name <span class="kw">in</span> file_list:</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    combined_df <span class="op">=</span> pd.concat([combined_df, process_file(file_name)], ignore_index<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>match_count <span class="op">=</span> combined_df[[<span class="st">'match_id'</span>]].drop_duplicates()</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>Markdown(match_count.to_markdown(index <span class="op">=</span> <span class="va">False</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<thead><tr class="header">
+<th style="text-align: left;">match_id</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">ce8d628b-c22e-4483-9ada-3cf30fa667df</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">0cdcc9f8-6fd6-4875-97d3-b558d1e41f6e</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">02c95bfa-05f1-49df-8620-1e6f029e0c68</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">bc4ea206-b184-419d-8a05-89a5c440b608</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<hr></section><section id="r---reading-plays-from-one-dvw-file" class="level2"><h2 class="anchored" data-anchor-id="r---reading-plays-from-one-dvw-file">R - Reading plays from one dvw file</h2>
 <p>The provided example file is used. You would typically fill in the <code>None</code> with the actual path of your dvw files.</p>
 <div class="cell">
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://datavolley.openvolley.org">datavolley</a></span><span class="op">)</span></span>
+<details open=""><summary>Code</summary><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://datavolley.openvolley.org">datavolley</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://datavolley.openvolley.org/reference/read_dv.html">dv_read</a></span><span class="op">(</span><span class="st">"datavolley//example_data.dvw"</span><span class="op">)</span> <span class="co"># Example data from python</span></span>
 <span><span class="va">px</span> <span class="op">&lt;-</span> <span class="va">x</span><span class="op">$</span><span class="va">plays</span></span>
 <span><span class="va">px</span> <span class="op">&lt;-</span> <span class="va">px</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">skill</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">px</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">px</span>, <span class="fl">10</span><span class="op">)</span></span>
+<span><span class="va">px</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">px</span>, <span class="fl">5</span><span class="op">)</span></span>
 <span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="va">px</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <table class="table table-sm table-striped small">
@@ -1584,440 +1343,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 </tr>
+</tbody>
+</table>
+</div>
+</div>
+</section><section id="r---reading-plays-from-multiple-files" class="level2"><h2 class="anchored" data-anchor-id="r---reading-plays-from-multiple-files">R - Reading plays from multiple files</h2>
+<div class="cell">
+<details open=""><summary>Code</summary><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dvw_path_folder</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/path.expand.html">path.expand</a></span><span class="op">(</span><span class="st">"~/dvws"</span><span class="op">)</span></span>
+<span><span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.files.html">dir</a></span><span class="op">(</span><span class="va">dvw_path_folder</span>, pattern <span class="op">=</span> <span class="st">"dvw$"</span>, full.names <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="va">lx</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">d</span>, <span class="va">dv_read</span>, insert_technical_timeouts <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="va">px</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind_rows.html">bind_rows</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">lx</span>, <span class="va">plays</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">match_count</span> <span class="op">&lt;-</span> <span class="va">px</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/distinct.html">distinct</a></span><span class="op">(</span><span class="va">match_id</span><span class="op">)</span></span>
+<span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="va">match_count</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<thead><tr class="header">
+<th style="text-align: left;">match_id</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">2d8ebf675e98a874f0ab4f572ab78367</td>
+</tr>
 <tr class="even">
-<td style="text-align: left;">a9e6117d72bb9cf6065ceb32112aa955</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">500</td>
-<td style="text-align: left;">*19DT+~<del>42AB</del>00B</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: right;">19</td>
-<td style="text-align: left;">Shannon Shields</td>
-<td style="text-align: left;">-296094</td>
-<td style="text-align: left;">Dig</td>
-<td style="text-align: left;">Head ball dig</td>
-<td style="text-align: left;">+</td>
-<td style="text-align: left;">Good dig</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">A</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: left;">After block</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: left;">00B</td>
-<td style="text-align: right;">128</td>
-<td style="text-align: right;">19</td>
-<td style="text-align: right;">9</td>
-<td style="text-align: right;">11</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">16</td>
-<td style="text-align: right;">17</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">4512</td>
-<td style="text-align: right;">5522</td>
-<td style="text-align: right;">5912</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: right;">0.55625</td>
-<td style="text-align: right;">3.1296296</td>
-<td style="text-align: right;">0.93125</td>
-<td style="text-align: right;">3.87037</td>
-<td style="text-align: right;">0.55625</td>
-<td style="text-align: right;">4.166667</td>
-<td style="text-align: left;">-296094</td>
-<td style="text-align: left;">-225496</td>
-<td style="text-align: left;">-278838</td>
-<td style="text-align: left;">-224838</td>
-<td style="text-align: left;">-75967</td>
-<td style="text-align: left;">-224837</td>
-<td style="text-align: left;">-231069</td>
-<td style="text-align: left;">14555</td>
-<td style="text-align: left;">-11804</td>
-<td style="text-align: left;">-11802</td>
-<td style="text-align: left;">-230139</td>
-<td style="text-align: left;">-232525</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">University of Dayton</td>
-<td style="text-align: left;">17</td>
-<td style="text-align: left;">42</td>
-<td style="text-align: left;">17</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">Transition</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: left;">4e567edc1747c7b8243b731599ee7688</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">a9e6117d72bb9cf6065ceb32112aa955</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">502</td>
-<td style="text-align: left;">*08EH#~~<del>8A</del>~00</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: left;">Lexi Hamilton</td>
-<td style="text-align: left;">-75970</td>
-<td style="text-align: left;">Set</td>
-<td style="text-align: left;">High ball set</td>
-<td style="text-align: left;">#</td>
-<td style="text-align: left;">Perfect</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: left;">A</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: left;">00</td>
-<td style="text-align: right;">129</td>
-<td style="text-align: right;">19</td>
-<td style="text-align: right;">9</td>
-<td style="text-align: right;">11</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">16</td>
-<td style="text-align: right;">17</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">2859</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: right;">2.31875</td>
-<td style="text-align: right;">1.8703704</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: left;">-296094</td>
-<td style="text-align: left;">-225496</td>
-<td style="text-align: left;">-278838</td>
-<td style="text-align: left;">-224838</td>
-<td style="text-align: left;">-75967</td>
-<td style="text-align: left;">-224837</td>
-<td style="text-align: left;">-231069</td>
-<td style="text-align: left;">14555</td>
-<td style="text-align: left;">-11804</td>
-<td style="text-align: left;">-11802</td>
-<td style="text-align: left;">-230139</td>
-<td style="text-align: left;">-232525</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">University of Dayton</td>
-<td style="text-align: left;">17</td>
-<td style="text-align: left;">42</td>
-<td style="text-align: left;">17</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">Transition</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: left;">6f92782e87acbf537e9203740e728a7b</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">a9e6117d72bb9cf6065ceb32112aa955</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">504</td>
-<td style="text-align: left;">*09AH#V5<sub>41BH2</sub>00F</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: right;">9</td>
-<td style="text-align: left;">Claire Chaussee</td>
-<td style="text-align: left;">-225496</td>
-<td style="text-align: left;">Attack</td>
-<td style="text-align: left;">High ball attack</td>
-<td style="text-align: left;">#</td>
-<td style="text-align: left;">Winning attack</td>
-<td style="text-align: left;">V5</td>
-<td style="text-align: left;">Hut</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">B</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: left;">Hard spike</td>
-<td style="text-align: left;">2 player block</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: left;">00F</td>
-<td style="text-align: right;">130</td>
-<td style="text-align: right;">19</td>
-<td style="text-align: right;">9</td>
-<td style="text-align: right;">11</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">16</td>
-<td style="text-align: right;">17</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">4316</td>
-<td style="text-align: right;">5517</td>
-<td style="text-align: right;">7918</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: right;">0.70625</td>
-<td style="text-align: right;">2.9814815</td>
-<td style="text-align: right;">0.74375</td>
-<td style="text-align: right;">3.87037</td>
-<td style="text-align: right;">0.78125</td>
-<td style="text-align: right;">5.648148</td>
-<td style="text-align: left;">-296094</td>
-<td style="text-align: left;">-225496</td>
-<td style="text-align: left;">-278838</td>
-<td style="text-align: left;">-224838</td>
-<td style="text-align: left;">-75967</td>
-<td style="text-align: left;">-224837</td>
-<td style="text-align: left;">-231069</td>
-<td style="text-align: left;">14555</td>
-<td style="text-align: left;">-11804</td>
-<td style="text-align: left;">-11802</td>
-<td style="text-align: left;">-230139</td>
-<td style="text-align: left;">-232525</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">University of Dayton</td>
-<td style="text-align: left;">17</td>
-<td style="text-align: left;">42</td>
-<td style="text-align: left;">17</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">Transition</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">a9e6117d72bb9cf6065ceb32112aa955</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">504</td>
-<td style="text-align: left;">a17BH=~~<del>2B</del>~00</td>
-<td style="text-align: left;">University of Dayton</td>
-<td style="text-align: right;">17</td>
-<td style="text-align: left;">Sierra Pla</td>
-<td style="text-align: left;">-11804</td>
-<td style="text-align: left;">Block</td>
-<td style="text-align: left;">High ball block</td>
-<td style="text-align: left;">=</td>
-<td style="text-align: left;">Error</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">B</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: left;">00</td>
-<td style="text-align: right;">131</td>
-<td style="text-align: right;">19</td>
-<td style="text-align: right;">9</td>
-<td style="text-align: right;">11</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">16</td>
-<td style="text-align: right;">17</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">4583</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: right;">3.21875</td>
-<td style="text-align: right;">3.1296296</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: left;">-296094</td>
-<td style="text-align: left;">-225496</td>
-<td style="text-align: left;">-278838</td>
-<td style="text-align: left;">-224838</td>
-<td style="text-align: left;">-75967</td>
-<td style="text-align: left;">-224837</td>
-<td style="text-align: left;">-231069</td>
-<td style="text-align: left;">14555</td>
-<td style="text-align: left;">-11804</td>
-<td style="text-align: left;">-11802</td>
-<td style="text-align: left;">-230139</td>
-<td style="text-align: left;">-232525</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">University of Dayton</td>
-<td style="text-align: left;">17</td>
-<td style="text-align: left;">42</td>
-<td style="text-align: left;">42</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">Transition</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">a9e6117d72bb9cf6065ceb32112aa955</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">519</td>
-<td style="text-align: left;">*19SM#~<del>71C</del>~+1</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: right;">19</td>
-<td style="text-align: left;">Shannon Shields</td>
-<td style="text-align: left;">-296094</td>
-<td style="text-align: left;">Serve</td>
-<td style="text-align: left;">Jump-float serve</td>
-<td style="text-align: left;">#</td>
-<td style="text-align: left;">Ace</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">C</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: left;">+1</td>
-<td style="text-align: right;">137</td>
-<td style="text-align: right;">19</td>
-<td style="text-align: right;">9</td>
-<td style="text-align: right;">11</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">16</td>
-<td style="text-align: right;">17</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">529</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: right;">7728</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: right;">1.19375</td>
-<td style="text-align: right;">0.1666667</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: right;">1.15625</td>
-<td style="text-align: right;">5.500000</td>
-<td style="text-align: left;">-296094</td>
-<td style="text-align: left;">-225496</td>
-<td style="text-align: left;">-278838</td>
-<td style="text-align: left;">-224838</td>
-<td style="text-align: left;">-75967</td>
-<td style="text-align: left;">-224837</td>
-<td style="text-align: left;">-231069</td>
-<td style="text-align: left;">14555</td>
-<td style="text-align: left;">-11804</td>
-<td style="text-align: left;">-11802</td>
-<td style="text-align: left;">-230139</td>
-<td style="text-align: left;">-232525</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">9</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">University of Dayton</td>
-<td style="text-align: left;">17</td>
-<td style="text-align: left;">42</td>
-<td style="text-align: left;">17</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">Serve</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: left;">bd1e1273f6e6dc83b46f28f42dc45128</td>
 </tr>
 </tbody>
 </table>
