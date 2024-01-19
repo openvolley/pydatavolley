@@ -122,7 +122,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./reading_files.html">DVW files</a></li><li class="breadcrumb-item"><a href="./selecting.html">Selecting</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./selecting.html">Data wrangling</a></li><li class="breadcrumb-item"><a href="./selecting.html">Selecting</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -163,24 +163,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Installing packages</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./reading_files.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reading plays - dvw files</span></a>
+  </div>
+</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
- <span class="menu-text">DVW files</span></a>
+ <span class="menu-text">Data wrangling</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./reading_files.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Reading plays - dvw files</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./selecting.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Selecting</span></a>
@@ -195,7 +195,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./additions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Data additions</span></a>
+ <span class="menu-text">Data transformations</span></a>
   </div>
 </li>
       </ul>
@@ -254,16 +254,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> Markdown</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>dv_instance <span class="op">=</span> read_dv.DataVolley(<span class="va">None</span>) <span class="co"># Replace `None` with path of your dvw file </span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> dv_instance.get_plays()</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>selected_df <span class="op">=</span> df[[<span class="st">'team'</span>, <span class="st">'player_name'</span>, <span class="st">'skill'</span>, <span class="st">'evaluation_code'</span>, <span class="st">'point_won_by'</span>]].head(<span class="dv">20</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>selected_df <span class="op">=</span> df[[<span class="st">'team'</span>, <span class="st">'player_name'</span>, <span class="st">'skill'</span>, <span class="st">'evaluation_code'</span>, <span class="st">'point_won_by'</span>]].head(<span class="dv">10</span>)</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>Markdown(selected_df.to_markdown(index <span class="op">=</span> <span class="va">False</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <colgroup>
-<col style="width: 25%">
+<col style="width: 26%">
+<col style="width: 17%">
+<col style="width: 11%">
 <col style="width: 19%">
-<col style="width: 10%">
-<col style="width: 18%">
-<col style="width: 25%">
+<col style="width: 26%">
 </colgroup>
 <thead><tr class="header">
 <th style="text-align: left;">team</th>
@@ -341,76 +341,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;">Shannon Shields</td>
 <td style="text-align: left;">Dig</td>
 <td style="text-align: left;">+</td>
-<td style="text-align: left;">University of Louisville</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">Lexi Hamilton</td>
-<td style="text-align: left;">Set</td>
-<td style="text-align: left;">#</td>
-<td style="text-align: left;">University of Louisville</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">Claire Chaussee</td>
-<td style="text-align: left;">Attack</td>
-<td style="text-align: left;">#</td>
-<td style="text-align: left;">University of Louisville</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">University of Dayton</td>
-<td style="text-align: left;">Sierra Pla</td>
-<td style="text-align: left;">Block</td>
-<td style="text-align: left;">=</td>
-<td style="text-align: left;">University of Louisville</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">nan</td>
-<td style="text-align: left;">Point</td>
-<td style="text-align: left;">nan</td>
-<td style="text-align: left;">University of Louisville</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">nan</td>
-<td style="text-align: left;">nan</td>
-<td style="text-align: left;">nan</td>
-<td style="text-align: left;">University of Louisville</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">nan</td>
-<td style="text-align: left;">nan</td>
-<td style="text-align: left;">nan</td>
-<td style="text-align: left;">University of Louisville</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">University of Dayton</td>
-<td style="text-align: left;">nan</td>
-<td style="text-align: left;">nan</td>
-<td style="text-align: left;">nan</td>
-<td style="text-align: left;">University of Louisville</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">University of Dayton</td>
-<td style="text-align: left;">nan</td>
-<td style="text-align: left;">nan</td>
-<td style="text-align: left;">nan</td>
-<td style="text-align: left;">University of Louisville</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">Shannon Shields</td>
-<td style="text-align: left;">Serve</td>
-<td style="text-align: left;">#</td>
-<td style="text-align: left;">University of Louisville</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">University of Dayton</td>
-<td style="text-align: left;">Mikaylah Van Lanen</td>
-<td style="text-align: left;">Reception</td>
-<td style="text-align: left;">=</td>
 <td style="text-align: left;">University of Louisville</td>
 </tr>
 </tbody>
@@ -424,15 +354,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://datavolley.openvolley.org/reference/read_dv.html">dv_read</a></span><span class="op">(</span><span class="st">"datavolley//example_data.dvw"</span><span class="op">)</span> <span class="co"># Example data from python</span></span>
 <span><span class="va">px</span> <span class="op">&lt;-</span> <span class="va">x</span><span class="op">$</span><span class="va">plays</span></span>
 <span><span class="va">selected_px</span> <span class="op">&lt;-</span> <span class="va">px</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">team</span>, <span class="va">player_name</span>, <span class="va">skill</span>, <span class="va">evaluation_code</span>, <span class="va">point_won_by</span><span class="op">)</span></span>
-<span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="va">selected_px</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">20</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="va">selected_px</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <colgroup>
-<col style="width: 26%">
-<col style="width: 20%">
+<col style="width: 27%">
+<col style="width: 17%">
 <col style="width: 10%">
-<col style="width: 16%">
-<col style="width: 26%">
+<col style="width: 17%">
+<col style="width: 27%">
 </colgroup>
 <thead><tr class="header">
 <th style="text-align: left;">team</th>
@@ -510,76 +440,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;">Shannon Shields</td>
 <td style="text-align: left;">Dig</td>
 <td style="text-align: left;">+</td>
-<td style="text-align: left;">University of Louisville</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">Lexi Hamilton</td>
-<td style="text-align: left;">Set</td>
-<td style="text-align: left;">#</td>
-<td style="text-align: left;">University of Louisville</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">Claire Chaussee</td>
-<td style="text-align: left;">Attack</td>
-<td style="text-align: left;">#</td>
-<td style="text-align: left;">University of Louisville</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">University of Dayton</td>
-<td style="text-align: left;">Sierra Pla</td>
-<td style="text-align: left;">Block</td>
-<td style="text-align: left;">=</td>
-<td style="text-align: left;">University of Louisville</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">University of Louisville</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">University of Louisville</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">University of Louisville</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">University of Dayton</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">University of Louisville</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">University of Dayton</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">University of Louisville</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">University of Louisville</td>
-<td style="text-align: left;">Shannon Shields</td>
-<td style="text-align: left;">Serve</td>
-<td style="text-align: left;">#</td>
-<td style="text-align: left;">University of Louisville</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">University of Dayton</td>
-<td style="text-align: left;">Mikaylah Van Lanen</td>
-<td style="text-align: left;">Reception</td>
-<td style="text-align: left;">=</td>
 <td style="text-align: left;">University of Louisville</td>
 </tr>
 </tbody>
