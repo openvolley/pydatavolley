@@ -49,12 +49,10 @@ def get_set(rows_list):
             set_data.append(int(rowdata[4].split("-")[1]))#4st quarter set IDX visitor
         except Exception as e:
             for notidx in range(9):
-                set_data.append(None) #1st quarter set IDX home 
+                set_data.append(pd.NA) #add quarter set NAN
                 add = False
-        
         if (add):
             set_data.append(int(rowdata[5]))
-        
         sets_data.append(set_data)
 
     df = pd.DataFrame(data=sets_data,columns=sets_label)
