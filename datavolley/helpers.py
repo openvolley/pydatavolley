@@ -12,14 +12,22 @@ def get_teams(rows_list):
 
 def get_match(rows_list):
     # Find the index of [3MATCH]
-    match_data = {}
+    
+    # this is the class returned to avoid the use of a dataframe to extract the information
+    class Match_data:
+        day = ""
+        season = ""
+        time = ""
+        championship = ""
+
+    match_data = Match_data()
     match_index = rows_list.index('[3MATCH]\n')
     match_row = rows_list[match_index + 1].strip().split(";")
-    match_data["day"] = [match_row[0]]
-    match_data["time"] =  [match_row[1]]
-    match_data["season"] = [match_row[2]]
-    match_data["championship"] = [match_row[3]]
-    return pd.DataFrame(match_data)
+    match_data.day = match_row[0]
+    match_data.time =  match_row[1] 
+    match_data.season = match_row[2]
+    match_data.championship = match_row[3]
+    return match_data
 
 def get_set(rows_list):
     sets_index = rows_list.index('[3SET]\n')
@@ -41,14 +49,21 @@ def get_set(rows_list):
             set_data.append(int(rowdata[4].split("-")[1]))#4st quarter set IDX visitor
         except Exception as e:
             for notidx in range(9):
-                set_data.append(None) #1st quarter set IDX home 
+                set_data.append(pd.NA) #add quarter set NAN
                 add = False
-        
         if (add):
             set_data.append(int(rowdata[5]))
-        
         sets_data.append(set_data)
-    return(pd.DataFrame(data=sets_data,columns=sets_label))
+
+    df = pd.DataFrame(data=sets_data,columns=sets_label)
+    contains_any_nan = df.isna().any().any()
+    if (contains_any_nan):
+        df_cleaned = df.dropna(subset=[col for col in df.columns if col != 'set'], how='all')
+        cols_to_convert = ['home1', 'visitor1', 'home2', 'visitor2', 'home3', 'visitor3', 'home4', 'visitor4', 'duration']
+        for col in cols_to_convert:
+            df_cleaned.loc[:, col] = pd.to_numeric(df_cleaned[col], errors='coerce').astype('Int64')
+        df = df_cleaned
+    return(df)
 
 # get player number out of code
 def calculate_skill(row):
