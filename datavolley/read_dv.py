@@ -293,6 +293,27 @@ class DataVolley:
         # Create custom code
         plays['custom_code'] = plays['code'].apply(lambda x: x.rsplit('~', 1)[1] if '~' in x else None)
 
+        # Mappatura dei codici di valutazione
+        evaluation_mapping = {
+            "Serve": {"=": "Error", "/": "Positive, no attack", "-": "Negative, opponent free attack", 
+                    "+": "Positive, opponent some attack", "#": "Ace", "!": "OK, no first tempo possible"},
+            "Reception": {"=": "Error", "/": "Poor, no attack", "-": "Negative, limited attack", 
+                        "+": "Positive, attack", "#": "Perfect pass", "!": "OK, no first tempo possible"},
+            "Attack": {"=": "Error", "/": "Blocked", "-": "Poor, easily dug", 
+                    "!": "Blocked for reattack", "+": "Positive, good attack", "#": "Winning attack"},
+            "Block": {"=": "Error", "/": "Invasion", "-": "Poor, opposition to replay", 
+                    "+": "Positive, block touch", "#": "Winning block", "!": "Poor, opposition to replay"},
+            "Dig": {"=": "Error", "/": "Ball directly back over net", "-": "No structured attack possible", 
+                    "#": "Perfect dig", "+": "Good dig", "!": "OK, no first tempo possible"},
+            "Set": {"=": "Error", "-": "Poor", "/": "Poor", 
+                    "+": "Positive", "#": "Perfect", "!": "OK"},
+            "Freeball": {"=": "Error", "/": "Poor", "!": "OK, no first tempo possible", 
+                        "-": "OK, only high set possible", "+": "Good", "#": "Perfect"}
+        }
+
+        # Aggiunta della colonna "evaluation"
+        plays['evaluation'] = plays.apply(lambda row: evaluation_mapping.get(row['skill'], {}).get(row['evaluation_code'], ""), axis=1)
+
         # Reorder columns
         existing_columns = [col for col in desired_order if col in plays.columns]
         plays = plays[existing_columns]
