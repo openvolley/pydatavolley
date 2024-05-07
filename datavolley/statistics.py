@@ -1,5 +1,8 @@
 import pandas as pd 
 
+# https://snippets.openvolley.org/indicators-and-statistics.html
+
+
 def exSideoutRate(plays):
     lso = plays.loc[plays['skill'] == "Reception"]\
         .groupby('evaluation')\

@@ -1,10 +1,14 @@
 README.md
 setup.py
 datavolley/__init__.py
+datavolley/dataAugmentation.py
+datavolley/filtering.py
 datavolley/get_players_from_md.py
 datavolley/helpers.py
 datavolley/pycourt.py
+datavolley/pycourtZones.py
 datavolley/read_dv.py
+datavolley/statistics.py
 pydatavolley.egg-info/PKG-INFO
 pydatavolley.egg-info/SOURCES.txt
 pydatavolley.egg-info/dependency_links.txt
