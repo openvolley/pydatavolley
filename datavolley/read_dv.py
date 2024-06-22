@@ -106,6 +106,27 @@ class DataVolley:
         self.visiting_coaches.append(teams[1].split(';')[3])
         self.visiting_coaches.append(teams[1].split(';')[4])
 
+
+        # Trova gli indici dei marker "[3ATTACKCOMBINATION]" e "[3SETTERCALL]"
+        index_of_attack_combination = full_file.index[full_file[0] == '[3ATTACKCOMBINATION]\n'][0]
+        index_of_setter_call = full_file.index[full_file[0] == '[3SETTERCALL]\n'][0]
+
+        # Filtra le righe tra "[3ATTACKCOMBINATION]" e "[3SETTERCALL]" esclusi gli estremi
+        filtered_plays = full_file.iloc[index_of_attack_combination + 1:index_of_setter_call].reset_index(drop=True)
+
+        separated_data = filtered_plays[0].str.split(';', expand=True)
+
+        # Creiamo un dizionario mappando la prima colonna (codice) alla quinta colonna (descrizione)
+        try:
+            play_dict = dict(zip(separated_data[0], separated_data[4]))
+            # Stampa il dizionario per verificarne il contenuto
+            print(play_dict)
+        except KeyError as e:
+            print(f"Errore: {e}. Verifica che le colonne esistano e siano correttamente indicizzate.")
+
+
+       
+
         # Get Player Names
         meta_data = full_file[full_file['meta_group'] != '3SCOUT']
         datarows = []
@@ -313,6 +334,12 @@ class DataVolley:
 
         # Aggiunta della colonna "evaluation"
         plays['evaluation'] = plays.apply(lambda row: evaluation_mapping.get(row['skill'], {}).get(row['evaluation_code'], ""), axis=1)
+
+        # Aggiunta della colonna "Attack_Description"
+
+        plays['attack_description'] = plays['attack_code'].map(play_dict)
+
+
 
         # Reorder columns
         existing_columns = [col for col in desired_order if col in plays.columns]
