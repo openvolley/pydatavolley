@@ -4,7 +4,7 @@ import requests
 import pandas as pd
 import numpy as np
 from .get_players_from_md import read_players
-from .helpers import get_match, get_set, get_teams, calculate_skill, skill_map, eval_codes, desired_order, add_xy
+from .helpers import get_match, get_set, get_teams, calculate_skill, skill_map, eval_codes, desired_order, add_xy, get_setter_calls, get_attack_combinations
 from charset_normalizer import from_path
 
 class DataVolley:
@@ -264,7 +264,7 @@ class DataVolley:
         plays['point_phase'] = np.where((plays['serving_team'] == plays['team']), 'Serve', 'Reception')
 
         # Create attack_phase
-        plays['attack_phase'] = np.where((plays['skill'] == 'Attack') & (plays['skill'].shift(2) == 'Reception') & (plays['skill'].shift(1) == 'Set') & (plays['team'].shift(2) == plays['team']),'Reception', np.NaN)
+        plays['attack_phase'] = np.where((plays['skill'] == 'Attack') & (plays['skill'].shift(2) == 'Reception') & (plays['skill'].shift(1) == 'Set') & (plays['team'].shift(2) == plays['team']),'Reception', np.nan)
         plays['attack_phase'] = np.where((plays['skill'] == 'Attack') & (plays['skill'].shift(2) != 'Reception') & (plays['skill'].shift(1) == 'Set') & (plays['serving_team'] != plays['team']) & (plays['team'].shift(2) == plays['team']),'SO-Transition',plays['attack_phase'])
         plays['attack_phase'] = np.where((plays['skill'] == 'Attack') & (plays['skill'].shift(2) != 'Reception') & (plays['skill'].shift(1) == 'Set') & (plays['serving_team'] == plays['team']) & (plays['team'].shift(2) == plays['team']),'BP-Transition',plays['attack_phase'])
 
@@ -313,6 +313,18 @@ class DataVolley:
 
         # Aggiunta della colonna "evaluation"
         plays['evaluation'] = plays.apply(lambda row: evaluation_mapping.get(row['skill'], {}).get(row['evaluation_code'], ""), axis=1)
+
+        # Add shoot type
+        plays["shot_type"] = plays.apply(lambda row: row['code'][4] if len(row['code']) > 4 else None, axis=1)
+
+        # Add attack combinations
+        attack_combinations = get_attack_combinations(rows)
+        plays['translated_attack_code'] = plays.apply(lambda row: attack_combinations.get(row['attack_code'], ""), axis=1)
+
+        # Add setter calls
+        setter_calls = get_setter_calls(rows)
+        plays['translated_set_code'] = plays.apply(lambda row: setter_calls.get(row['set_code'], ""), axis=1)
+
 
         # Reorder columns
         existing_columns = [col for col in desired_order if col in plays.columns]
