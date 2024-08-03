@@ -315,15 +315,15 @@ class DataVolley:
         plays['evaluation'] = plays.apply(lambda row: evaluation_mapping.get(row['skill'], {}).get(row['evaluation_code'], ""), axis=1)
 
         # Add shoot type
-        plays["shot_type"] = plays.apply(lambda row: row['code'][4] if len(row['code']) > 4 else None, axis=1)
+        plays["skill_type "] = plays.apply(lambda row: row['code'][4] if len(row['code']) > 4 else None, axis=1)
 
         # Add attack combinations
         attack_combinations = get_attack_combinations(rows)
-        plays['translated_attack_code'] = plays.apply(lambda row: attack_combinations.get(row['attack_code'], ""), axis=1)
+        plays['attack_description'] = plays.apply(lambda row: attack_combinations.get(row['attack_code'], ""), axis=1)
 
         # Add setter calls
         setter_calls = get_setter_calls(rows)
-        plays['translated_set_code'] = plays.apply(lambda row: setter_calls.get(row['set_code'], ""), axis=1)
+        plays['set_description'] = plays.apply(lambda row: setter_calls.get(row['set_code'], ""), axis=1)
 
 
         # Reorder columns
