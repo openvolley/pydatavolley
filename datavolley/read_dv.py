@@ -12,6 +12,7 @@ from .helpers import get_match, get_set, get_teams,\
             desired_order, add_xy, get_setter_calls,\
             get_attack_combinations, get_base_code
 
+pd.set_option('future.no_silent_downcasting', True)
 
 class DataVolley:
     """
@@ -417,7 +418,7 @@ class DataVolley:
         plays['skill'] = plays['skill'].map(skill_map)
 
         # Create base_code
-        plays['base_code'] = plays.apply(get_base_code,axis=1)
+        plays['base_code'] = plays['code'].apply(get_base_code)
         # Create evaluation_code
         plays['evaluation_code'] = plays['code'].str[5]
         plays['evaluation_code'] =\

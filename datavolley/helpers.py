@@ -234,28 +234,26 @@ def get_set(rows_list):
         df = df_cleaned
     return df
 
-def get_base_code(row):
+def get_base_code(code):
     """
     Extracts the base code value from a given row of data.
 
     Parameters:
-    row (Any): A row containing data from which the base attack value is to be extracted.
-               The type can be adjusted if 'row' has a more specific structure.
+    code (str): A string containing data from which the base attack value is to be extracted.
 
     Returns:
-    string | None: The base attack value extracted from the row. 
-            The function returns a string if a valid base value is found,
-            a different type if other data is present, or None if no value is applicable.
+    string | None: The base attack value extracted from the code. 
+            The function returns a string if a valid base value is found 
+            or None if no value is applicable.
 
-    This function processes a single row to determine the base attack metric,
-    depending on the structure and content of the row.
+    This function processes a single code to determine the base attack metric,
+    depending on the structure and content of the string.
     """
-    if pd.isna(row['player_number']):
-        return np.nan
-    code = row['code'][3]
     bs = None
     if code.find("E") > -1:
         bs = code[6:8]
+        if bs == '~~':
+            bs = None
     return bs
 
 # get player number out of code

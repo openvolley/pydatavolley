@@ -82,8 +82,8 @@ def read_players(meta_data, team_name, h_or_v):
     team_players[columns_to_trim] = team_players[columns_to_trim].apply(lambda x: x.str.strip())
 
     # Replace NA values in 'foreign' with False
-    team_players['foreign'] = team_players['foreign'].fillna(False)
-
+    # team_players['foreign'] = team_players['foreign'].fillna(False,inplace=True)
+    team_players.fillna({'foreign': False}, inplace=True)
     # Convert 'number' column to integer
     team_players['number'] = team_players['player_number'].astype(str)
 
