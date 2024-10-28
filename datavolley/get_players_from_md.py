@@ -56,9 +56,9 @@ def read_players(meta_data, team_name, h_or_v):
     team_players['lastname'] = team_players['lastname'].str.strip()
 
     # Replace NA values in nickname, firstname, and lastname with empty strings
-    team_players['nickname'].fillna("", inplace=True)
-    team_players['firstname'].fillna("", inplace=True)
-    team_players['lastname'].fillna("", inplace=True)
+    team_players['nickname'] = team_players['nickname'].fillna("")
+    team_players['firstname'] = team_players['firstname'].fillna("")
+    team_players['lastname'] = team_players['lastname'].fillna("")
 
     # Trim whitespace from firstname and lastname again after replacing NA values
     team_players['firstname'] = team_players['firstname'].str.strip()
@@ -82,7 +82,7 @@ def read_players(meta_data, team_name, h_or_v):
     team_players[columns_to_trim] = team_players[columns_to_trim].apply(lambda x: x.str.strip())
 
     # Replace NA values in 'foreign' with False
-    team_players['foreign'].fillna(False, inplace=True)
+    team_players['foreign'] = team_players['foreign'].fillna(False)
 
     # Convert 'number' column to integer
     team_players['number'] = team_players['player_number'].astype(str)
