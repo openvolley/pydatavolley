@@ -34,6 +34,30 @@ def get_teams(rows_list):
     visiting_team = rows_list[teams_index + 2].strip()
     return home_team, visiting_team
 
+def get_attack_combinations(rows_list):
+    # Find the index of [3ATTACKCOMBINATION]
+    attack_combinations_index = rows_list.index('[3ATTACKCOMBINATION]\n')
+    # Extract attack_combinations
+    attack_combinations = {}
+    for idx in range(1, len(rows_list)):
+        if rows_list[attack_combinations_index + idx] == '[3SETTERCALL]\n':
+            break
+        splitted_combinations = rows_list[attack_combinations_index + idx + 1].strip().split(";")
+        attack_combinations[splitted_combinations[0]] = splitted_combinations[4] if len(splitted_combinations) > 4 else None
+    return attack_combinations
+
+def get_setter_calls(rows_list):
+    # Find the index of [3SETTERCALL]
+    setter_calls_index = rows_list.index('[3SETTERCALL]\n')
+    # Extract setter_calls
+    setter_calls = {}
+    for idx in range(1, len(rows_list)):
+        if rows_list[setter_calls_index + idx] == '[3WINNINGSYMBOLS]\n':
+            break
+        splitted_calls = rows_list[setter_calls_index + idx + 1].strip().split(";")
+        setter_calls[splitted_calls[0]] = splitted_calls[2] if len(splitted_calls) > 2 else None
+    return setter_calls
+
 def get_match(rows_list):
     """
     Extracts match data from the provided list of rows 

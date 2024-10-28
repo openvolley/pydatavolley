@@ -9,7 +9,9 @@ from charset_normalizer import from_path
 from .get_players_from_md import read_players
 from .helpers import get_match, get_set, get_teams,\
             calculate_skill, skill_map, eval_codes,\
-            desired_order, add_xy
+            desired_order, add_xy, get_setter_calls,\
+            get_attack_combinations
+
 
 class DataVolley:
     """
@@ -544,13 +546,15 @@ class DataVolley:
         np.where((plays['skill'] == 'Attack') &\
         (plays['skill'].shift(2) == 'Reception') &\
         (plays['skill'].shift(1) == 'Set') &\
-        (plays['team'].shift(2) == plays['team']),'Reception', np.NaN)
+        (plays['team'].shift(2) == plays['team']),'Reception', np.nan)
+
         plays['attack_phase'] =\
             np.where((plays['skill'] == 'Attack') &\
             (plays['skill'].shift(2) != 'Reception') &\
             (plays['skill'].shift(1) == 'Set') &\
             (plays['serving_team'] != plays['team']) &\
             (plays['team'].shift(2) == plays['team']),'SO-Transition',plays['attack_phase'])
+ 
         plays['attack_phase'] = \
             np.where((plays['skill'] == 'Attack') &\
             (plays['skill'].shift(2) != 'Reception') &\
@@ -641,6 +645,18 @@ class DataVolley:
         # add the column "Attack_Description"
         if play_dict is not None:
             plays['attack_description'] = plays['attack_code'].map(play_dict)
+
+        # Add shoot type
+        plays["skill_type "] = plays.apply(lambda row: row['code'][4] if len(row['code']) > 4 else None, axis=1)
+
+        # Add attack combinations
+        attack_combinations = get_attack_combinations(rows)
+        plays['attack_description'] = plays.apply(lambda row: attack_combinations.get(row['attack_code'], ""), axis=1)
+
+        # Add setter calls
+        setter_calls = get_setter_calls(rows)
+        plays['set_description'] = plays.apply(lambda row: setter_calls.get(row['set_code'], ""), axis=1)
+
 
         # Reorder columns
         existing_columns = [col for col in desired_order if col in plays.columns]
