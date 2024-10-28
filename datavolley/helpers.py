@@ -234,9 +234,9 @@ def get_set(rows_list):
         df = df_cleaned
     return df
 
-def get_base_attack(row):
+def get_base_code(row):
     """
-    Extracts the base attack value from a given row of data.
+    Extracts the base code value from a given row of data.
 
     Parameters:
     row (Any): A row containing data from which the base attack value is to be extracted.
@@ -307,7 +307,8 @@ desired_order = [
     'player_name', 'player_id', 'skill', 'skill_type', 
     'evaluation_code', 'setter_position', 'evaluation', 
     'attack_code', 'attack_description', 'set_code', 
-    'set_description', 'set_type', 'start_zone', 'end_zone', 
+    'set_description', 'set_type', 'base_code', 
+    'start_zone', 'end_zone', 
     'end_subzone', 'end_cone', 'skill_subtype',
     'num_players', 'num_players_numeric', 'special_code', 
     'timeout', 'end_of_set', 'substitution', 'point',
