@@ -10,7 +10,7 @@ from .get_players_from_md import read_players
 from .helpers import get_match, get_set, get_teams,\
             calculate_skill, skill_map, eval_codes,\
             desired_order, add_xy, get_setter_calls,\
-            get_attack_combinations
+            get_attack_combinations, get_base_attack
 
 
 class DataVolley:
@@ -415,6 +415,8 @@ class DataVolley:
         # Create skill
         plays['skill'] = plays.apply(calculate_skill, axis=1)
         plays['skill'] = plays['skill'].map(skill_map)
+        plays['base_attack'] = plays.apply(get_base_attack, axis=1)
+
 
         # Create evaluation_code
         plays['evaluation_code'] = plays['code'].str[5]

@@ -35,6 +35,19 @@ def get_teams(rows_list):
     return home_team, visiting_team
 
 def get_attack_combinations(rows_list):
+    """
+    Extracts and processes attack combinations from a list of rows.
+
+    Parameters:
+    rows_list (Any): A list containing rows with attack data. The type can be adjusted 
+                     based on the structure of rows_list if it is more specific than 'Any'.
+
+    Returns:
+    dict: A dictionary containing the processed attack combinations.
+
+    The function iterates over the provided rows list, analyzes the data to identify
+    various attack combinations, and stores them in a dictionary format.
+    """
     # Find the index of [3ATTACKCOMBINATION]
     attack_combinations_index = rows_list.index('[3ATTACKCOMBINATION]\n')
     # Extract attack_combinations
@@ -47,6 +60,19 @@ def get_attack_combinations(rows_list):
     return attack_combinations
 
 def get_setter_calls(rows_list):
+    """
+    Extracts and processes setter calls from a list of rows.
+
+    Parameters:
+    rows_list (Any): A list containing rows with setter call data. 
+                     The type can be adjusted if 'rows_list' is more specific than 'Any'.
+
+    Returns:
+    dict: A dictionary containing the processed setter call data.
+
+    The function iterates over the provided rows list, identifies setter calls,
+    and stores them in a dictionary format, organizing the data for further analysis.
+    """
     # Find the index of [3SETTERCALL]
     setter_calls_index = rows_list.index('[3SETTERCALL]\n')
     # Extract setter_calls
@@ -207,6 +233,30 @@ def get_set(rows_list):
             df_cleaned.loc[:, col] = pd.to_numeric(df_cleaned[col], errors='coerce').astype('Int64')
         df = df_cleaned
     return df
+
+def get_base_attack(row):
+    """
+    Extracts the base attack value from a given row of data.
+
+    Parameters:
+    row (Any): A row containing data from which the base attack value is to be extracted.
+               The type can be adjusted if 'row' has a more specific structure.
+
+    Returns:
+    string | None: The base attack value extracted from the row. 
+            The function returns a string if a valid base value is found,
+            a different type if other data is present, or None if no value is applicable.
+
+    This function processes a single row to determine the base attack metric,
+    depending on the structure and content of the row.
+    """
+    if pd.isna(row['player_number']):
+        return np.nan
+    code = row['code'][3]
+    bs = None
+    if code.find("E") > -1:
+        bs = code[6:8]
+    return bs
 
 # get player number out of code
 def calculate_skill(row):

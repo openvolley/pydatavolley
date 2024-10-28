@@ -80,7 +80,7 @@ def exbreakpointrate(plays):
     return lbp
 
 def exbreakpointratebyplayer(plays):
-    """
+    """plays.loc[:, 'set_had_attack_kill'] = (plays['skill'] == "Set")
     Calculate the expected breakpoint rate for each player based on serve plays.
 
     This function filters the serve plays, groups them by evaluation,
@@ -126,7 +126,8 @@ def setassistrate(plays):
     """
     # Add a variable indicating whether a set
     # was followed by a winning attack by the same team
-    plays['set_had_attack_kill'] = (plays['skill'] == "Set") &\
+    plays = plays.copy()
+    plays.loc[:, 'set_had_attack_kill'] = (plays['skill'] == "Set") &\
         (plays['skill'].shift(-1) == "Attack") & \
         (plays['evaluation'].shift(-1) == "Winning attack") & \
         (plays['team'].shift(-1) == plays['team'])
