@@ -234,28 +234,6 @@ def get_set(rows_list):
         df = df_cleaned
     return df
 
-def get_base_code(code):
-    """
-    Extracts the base code value from a given row of data.
-
-    Parameters:
-    code (str): A string containing data from which the base attack value is to be extracted.
-
-    Returns:
-    string | None: The base attack value extracted from the code. 
-            The function returns a string if a valid base value is found 
-            or None if no value is applicable.
-
-    This function processes a single code to determine the base attack metric,
-    depending on the structure and content of the string.
-    """
-    bs = None
-    if code.find("E") > -1:
-        bs = code[6:8]
-        if bs == '~~':
-            bs = None
-    return bs
-
 # get player number out of code
 def calculate_skill(row):
     """
@@ -305,7 +283,7 @@ desired_order = [
     'player_name', 'player_id', 'skill', 'skill_type', 
     'evaluation_code', 'setter_position', 'evaluation', 
     'attack_code', 'attack_description', 'set_code', 
-    'set_description', 'set_type', 'base_code', 
+    'set_description', 'set_type', 
     'start_zone', 'end_zone', 
     'end_subzone', 'end_cone', 'skill_subtype',
     'num_players', 'num_players_numeric', 'special_code', 
