@@ -218,7 +218,10 @@ def get_set(rows_list):
                 set_data.append(pd.NA) #add quarter set NAN
                 add = False
         if add:
-            set_data.append(int(rowdata[5]))
+            try: #manage edge case of missing or empty duration
+                set_data.append(int(rowdata[5]))
+            except (IndexError, ValueError):
+                set_data.append(pd.NA)
         sets_data.append(set_data)
 
     df = pd.DataFrame(data=sets_data,columns=sets_label)
