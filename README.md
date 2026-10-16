@@ -1,3 +1,5 @@
+Package still open. But new version is located here: https://github.com/openvolley/py-datavolley which simplifies the package 
+
 # pydatavolley
 
 A python package for reading volleyball scouting files in DataVolley
