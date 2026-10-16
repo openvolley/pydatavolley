@@ -1,4 +1,5 @@
-Package still open. But new version is located here: https://github.com/openvolley/py-datavolley which simplifies the package 
+Archiving due to decline of activity. 
+Newer simpler version is located here: https://github.com/openvolley/py-datavolley which simplifies the package 
 
 # pydatavolley
 
